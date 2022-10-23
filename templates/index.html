@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurorae</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <link rel="shortcut icon" href="{{url_for('static', filename='favicon.svg')}}" type="image/x-icon">
+</head>
+<body>
+    <div id="overlay">
+        <div id="progstat"></div>
+    </div>
+    <div class="nav">
+        <div class="nav-left">
+            <img class="nav-logo" src="{{url_for('static', filename='logo.svg')}}" alt="">
+            <p class="nav-name">AURORAE</p>
+            <div class="search">
+                <svg width="27" class="search-vector" height="27" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 8.00003C16.8174 8.00003 13.7652 9.26431 11.5147 11.5148C9.26428 13.7652 8 16.8174 8 20C8 23.1826 9.26428 26.2349 11.5147 28.4853C13.7652 30.7357 16.8174 32 20 32C23.1826 32 26.2348 30.7357 28.4853 28.4853C30.7357 26.2349 32 23.1826 32 20C32 16.8174 30.7357 13.7652 28.4853 11.5148C26.2348 9.26431 23.1826 8.00003 20 8.00003ZM4 20C4.00036 17.4538 4.60844 14.9443 5.77368 12.6803C6.93892 10.4163 8.62768 8.46309 10.6996 6.983C12.7715 5.50291 15.1668 4.5387 17.6863 4.17049C20.2058 3.80229 22.7768 4.04072 25.1857 4.86598C27.5945 5.69124 29.7716 7.0795 31.536 8.91537C33.3004 10.7512 34.6012 12.9817 35.3302 15.4214C36.0592 17.8611 36.1954 20.4395 35.7275 22.9424C35.2596 25.4454 34.2011 27.8005 32.64 29.812L43.414 40.586C43.7783 40.9632 43.9799 41.4684 43.9753 41.9928C43.9708 42.5172 43.7605 43.0189 43.3896 43.3897C43.0188 43.7605 42.5172 43.9708 41.9928 43.9754C41.4684 43.9799 40.9632 43.7783 40.586 43.414L29.812 32.64C27.4469 34.4762 24.614 35.6119 21.6355 35.918C18.657 36.2241 15.6524 35.6882 12.9633 34.3714C10.2742 33.0546 8.00858 31.0096 6.42405 28.469C4.83952 25.9284 3.99967 22.9942 4 20Z" fill="black"/>
+                </svg>                    
+            </div>
+        </div>
+        <div class="nav-floated-div">
+            <div class="nav-links">
+                <p class="nav-link hvr-underline-from-left active">Home</p>
+                <p class="nav-link hvr-underline-from-left">Store</p>
+                <p class="nav-link hvr-underline-from-left">Feed</p>
+            </div>
+            <div class="nav-actions">
+                <div class="nav-notifications">
+                    <svg width="20" height="23" class="nav-notifications-vector" viewBox="0 0 25 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_48_18)">
+                        <path d="M19.5329 9.76187C19.5329 7.86747 18.7804 6.05066 17.4408 4.71111C16.1013 3.37157 14.2845 2.61902 12.3901 2.61902C10.4957 2.61902 8.67885 3.37157 7.3393 4.71111C5.99976 6.05066 5.24721 7.86747 5.24721 9.76187C5.24721 18.0952 1.67578 20.4762 1.67578 20.4762H23.1044C23.1044 20.4762 19.5329 18.0952 19.5329 9.76187Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M14.4496 25.238C14.2403 25.5988 13.9398 25.8983 13.5784 26.1065C13.2169 26.3147 12.8071 26.4243 12.39 26.4243C11.9729 26.4243 11.5631 26.3147 11.2017 26.1065C10.8402 25.8983 10.5398 25.5988 10.3305 25.238" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0_48_18">
+                        <rect width="24.4898" height="26.9388" fill="white" transform="translate(0.281189 0.918335)"/>
+                        </clipPath>
+                        </defs>
+                    </svg>    
+                </div>
+                <img src="{{url_for('static', filename='user_sample.svg')}}" class="nav-user-logo" alt="user profile img">
+                <svg width="35" class="menu-icon" height="23" viewBox="0 0 43 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M28.6667 26.5833C28.6667 27.918 27.5847 29 26.25 29H2.41666C1.08198 29 0 27.918 0 26.5833C0 25.2486 1.08198 24.1667 2.41667 24.1667H26.25C27.5847 24.1667 28.6667 25.2486 28.6667 26.5833ZM43 14.5C43 15.8347 41.918 16.9167 40.5833 16.9167H2.41667C1.08198 16.9167 0 15.8347 0 14.5C0 13.1653 1.08198 12.0833 2.41667 12.0833H40.5833C41.918 12.0833 43 13.1653 43 14.5ZM28.6667 2.41667C28.6667 3.75135 27.5847 4.83333 26.25 4.83333H2.41666C1.08198 4.83333 0 3.75135 0 2.41667C0 1.08198 1.08198 0 2.41667 0H26.25C27.5847 0 28.6667 1.08198 28.6667 2.41667Z" fill="#010101"/>
+                </svg>
+                    
+                <div class="menu"></div>
+            </div>
+        </div>
+    </div>
+    <div class="toggle-thing">
+        <div class="toggle-thing-main">
+            <svg width="16" class="toggle-close" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0.734085 0.734049C0.93724 0.530956 1.21274 0.416864 1.5 0.416864C1.78726 0.416864 2.06276 0.530956 2.26592 0.734049L8 6.46813L13.7341 0.734049C13.834 0.63058 13.9536 0.548049 14.0857 0.491273C14.2179 0.434496 14.3601 0.404611 14.5039 0.403361C14.6477 0.402111 14.7904 0.429521 14.9235 0.483992C15.0567 0.538463 15.1776 0.618904 15.2793 0.720621C15.3811 0.822338 15.4615 0.943294 15.516 1.07643C15.5704 1.20957 15.5979 1.35222 15.5966 1.49607C15.5954 1.63991 15.5655 1.78207 15.5087 1.91424C15.4519 2.04641 15.3694 2.16595 15.2659 2.26588L9.53184 7.99996L15.2659 13.734C15.4633 13.9384 15.5725 14.212 15.57 14.4961C15.5675 14.7801 15.4536 15.0518 15.2527 15.2527C15.0519 15.4535 14.7802 15.5675 14.4961 15.5699C14.2121 15.5724 13.9384 15.4632 13.7341 15.2659L8 9.5318L2.26592 15.2659C2.0616 15.4632 1.78795 15.5724 1.5039 15.5699C1.21985 15.5675 0.94814 15.4535 0.747282 15.2527C0.546423 15.0518 0.432489 14.7801 0.430021 14.4961C0.427553 14.212 0.536747 13.9384 0.734085 13.734L6.46817 7.99996L0.734085 2.26588C0.530992 2.06273 0.4169 1.78723 0.4169 1.49997C0.4169 1.2127 0.530992 0.937204 0.734085 0.734049V0.734049Z" fill="#686868"/>
+            </svg>
+            <h1 class="toggle-thing-title">User</h1>
+            <center>
+                <img src="{{url_for('static', filename='logo.svg')}}" class="toggle-thing-logo" alt="">
+                <p class="toggle-thing-welcome">Welcome to <span style="font-family: 'avenir-700';">Aurorae</span></p>
+            </center>
+            <div class="toggle-thing-logreg">
+                <button class="toggle-thing-btn">Jump into action</button>
+            </div>
+        </div>
+    </div>
+    <div class="hero">
+        <img src="{{url_for('static', filename='hero-bg.png')}}" class="hero-bg" alt="">
+        <img src="{{url_for('static', filename='hero-something.png')}}" class="hero-something" alt="">
+    </div>
+    <br>
+    <div class="main">
+        <div class="curated-artwork">
+            <img src="{{url_for('static', filename='ca.svg')}}" class="ca-img" alt="">
+            <div class="ca-desc">
+                <h1 class="ca-title">Curated <br>Artwork.</h1>
+                <button class="ca-view">view</button>
+                <p class="ca-par">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    <br><br>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    <br><br>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    <br><br>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<div class="cursor">
+        
+    <div class="cursor__ball cursor__ball--big ">
+        <svg height="30" width="30">
+          <circle cx="15" cy="15" r="12" stroke-width="0"></circle>
+        </svg>
+      </div>
+    <div class="cursor__ball cursor__ball--small">
+      <svg height="10" width="10">
+        <circle cx="5" cy="5" r="4" stroke-width="0"></circle>
+      </svg>
+    </div>
+  </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js" integrity="sha512-Mf/xUqfWvDIr+1B6zfnIDIiG7XHzyP/guXUWgV6PgaQoIFeXkJQR5XWh9fqAiCiRCpemabt3naV4jhDWVnuYDQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="{{url_for('static', filename='main.js')}}"></script>

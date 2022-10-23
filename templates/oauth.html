@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurorae - Auth</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <link rel="shortcut icon" href="{{url_for('static', filename='favicon.svg')}}" type="image/x-icon">
+</head>
+<body style="background: black; color: white;">
+    <div id="overlay" style="background-color: black;">
+        <div id="progstat" style="-webkit-text-stroke: 1.6px white;"></div>
+    </div>
+    <img src="{{url_for('static', filename='authimg1.svg')}}" class="auth-img" alt="">
+    <div class="auth-main">
+        <svg width="35" height="35" style="z-index: 6942;" class="auth-go-back" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_115_89)">
+            <path d="M18 26L10 18L18 10M10 18H32C34.1217 18 36.1566 18.8429 37.6569 20.3431C39.1571 21.8434 40 23.8783 40 26C40 28.1217 39.1571 30.1566 37.6569 31.6569C36.1566 33.1571 34.1217 34 32 34H30" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+            <defs>
+            <clipPath id="clip0_115_89">
+            <rect width="48" height="48" fill="white"/>
+            </clipPath>
+            </defs>
+        </svg>
+            
+        <center>
+            <img src="{{url_for('static', filename='logo.svg')}}" class="login-logo" alt="">
+            <p class="auth-tag-main">Jump into action.</p>
+            <!-- Login -->
+        <div class="login">
+            <form action="" class="login-form" method="post">
+                <input type="text" name="signup-name" placeholder="Name" class="auth-input" id=""><br><br>
+                <input type="text" name="signup-email" placeholder="E-Mail" class="auth-input" id=""><br><br>
+                <input type="text" name="signup-username" placeholder="Username" class="auth-input" id=""><br><br>
+                <input type="text" name="signup-password" placeholder="Password" class="auth-input" id=""><br>
+                <p style="font-family: 'gilroy-600';">By creating an account, you accept<br>
+                    our Terms</p>
+                <input type="submit" value="Join" class="auth-submit">
+            </form>
+            <br>
+            <div class="oauth-methods">
+                <div class="oauth-method">
+                    <svg width="25" height="25" class="oauth-methods-vector" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_117_107)">
+                        <path d="M3.43473 8.26757C4.26674 6.61081 5.5431 5.21808 7.12116 4.24504C8.69922 3.272 10.5168 2.75698 12.3707 2.75757C15.0657 2.75757 17.3297 3.74757 19.0607 5.36257L16.1937 8.23057C15.1567 7.23957 13.8387 6.73457 12.3707 6.73457C9.76573 6.73457 7.56073 8.49457 6.77573 10.8576C6.57573 11.4576 6.46173 12.0976 6.46173 12.7576C6.46173 13.4176 6.57573 14.0576 6.77573 14.6576C7.56173 17.0216 9.76573 18.7806 12.3707 18.7806C13.7157 18.7806 14.8607 18.4256 15.7567 17.8256C16.2762 17.4836 16.7209 17.0398 17.0639 16.5211C17.407 16.0023 17.6413 15.4194 17.7527 14.8076H12.3707V10.9396H21.7887C21.9067 11.5936 21.9707 12.2756 21.9707 12.9846C21.9707 16.0306 20.8807 18.5946 18.9887 20.3346C17.3347 21.8626 15.0707 22.7576 12.3707 22.7576C11.0574 22.7581 9.75677 22.4998 8.54327 21.9974C7.32978 21.4951 6.22718 20.7585 5.29849 19.8298C4.3698 18.9011 3.63322 17.7985 3.13086 16.585C2.6285 15.3715 2.3702 14.0709 2.37073 12.7576C2.37073 11.1436 2.75673 9.61757 3.43473 8.26757Z" fill="white"/>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0_117_107">
+                        <rect width="24" height="24" fill="white" transform="translate(0.370728 0.757568)"/>
+                        </clipPath>
+                        </defs>
+                    </svg>  
+                    <p class="oauth-method-txt">Continue with Google</p>
+                </div>
+                <div class="oauth-method">
+                    <svg width="24" height="24" class="oauth-methods-vector" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.1425 5.50244C18.8859 5.96187 18.6573 6.43634 18.4579 6.92327C16.4981 6.61334 14.5018 6.61334 12.542 6.92327C12.3426 6.43634 12.114 5.96187 11.8575 5.50244C10.0114 5.81787 8.21677 6.38276 6.52287 7.18161C3.49384 11.553 2.12014 16.86 2.64787 22.152C4.62184 23.636 6.83734 24.7677 9.19662 25.4974C9.73384 24.7878 10.2133 24.0362 10.6304 23.2499C9.86063 22.9661 9.1208 22.607 8.42162 22.1779C8.61338 22.0503 8.79478 21.9077 8.96412 21.7516C11.003 22.7337 13.2369 23.2437 15.5 23.2437C17.763 23.2437 19.9969 22.7337 22.0358 21.7516C22.2166 21.9066 22.3975 22.0487 22.5783 22.1779C21.8753 22.6036 21.1362 22.9667 20.3695 23.2629C20.7693 24.067 21.236 24.8361 21.7645 25.562C24.1209 24.8348 26.3325 23.7028 28.3004 22.2166C28.8408 16.9236 27.466 11.6123 24.4254 7.24619C22.7505 6.43081 20.9736 5.84431 19.1425 5.50244V5.50244ZM11.2116 19.1295C10.5653 19.0831 9.96199 18.7881 9.52848 18.3064C9.09496 17.8248 8.86492 17.1939 8.88662 16.5462C8.86164 15.8977 9.09056 15.265 9.52472 14.7826C9.95888 14.3002 10.5641 14.0061 11.2116 13.9629C11.8592 14.0061 12.4644 14.3002 12.8985 14.7826C13.3327 15.265 13.5616 15.8977 13.5366 16.5462C13.5616 17.1947 13.3327 17.8274 12.8985 18.3098C12.4644 18.7922 11.8592 19.0863 11.2116 19.1295V19.1295ZM19.7883 19.1295C19.1419 19.0831 18.5387 18.7881 18.1051 18.3064C17.6716 17.8248 17.4416 17.1939 17.4633 16.5462C17.4383 15.8977 17.6672 15.265 18.1014 14.7826C18.5355 14.3002 19.1407 14.0061 19.7883 13.9629C20.4371 14.0029 21.0442 14.296 21.479 14.7791C21.9138 15.2623 22.1416 15.8968 22.1133 16.5462C22.1416 17.1956 21.9138 17.8301 21.479 18.3133C21.0442 18.7964 20.4371 19.0895 19.7883 19.1295V19.1295Z" fill="white"/>
+                    </svg>    
+                    <a href="{{OAUTH_URL}}"><p class="oauth-method-txt">Continue with Discord</p></a>
+                </div>
+            </div>
+        </div>
+        <!-- Yes im aware register and login ke classes ulte h -->
+        <div class="register">
+            <form action="" class="login-form" method="post">
+                <input type="text" name="login-email" placeholder="E-Mail" class="auth-input" id=""><br><br>
+                <input type="text" name="login-password" placeholder="Password" class="auth-input" id=""><br>
+                <p style="font-family: 'gilroy-500';">Forgot your password?</p>
+                <input type="submit" value="Log In" class="auth-submit">
+            </form>
+            <br><br>
+            <div class="oauth-methods">
+                <div class="oauth-method">
+                    <svg width="25" height="25" class="oauth-methods-vector" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_117_107)">
+                        <path d="M3.43473 8.26757C4.26674 6.61081 5.5431 5.21808 7.12116 4.24504C8.69922 3.272 10.5168 2.75698 12.3707 2.75757C15.0657 2.75757 17.3297 3.74757 19.0607 5.36257L16.1937 8.23057C15.1567 7.23957 13.8387 6.73457 12.3707 6.73457C9.76573 6.73457 7.56073 8.49457 6.77573 10.8576C6.57573 11.4576 6.46173 12.0976 6.46173 12.7576C6.46173 13.4176 6.57573 14.0576 6.77573 14.6576C7.56173 17.0216 9.76573 18.7806 12.3707 18.7806C13.7157 18.7806 14.8607 18.4256 15.7567 17.8256C16.2762 17.4836 16.7209 17.0398 17.0639 16.5211C17.407 16.0023 17.6413 15.4194 17.7527 14.8076H12.3707V10.9396H21.7887C21.9067 11.5936 21.9707 12.2756 21.9707 12.9846C21.9707 16.0306 20.8807 18.5946 18.9887 20.3346C17.3347 21.8626 15.0707 22.7576 12.3707 22.7576C11.0574 22.7581 9.75677 22.4998 8.54327 21.9974C7.32978 21.4951 6.22718 20.7585 5.29849 19.8298C4.3698 18.9011 3.63322 17.7985 3.13086 16.585C2.6285 15.3715 2.3702 14.0709 2.37073 12.7576C2.37073 11.1436 2.75673 9.61757 3.43473 8.26757Z" fill="white"/>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0_117_107">
+                        <rect width="24" height="24" fill="white" transform="translate(0.370728 0.757568)"/>
+                        </clipPath>
+                        </defs>
+                    </svg>  
+                    <p class="oauth-method-txt">Continue with Google</p>
+                </div>
+                <div class="oauth-method">
+                    <svg width="24" height="24" class="oauth-methods-vector" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.1425 5.50244C18.8859 5.96187 18.6573 6.43634 18.4579 6.92327C16.4981 6.61334 14.5018 6.61334 12.542 6.92327C12.3426 6.43634 12.114 5.96187 11.8575 5.50244C10.0114 5.81787 8.21677 6.38276 6.52287 7.18161C3.49384 11.553 2.12014 16.86 2.64787 22.152C4.62184 23.636 6.83734 24.7677 9.19662 25.4974C9.73384 24.7878 10.2133 24.0362 10.6304 23.2499C9.86063 22.9661 9.1208 22.607 8.42162 22.1779C8.61338 22.0503 8.79478 21.9077 8.96412 21.7516C11.003 22.7337 13.2369 23.2437 15.5 23.2437C17.763 23.2437 19.9969 22.7337 22.0358 21.7516C22.2166 21.9066 22.3975 22.0487 22.5783 22.1779C21.8753 22.6036 21.1362 22.9667 20.3695 23.2629C20.7693 24.067 21.236 24.8361 21.7645 25.562C24.1209 24.8348 26.3325 23.7028 28.3004 22.2166C28.8408 16.9236 27.466 11.6123 24.4254 7.24619C22.7505 6.43081 20.9736 5.84431 19.1425 5.50244V5.50244ZM11.2116 19.1295C10.5653 19.0831 9.96199 18.7881 9.52848 18.3064C9.09496 17.8248 8.86492 17.1939 8.88662 16.5462C8.86164 15.8977 9.09056 15.265 9.52472 14.7826C9.95888 14.3002 10.5641 14.0061 11.2116 13.9629C11.8592 14.0061 12.4644 14.3002 12.8985 14.7826C13.3327 15.265 13.5616 15.8977 13.5366 16.5462C13.5616 17.1947 13.3327 17.8274 12.8985 18.3098C12.4644 18.7922 11.8592 19.0863 11.2116 19.1295V19.1295ZM19.7883 19.1295C19.1419 19.0831 18.5387 18.7881 18.1051 18.3064C17.6716 17.8248 17.4416 17.1939 17.4633 16.5462C17.4383 15.8977 17.6672 15.265 18.1014 14.7826C18.5355 14.3002 19.1407 14.0061 19.7883 13.9629C20.4371 14.0029 21.0442 14.296 21.479 14.7791C21.9138 15.2623 22.1416 15.8968 22.1133 16.5462C22.1416 17.1956 21.9138 17.8301 21.479 18.3133C21.0442 18.7964 20.4371 19.0895 19.7883 19.1295V19.1295Z" fill="white"/>
+                    </svg>    
+                    <a href="{{OAUTH_URL}}"><p class="oauth-method-txt">Continue with Discord</p></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="discordauth">
+            <form action="" class="login-form" method="post">
+                <input type="text" name="discord-oauth-name" placeholder="Name" class="auth-input" id=""><br><br>
+                <input type="text" name="discord-oauth-email" placeholder="E-Mail" class="auth-input" id=""><br><br>
+                <input type="text" name="discord-oauth-password" placeholder="Password" class="auth-input" id=""><br><br>
+                <p style="font-family: 'gilroy-500';">By creating an account, you accept<br>
+                    our Terms</p>
+                <input type="submit" value="Continue" class="auth-submit">
+            </form>
+            <br><br>
+        </div>
+        </center>
+        <!-- Nothing -->
+    </div>
+    <div class="auth-selector">
+        <video src="{{url_for('static', filename='oauth.mp4')}}" class="auth-selector-vid" muted loop autoplay></video>
+        <center>
+            <div class="selector-main">
+                <img src="{{url_for('static', filename='logo.svg')}}" class="login-logo auth-selector-logo" alt="">
+                <p class="auth-tag">Jump Into Action</p>
+                <p class="nav-name" style="margin-top: -.75em; font-size: 1.2em; font-family: 'avenir-600';">AURORAE</p>
+                <div class="auth-title"><h1 class="auth-title-div">Reimagining <br> the Art Space</h1><br></div>
+                <p class="auth-desc">Browse, Buy, Sell and Learn from artists across the globe</p>
+                <div class="auth-whatdo">
+                    <button class="auth-btn-1 to-signin">Join</button>
+                    <button class="auth-btn-2 to-login">Log In</button>
+                </div>
+            </div>
+        </center>
+    </div>
+</body>
+</html>
+<div class="cursor">
+        
+    <div class="cursor__ball cursor__ball--big ">
+        <svg height="30" width="30">
+          <circle cx="15" cy="15" r="12" stroke-width="0"></circle>
+        </svg>
+      </div>
+    <div class="cursor__ball cursor__ball--small">
+      <svg height="10" width="10">
+        <circle cx="5" cy="5" r="4" stroke-width="0"></circle>
+      </svg>
+    </div>
+  </div>
+  <p id="auth">{{auth}}</p>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js" integrity="sha512-Mf/xUqfWvDIr+1B6zfnIDIiG7XHzyP/guXUWgV6PgaQoIFeXkJQR5XWh9fqAiCiRCpemabt3naV4jhDWVnuYDQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="{{url_for('static', filename='main.js')}}"></script>
