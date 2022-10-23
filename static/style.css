@@ -1152,3 +1152,142 @@ canvas{
     font-family: 'gilroy-700';
     display: inline;
 }
+
+.discover-featured-div{
+    width: 20em;
+    border: 3px white solid;
+    height: 30em;
+    border-radius: 1em;
+    position: relative;
+    margin-left: 4em;
+    vertical-align: middle;
+    display: inline-block;
+    margin-top: 2em;
+}
+
+.discover-featured-img{
+    height: 17.65em;pointer-events: none;
+    user-select: none;
+    width: 100%;
+}
+
+.discover-featured-project-name{
+    font-family: 'gilroy-500';
+    margin-left: 1em;
+    font-weight: 100;
+}
+
+.discover-featured-project-author{
+    margin-left: 1em;
+}
+
+.discover-featured-project-author-img{
+    max-width: 2em;
+    vertical-align: middle;
+    
+    display: inline-block;
+}
+
+.discover-featured-project-author-name{
+    display: inline-block;
+    margin-left: .4em;
+    vertical-align: middle;
+}
+
+.discover-featured-project-appreciations{
+    position: absolute;
+    right: 1em;
+    bottom: 0;
+}
+
+.discover-featured-project-appreciations-val{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.discover-featured-project-appreciations-vector{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.discover-featured-project-price{
+    margin-top: 1em;
+    margin-left: 1em;
+}
+
+.discover-featured-project-price-currency-img{
+    max-width: 2em;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.discover-featured-project-price-cost{
+    display: inline-block;
+    font-family: 'gilroy-500';
+    vertical-align: middle;
+}
+
+.discover-featured-project-price-change{
+    margin-block-start: 0;
+    color: rgb(193, 193, 193);
+    font-family: 'gilroy-500';
+}
+
+.discover-featured-project-price-amount{
+    margin-block-end: 0;
+}
+
+.discover-featured-main{
+    display: inline-flex;
+    overflow-x:auto;
+    overflow-y: hidden;
+}
+
+*{
+    overflow-anchor: none;
+}
+
+.discover-topsellers-timeslots{
+    display: inline;
+    float: right;
+    vertical-align: middle;
+    margin-top: .75em;
+    padding: .25em 1em .25em 1em;
+    border: 1px solid white;
+    border-radius: 1em;
+    margin-right: 2em;
+}
+
+.discover-topsellers-timeslot{
+    display: inline-block;
+    color: white;
+    vertical-align: middle;
+    text-align: center;
+    border-radius: .6em;
+    font-family: 'gilroy-700';
+    width: 8em;
+}
+
+.selected{
+    display: inline-block;
+    color: black;
+    background-color: white;
+    vertical-align: middle;
+    text-align: center;
+    border-radius: .6em;
+    font-family: 'gilroy-700';
+    width: 8em;
+}
+
+.discover-featured-title{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.discover-topseller{
+    padding: .5em 1em .5em 1em;
+    border: 2px solid white;
+    border-radius: 1em;
+    width: 35em;
+    height: 4em;
+}
