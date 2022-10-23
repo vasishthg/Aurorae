@@ -142,6 +142,7 @@ body{
     display: inline-block;
     vertical-align: middle;
     font-family: 'avenir-700';
+    font-size: .91em;
     letter-spacing: 0.135em;
 }
 
@@ -184,7 +185,7 @@ body{
     cursor: pointer;
     vertical-align: middle;
     font-family: 'avenir-600';
-    font-size: 1.05em;
+    font-size: .9em;
     font-weight: 500;
     color: rgb(96, 96, 96);
 }
@@ -256,6 +257,7 @@ img{
 
 .nav-user-logo{
     display: inline-block;
+    border-radius: 50%;
     max-height: 3em;
     margin-left: 2.5em;
     filter: drop-shadow(0px 38px 15px rgba(0, 0, 0, 0.01)) drop-shadow(0px 22px 13px rgba(0, 0, 0, 0.05)) drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.09)) drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.1)) drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.1));
@@ -688,11 +690,11 @@ a{
 }
 
 .user-banner-img{
-    position: absolute;
     top: 0;
     left: 0;
+    margin-left: -1.5em;
     right: 0;
-    width: 100%;
+    height: 15em;
     filter: opacity(60%);
     margin-top: -4em;
 }
@@ -703,7 +705,7 @@ a{
     cursor: pointer;
     vertical-align: middle;
     font-family: 'avenir-700';
-    font-size: .9em;
+    font-size: .8em;
     vertical-align: middle;
     font-weight: 500;
     letter-spacing: 0.1em;
@@ -723,4 +725,209 @@ a{
     display: inline-block;
     vertical-align: top;
     margin-left: .5em;
+}
+
+.user-banner{
+    display: block;
+}
+
+.user-main{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    top: 11.5em;
+    background-color: black;
+}
+
+
+.user-main-profile{
+    width: 50%;
+    top: 0;
+    bottom: 0;
+    background: white;
+    color: black;
+    position: absolute;
+    left: 0;
+    background-color: white;
+}
+
+.user-main-thing{
+    width: 50%;
+    top: 0;
+    bottom: 0;
+    background: black;
+    position: absolute;
+    right: 0;
+    background-color: black;
+}
+
+.user-pfp{
+    margin-top: -3.5em;
+    width: 7em;
+    border-radius: 50%;
+    filter: drop-shadow(0px 110px 44px rgba(0, 0, 0, 0.02)) drop-shadow(0px 62px 37px rgba(0, 0, 0, 0.08)) drop-shadow(0px 28px 28px rgba(0, 0, 0, 0.13)) drop-shadow(0px 7px 15px rgba(0, 0, 0, 0.15)) drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.15));
+    height: 7em;
+}
+
+.user-change-img{
+    width: 2em;
+    height: 2em;
+    transform: translate(2.5em, -2em);
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    filter: drop-shadow(0 2px 0.3rem #00000080);
+}
+
+.pfpsubmit-div{
+    position: absolute;
+    background-color: #262626;
+    width: 70%;
+    bottom: 1em;
+    display: none;
+    border-radius: 1em;
+    left: 50%;
+    padding-top: .5em;
+    padding-left: 1em;
+    padding-bottom: .5em;
+    transform: translateX(-50%);
+    box-shadow: 0px 135px 54px rgba(0, 0, 0, 0.03), 0px 76px 45px rgba(0, 0, 0, 0.1), 0px 34px 34px rgba(0, 0, 0, 0.17), 0px 8px 19px rgba(0, 0, 0, 0.2), 0px 0px 0px rgba(0, 0, 0, 0.2);
+}
+
+.pfpsubmit-warning{
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 1.15em;
+    font-family: 'gilroy-700';
+    margin-left: 2em;
+}
+
+.pfpsubmit{
+    font-size: 1.2em;
+    font-family: 'gilroy-700';
+    background-color: white;
+    color: black;
+    width: 7em;
+    height: 2.5em;
+    float: right;
+    margin-top: .25em;
+    border-radius: 1em;
+    margin-right: 2em;
+}
+
+.user-profile-binfo{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.follow-btn{
+    display: inline;
+    color: white;
+    font-family: 'avenir-600';
+    letter-spacing: 0.1em;
+    height: 3.5em;
+    text-transform: uppercase;
+    background-color: black;
+    vertical-align: middle;
+    margin-top: 2.25em;
+    float: right;
+    box-shadow: 0px 81px 33px rgba(0, 0, 0, 0.01), 0px 46px 27px rgba(0, 0, 0, 0.05), 0px 20px 20px rgba(0, 0, 0, 0.09), 0px 5px 11px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+    border-radius: .8em;
+    width: 10em;
+}
+
+.user-name{
+    font-family: 'avenir-700';
+    margin-block-end: .1em;
+}
+
+.username{
+    color: #5F5F5F;
+    font-family: 'avenir-600';
+    font-size: .9em;
+    font-weight: 600;
+    margin-block-start: 0;
+}
+
+.user-profile{
+    margin-left: 5em;
+    margin-right: 5em;
+}
+
+.user-profile-stat{
+    display: inline-block;
+    margin-left: 6em;
+}
+
+.user-profile-stat-var{
+    font-family: 'gilroy-700';
+    color: #787472;
+    margin-block-start: 0;
+}
+
+.user-profile-stat-val{
+    font-family: 'avenir-700';
+    color: #000000;
+    font-size: 1.5em;
+    margin-block-end: 0;
+}
+
+.user-bio-title{
+    font-family: 'avenir-700';
+    letter-spacing: 0.1em;
+    font-size: 1.3em;
+    margin-top: 1.3em;
+    margin-block-end: .5em;
+}
+
+.user-bio-value{
+    resize: none;
+    width: 42em;
+    margin-block-start: 0;
+    height: 7em;
+    margin-left: 1.5em;
+    border: none;
+    font-family: 'gilroy-700';
+    outline: none;
+    padding: 0em 1.5em 1.5em 0em;
+    margin-block-end: 0;
+}
+
+.user-link{
+    color: #616161;
+    font-family: 'gilroy-700';
+    font-size: .9em;
+    margin-left: 7em;
+}
+
+.hamburger{
+    position: fixed;
+    background-color: black;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 69420;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.menu-img{
+    position: fixed;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    pointer-events: none;
+    user-select: none;
+}
+
+.menu-main{
+    position: relative;
+    position: absolute;
+    right: 0;
+    width: 56.3%;
+    top: 0;
+    bottom: 0;
 }

@@ -26,9 +26,11 @@ def allowed_file(filename):
 
 @app.route('/', methods=["GET", "POST"])
 def index():
-    if 'token' in session:
-        bearer_client = APIClient(session.get('token'), bearer=True)
-        current_user = bearer_client.users.get_current_user()
+    cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    if 'loggedin' in session:
+        cur.execute("SELECT * FROM accounts WHERE email = %s", [session['email']])
+        usrdata = cur.fetchone()
+        return render_template("index.html", usrdata = usrdata)
     return render_template("index.html")
 
 @app.route("/oauth/callback")
@@ -47,21 +49,26 @@ def discordauth():
     cur.execute("SELECT * FROM accounts WHERE discordid = %s", [str(current_user.id)])
     account = cur.fetchone()
     if account:
-        return redirect('/')
+        session['loggedin'] = True
+        session['name'] = account['Name']
+        session['email'] = account['email']
+        session['username'] = account['Username']
+        session['password'] = account['Password']
+        return redirect('/profile')
     else:
         if request.method == "POST" and "discord-oauth-name" in request.form and "discord-oauth-email" in request.form and "discord-oauth-password" in request.form:
             name = request.form.get("discord-oauth-name")
             email = request.form.get("discord-oauth-email")
             password = request.form.get("discord-oauth-password")
-            cur.execute("INSERT INTO accounts VALUES(NULL, %s, %s, %s, %s, %s, %s)", (name, email, current_user.username, password, str(current_user.id), current_user.avatar_url))
+            cur.execute("INSERT INTO accounts VALUES(NULL, %s, %s, %s, %s, %s, %s, DEFAULT, DEFAULT, DEFAULT, DEFAULT, NULL)", (name, email, current_user.username, password, str(current_user.id), current_user.avatar_url))
             mysql.connection.commit()
             cur.execute("SELECT * FROM accounts WHERE discordid = %s AND email = %s", [str(current_user.id), email])
-            acc = cur.fetchone()
+            account = cur.fetchone()
             session['loggedin'] = True
-            session['name'] = acc['Name']
-            session['email'] = acc['email']
-            session['username'] = acc['Username']
-            session['password'] = acc['Password']
+            session['name'] = account['Name']
+            session['email'] = account['email']
+            session['username'] = account['Username']
+            session['password'] = account['Password']
             return redirect('/')
     return render_template("oauth.html", auth = "discordauth", current_user = current_user)
 @app.route('/auth', methods=['GET', "POST"])
@@ -69,7 +76,7 @@ def auth():
     msg = ''
     cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     if 'loggedin' in session:
-        return redirect('/user')
+        return redirect('/profile')
     if request.method == "POST" and "signup-name" in request.form and "signup-email" in request.form and "signup-username" in request.form and "signup-password" in request.form:
         name = request.form.get("signup-name")
         email = request.form.get("signup-email")
@@ -83,9 +90,9 @@ def auth():
             session['email'] = account['email']
             session['username'] = account['Username']
             session['password'] = account['Password']
-            return redirect('/user')
+            return redirect('/profile')
         else:
-            cur.execute("INSERT INTO accounts VALUES(NULL, %s, %s, %s, %s, NULL, NULL)", (name, email, username, password))
+            cur.execute("INSERT INTO accounts VALUES(NULL, %s, %s, %s, %s, NULL, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, NULL)", (name, email, username, password))
             mysql.connection.commit()
             cur.execute("SELECT * FROM accounts WHERE email = %s", [email])
             account = cur.fetchone()
@@ -94,7 +101,7 @@ def auth():
             session['email'] = account['email']
             session['username'] = account['Username']
             session['password'] = account['Password']
-            return redirect('/user')
+            return redirect('/profile')
     if request.method == "POST" and "login-email" in request.form and "login-password":
         email = request.form.get("login-email")
         password = request.form.get("login-password")
@@ -122,21 +129,28 @@ def logout():
     session.pop('discordid', None)
     return redirect('/')
 
-@app.route('/user', methods=["GET", "POST"])
+@app.route('/profile', methods=["GET", "POST"])
 def userprofile():
-    if request.method == "POST":
-        if 'file' not in request.files:
-            flash("No file part")
-            return redirect(request.url)
-        file = request.files['file']
-        if file.filename == "":
-            flash('No Selected File')
-            return redirect(request.url)
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            # return redirect(url_for('download_file', name=filename))
-    return render_template("user.html")
+    if 'loggedin' in session:
+        cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cur.execute("SELECT * FROM accounts WHERE email = %s", [session['email']])
+        usrdata = cur.fetchone()
+        print(usrdata)
+        if request.method == "POST":
+            if 'pfp' not in request.files:
+                flash("No file part")
+                return redirect(request.url)
+            file = request.files['pfp']
+            if file and allowed_file(file.filename):
+                filename = secure_filename(file.filename)
+                file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+                cur.execute("UPDATE accounts SET pfp = %s WHERE email = %s", [os.path.join(app.config['UPLOAD_FOLDER'], filename) ,session['email']])
+                mysql.connection.commit()
+                return redirect('/profile')
+                # return redirect(url_for('download_file', name=filename))
+        return render_template("profile.html", usrdata = usrdata)
+
+    return redirect('/auth')
 
 @app.route('/uploads/<name>')
 def file(name):

@@ -249,7 +249,6 @@ function onMouseMove(e) {
 
 // Hover an element
 function onMouseHover() {
-  audhover.play()
   TweenMax.to($bigBall, .3, {
     scale: 2
   })
@@ -288,4 +287,28 @@ function loadDiscordOauth(){
     tag.classList.remove("animate__fadeOutDown")
     tag.classList.add("animate__fadeInDown")
   }, 500)
+}
+
+// File display shit(why am i doing this)
+$(".user-pfp-change").change(function(e){
+  var fileName = e.target.files[0].name;
+  console.log(fileName)
+  alert("hello" + fileName)
+})
+
+function imgPreview(){
+  console.log("hello")
+  var oFReader = new FileReader();
+  oFReader.readAsDataURL(document.getElementById("pfp").files[0]);
+  oFReader.onload = function (oFREvent){
+    console.log(oFREvent.target.result)
+    document.querySelector(".user-pfp").src = oFREvent.target.result;
+  }
+  savePfp();
+}
+
+function savePfp(){
+  setTimeout(function(){
+    $(".pfpsubmit-div").slideDown()
+  }, 300)
 }
