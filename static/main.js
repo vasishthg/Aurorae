@@ -162,7 +162,8 @@ img = document.querySelector(".auth-img")
 tag = document.querySelector(".auth-tag-main")
 loginform = document.querySelector(".register")
 function loadLogin(){
-  img.classList.remove("animate__animated", "animate__fadeInDown")
+    $(".login").hide()
+    img.classList.remove("animate__animated", "animate__fadeInDown")
   setTimeout(function(){
     $(".auth-img").hide()
     img.src = "/static/authimg4.svg"
@@ -198,7 +199,8 @@ $(".to-signin").click(function(){
 
 registerform = document.querySelector(".login")
 function loadRegister(){
-  img.classList.remove("animate__animated", "animate__fadeInDown")
+    $(".register").hide()
+    img.classList.remove("animate__animated", "animate__fadeInDown")
   setTimeout(function(){
     $(".auth-img").hide()
     img.src = "/static/authimg2.svg"

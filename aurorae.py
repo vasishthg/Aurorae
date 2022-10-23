@@ -31,7 +31,8 @@ def index():
         cur.execute("SELECT * FROM accounts WHERE email = %s", [session['email']])
         usrdata = cur.fetchone()
         return render_template("index.html", usrdata = usrdata)
-    return render_template("index.html")
+    else:
+        return render_template("index.html")
 
 @app.route("/oauth/callback")
 def callback():

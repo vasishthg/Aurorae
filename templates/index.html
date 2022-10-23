@@ -39,7 +39,11 @@
                         </defs>
                     </svg>    
                 </div>
+                {% if 'loggedin' in session %}
                 <img src="{{usrdata['pfp']}}" class="nav-user-logo" alt="user profile img">
+                {% else %}
+                <img src="/uploads/default.svg" class="nav-user-logo" alt="user profile img">
+                {% endif %}
                 <svg width="35" class="menu-icon" height="23" viewBox="0 0 43 29" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M28.6667 26.5833C28.6667 27.918 27.5847 29 26.25 29H2.41666C1.08198 29 0 27.918 0 26.5833C0 25.2486 1.08198 24.1667 2.41667 24.1667H26.25C27.5847 24.1667 28.6667 25.2486 28.6667 26.5833ZM43 14.5C43 15.8347 41.918 16.9167 40.5833 16.9167H2.41667C1.08198 16.9167 0 15.8347 0 14.5C0 13.1653 1.08198 12.0833 2.41667 12.0833H40.5833C41.918 12.0833 43 13.1653 43 14.5ZM28.6667 2.41667C28.6667 3.75135 27.5847 4.83333 26.25 4.83333H2.41666C1.08198 4.83333 0 3.75135 0 2.41667C0 1.08198 1.08198 0 2.41667 0H26.25C27.5847 0 28.6667 1.08198 28.6667 2.41667Z" fill="#010101"/>
                 </svg>
@@ -60,9 +64,9 @@
             </center>
             <div class="toggle-thing-logreg">
                 {% if 'loggedin' in session %}
-                <a href="/profile"><button class="toggle-thing-btn">Go to profile</button></a>
+                <a href="/profile"><button class="toggle-thing-btn hoverable">Go to profile</button></a>
                 {% else %}
-                <a href="/auth"><button class="toggle-thing-btn">Jump into action</button></a>
+                <a href="/auth"><button class="toggle-thing-btn hoverable">Jump into action</button></a>
                 {% endif %}
             </div>
         </div>

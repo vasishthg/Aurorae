@@ -917,8 +917,8 @@ a{
 .menu-img{
     position: fixed;
     top: 0;
-    width: 50%;
     height: 100%;
+    left: 0;
     pointer-events: none;
     user-select: none;
 }
@@ -930,4 +930,50 @@ a{
     width: 56.3%;
     top: 0;
     bottom: 0;
+}
+
+.menu-go-back{
+    position: absolute;
+    left: 2em;
+    top: 1.5em;
+}
+
+.menu-links{
+    margin-top: 8.4em;
+}
+
+.menu-link{
+    border-bottom: #525252 3px solid;
+    margin-top: 3em;
+    width: 76%;
+    transition: border-bottom-color 1s;
+    position: relative;
+}
+
+.menu-link-name{
+    font-size: 2em;
+    font-family: 'gilroy-700';
+    text-align: left;
+    margin-block-end: 0.5em;
+    margin-block-start: 0;
+}
+
+.menu-link:hover{
+    border-bottom-color: white;
+}
+
+.menu-link-vector{
+    text-align: right;
+    position: absolute;
+    right: 0;
+    display: inline-block;
+    margin-top: -3.5em;
+    justify-content: right;
+}
+
+.menu-logout{
+    cursor: pointer;
+    position: absolute;
+    bottom: 1.5em;
+    right: 2em;
 }
