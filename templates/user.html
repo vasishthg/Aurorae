@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurorae - Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <link rel="shortcut icon" href="{{url_for('static', filename='favicon.svg')}}" type="image/x-icon">
+</head>
+<body style="background: black; color: white;">
+  <div class="hamburger">
+    <img src="{{url_for('static', filename='menuimg.svg')}}" class="menu-img" alt="">
+    <div class="menu-socials">
+      <h1 class="menu-socials-title">Join Our Communities</h1>
+      <div>
+        <button class="menu-socials-btn hoverable">
+          <svg width="30" height="30" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_197_121)">
+            <path d="M33.8617 7.48683C31.3122 6.33578 28.5783 5.48775 25.7198 5.00204C25.6678 4.99267 25.6158 5.01609 25.589 5.06295C25.2373 5.67829 24.8478 6.48104 24.5752 7.11198C21.5007 6.65909 18.442 6.65909 15.4305 7.11198C15.1577 6.467 14.7541 5.67829 14.4009 5.06295C14.3741 5.01765 14.3221 4.99424 14.2701 5.00204C11.4132 5.4862 8.67926 6.33423 6.12822 7.48683C6.10613 7.4962 6.08721 7.51183 6.07465 7.53213C0.888986 15.1552 -0.531583 22.5908 0.1653 29.9343C0.168453 29.9703 0.18895 30.0047 0.21733 30.0265C3.63868 32.4988 6.95285 33.9997 10.2055 34.9945C10.2575 35.0102 10.3127 34.9915 10.3458 34.9492C11.1152 33.9153 11.8011 32.8253 12.3891 31.6788C12.4238 31.6117 12.3907 31.532 12.3198 31.5055C11.2319 31.0995 10.196 30.6043 9.19955 30.0422C9.12073 29.9968 9.11441 29.886 9.18693 29.8328C9.39661 29.6782 9.60636 29.5173 9.8066 29.355C9.84281 29.3253 9.8933 29.319 9.93588 29.3377C16.4821 32.2787 23.5692 32.2787 30.0383 29.3377C30.0808 29.3175 30.1313 29.3237 30.1692 29.3533C30.3693 29.5158 30.5792 29.6782 30.7903 29.8328C30.8628 29.886 30.8582 29.9968 30.7793 30.0422C29.7828 30.6153 28.747 31.0995 27.6575 31.504C27.5867 31.5305 27.555 31.6117 27.5897 31.6788C28.1905 32.8237 28.8763 33.9138 29.6315 34.9477C29.663 34.9915 29.7198 35.0102 29.7718 34.9945C33.0402 33.9997 36.3543 32.4988 39.7757 30.0265C39.8057 30.0047 39.8247 29.9718 39.8278 29.936C40.6618 21.446 38.4308 14.0713 33.9137 7.53368C33.9027 7.51183 33.8838 7.4962 33.8617 7.48683ZM13.3667 25.463C11.3958 25.463 9.77188 23.6825 9.77188 21.496C9.77188 19.3095 11.3643 17.5292 13.3667 17.5292C15.3848 17.5292 16.993 19.3252 16.9615 21.496C16.9615 23.6825 15.369 25.463 13.3667 25.463ZM26.6578 25.463C24.6872 25.463 23.0632 23.6825 23.0632 21.496C23.0632 19.3095 24.6555 17.5292 26.6578 17.5292C28.676 17.5292 30.2842 19.3252 30.2527 21.496C30.2527 23.6825 28.676 25.463 26.6578 25.463Z" fill="black"/>
+            </g>
+            <defs>
+            <clipPath id="clip0_197_121">
+            <rect width="40" height="40" fill="white"/>
+            </clipPath>
+            </defs>
+          </svg>  
+        </button>
+        <button class="menu-socials-btn hoverable">
+          <svg width="30" height="30" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_241_22)">
+            <path d="M36.9365 9.42654C35.6641 9.98937 34.3148 10.359 32.9332 10.5232C34.3894 9.65227 35.4794 8.28157 35.9998 6.66654C34.6332 7.47988 33.1348 8.04988 31.5732 8.35821C30.5242 7.23584 29.1338 6.49148 27.6181 6.24085C26.1024 5.99022 24.5464 6.24736 23.192 6.9723C21.8375 7.69724 20.7605 8.84935 20.1284 10.2495C19.4962 11.6497 19.3444 13.2195 19.6965 14.7149C16.925 14.576 14.2137 13.8557 11.7387 12.601C9.26358 11.3462 7.08006 9.58496 5.32984 7.43154C4.71033 8.49563 4.38477 9.70526 4.38651 10.9365C4.38651 13.3532 5.61651 15.4882 7.48651 16.7382C6.37986 16.7034 5.29756 16.4045 4.32984 15.8665V15.9532C4.33018 17.5627 4.88713 19.1226 5.90626 20.3683C6.92539 21.614 8.34398 22.469 9.92151 22.7882C8.8942 23.0666 7.81702 23.1076 6.77151 22.9082C7.21629 24.2936 8.08319 25.5052 9.25083 26.3734C10.4185 27.2416 11.8284 27.7229 13.2832 27.7499C11.8373 28.8854 10.1818 29.7248 8.41131 30.2202C6.64082 30.7155 4.79006 30.857 2.96484 30.6365C6.15101 32.6856 9.86001 33.7734 13.6482 33.7699C26.4698 33.7699 33.4815 23.1482 33.4815 13.9365C33.4815 13.6365 33.4732 13.3332 33.4598 13.0365C34.8246 12.0502 36.0025 10.8282 36.9382 9.42821L36.9365 9.42654Z" fill="black"/>
+            </g>
+            <defs>
+            <clipPath id="clip0_241_22">
+            <rect width="40" height="40" fill="white"/>
+            </clipPath>
+            </defs>
+          </svg>
+        </button>
+        <button class="menu-socials-btn hoverable">
+          <svg width="30" height="30" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M28.3335 3.3335H11.6668C7.06446 3.3335 3.3335 7.06446 3.3335 11.6668V28.3335C3.3335 32.9359 7.06446 36.6668 11.6668 36.6668H28.3335C32.9359 36.6668 36.6668 32.9359 36.6668 28.3335V11.6668C36.6668 7.06446 32.9359 3.3335 28.3335 3.3335Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M26.6665 18.95C26.8722 20.3371 26.6353 21.7537 25.9894 22.9984C25.3436 24.243 24.3217 25.2524 23.0692 25.8828C21.8167 26.5132 20.3972 26.7327 19.0128 26.5099C17.6284 26.2871 16.3494 25.6335 15.3579 24.6419C14.3664 23.6504 13.7127 22.3715 13.4899 20.987C13.2672 19.6026 13.4866 18.1832 14.117 16.9306C14.7475 15.6781 15.7568 14.6562 17.0015 14.0104C18.2461 13.3646 19.6628 13.1277 21.0498 13.3333C22.4647 13.5432 23.7746 14.2025 24.786 15.2139C25.7974 16.2253 26.4567 17.5351 26.6665 18.95Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M29.1665 10.8335H29.1832" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>    
+        </div>
+      </button>
+    </div>
+    <div class="menu-main">
+      <svg width="35" height="35" style="z-index: 6942;" class="menu-go-back" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip0_115_89)">
+        <path d="M18 26L10 18L18 10M10 18H32C34.1217 18 36.1566 18.8429 37.6569 20.3431C39.1571 21.8434 40 23.8783 40 26C40 28.1217 39.1571 30.1566 37.6569 31.6569C36.1566 33.1571 34.1217 34 32 34H30" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+        <defs>
+        <clipPath id="clip0_115_89">
+        <rect width="48" height="48" fill="white"/>
+        </clipPath>
+        </defs>
+    </svg>
+    <center>
+    <div class="menu-links">
+      <div class="menu-link">
+        <p class="menu-link-name hoverable">Home</p>
+        <svg width="39" height="39" class="menu-link-vector hoverable" viewBox="0 0 59 59" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g clip-path="url(#clip0_197_138)">
+          <path d="M10.002 5.58125C10.002 4.30821 10.5077 3.08731 11.4078 2.18714C12.308 1.28696 13.5289 0.78125 14.802 0.78125H53.202C54.475 0.78125 55.6959 1.28696 56.5961 2.18714C57.4962 3.08731 58.002 4.30821 58.002 5.58125V43.9813C58.002 45.2543 57.4962 46.4752 56.5961 47.3754C55.6959 48.2755 54.475 48.7812 53.202 48.7812C51.9289 48.7812 50.708 48.2755 49.8078 47.3754C48.9077 46.4752 48.402 45.2543 48.402 43.9813V17.1684L8.59555 56.9749C7.69026 57.8492 6.47777 58.333 5.21923 58.3221C3.96068 58.3112 2.75679 57.8063 1.86683 56.9164C0.976867 56.0264 0.472055 54.8225 0.461119 53.564C0.450183 52.3054 0.933998 51.0929 1.80836 50.1876L41.6148 10.3813H14.802C13.5289 10.3813 12.308 9.87554 11.4078 8.97536C10.5077 8.07519 10.002 6.85429 10.002 5.58125Z" fill="white"/>
+          </g>
+          <defs>
+          <clipPath id="clip0_197_138">
+          <rect width="59" height="59" fill="white"/>
+          </clipPath>
+          </defs>
+        </svg>  
+      </div>
+      <div class="menu-link">
+        <p class="menu-link-name hoverable">Discover</p>
+        <svg width="39" height="39" class="menu-link-vector hoverable" viewBox="0 0 59 59" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g clip-path="url(#clip0_197_138)">
+          <path d="M10.002 5.58125C10.002 4.30821 10.5077 3.08731 11.4078 2.18714C12.308 1.28696 13.5289 0.78125 14.802 0.78125H53.202C54.475 0.78125 55.6959 1.28696 56.5961 2.18714C57.4962 3.08731 58.002 4.30821 58.002 5.58125V43.9813C58.002 45.2543 57.4962 46.4752 56.5961 47.3754C55.6959 48.2755 54.475 48.7812 53.202 48.7812C51.9289 48.7812 50.708 48.2755 49.8078 47.3754C48.9077 46.4752 48.402 45.2543 48.402 43.9813V17.1684L8.59555 56.9749C7.69026 57.8492 6.47777 58.333 5.21923 58.3221C3.96068 58.3112 2.75679 57.8063 1.86683 56.9164C0.976867 56.0264 0.472055 54.8225 0.461119 53.564C0.450183 52.3054 0.933998 51.0929 1.80836 50.1876L41.6148 10.3813H14.802C13.5289 10.3813 12.308 9.87554 11.4078 8.97536C10.5077 8.07519 10.002 6.85429 10.002 5.58125Z" fill="white"/>
+          </g>
+          <defs>
+          <clipPath id="clip0_197_138">
+          <rect width="59" height="59" fill="white"/>
+          </clipPath>
+          </defs>
+        </svg>  
+      </div>
+      <div class="menu-link">
+        <p class="menu-link-name hoverable">Courses</p>
+        <svg width="39" height="39" class="menu-link-vector hoverable" viewBox="0 0 59 59" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g clip-path="url(#clip0_197_138)">
+          <path d="M10.002 5.58125C10.002 4.30821 10.5077 3.08731 11.4078 2.18714C12.308 1.28696 13.5289 0.78125 14.802 0.78125H53.202C54.475 0.78125 55.6959 1.28696 56.5961 2.18714C57.4962 3.08731 58.002 4.30821 58.002 5.58125V43.9813C58.002 45.2543 57.4962 46.4752 56.5961 47.3754C55.6959 48.2755 54.475 48.7812 53.202 48.7812C51.9289 48.7812 50.708 48.2755 49.8078 47.3754C48.9077 46.4752 48.402 45.2543 48.402 43.9813V17.1684L8.59555 56.9749C7.69026 57.8492 6.47777 58.333 5.21923 58.3221C3.96068 58.3112 2.75679 57.8063 1.86683 56.9164C0.976867 56.0264 0.472055 54.8225 0.461119 53.564C0.450183 52.3054 0.933998 51.0929 1.80836 50.1876L41.6148 10.3813H14.802C13.5289 10.3813 12.308 9.87554 11.4078 8.97536C10.5077 8.07519 10.002 6.85429 10.002 5.58125Z" fill="white"/>
+          </g>
+          <defs>
+          <clipPath id="clip0_197_138">
+          <rect width="59" height="59" fill="white"/>
+          </clipPath>
+          </defs>
+        </svg>  
+      </div>
+      <div class="menu-link">
+        <p class="menu-link-name hoverable">Blog</p>
+        <svg width="39" height="39" class="menu-link-vector hoverable" viewBox="0 0 59 59" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g clip-path="url(#clip0_197_138)">
+          <path d="M10.002 5.58125C10.002 4.30821 10.5077 3.08731 11.4078 2.18714C12.308 1.28696 13.5289 0.78125 14.802 0.78125H53.202C54.475 0.78125 55.6959 1.28696 56.5961 2.18714C57.4962 3.08731 58.002 4.30821 58.002 5.58125V43.9813C58.002 45.2543 57.4962 46.4752 56.5961 47.3754C55.6959 48.2755 54.475 48.7812 53.202 48.7812C51.9289 48.7812 50.708 48.2755 49.8078 47.3754C48.9077 46.4752 48.402 45.2543 48.402 43.9813V17.1684L8.59555 56.9749C7.69026 57.8492 6.47777 58.333 5.21923 58.3221C3.96068 58.3112 2.75679 57.8063 1.86683 56.9164C0.976867 56.0264 0.472055 54.8225 0.461119 53.564C0.450183 52.3054 0.933998 51.0929 1.80836 50.1876L41.6148 10.3813H14.802C13.5289 10.3813 12.308 9.87554 11.4078 8.97536C10.5077 8.07519 10.002 6.85429 10.002 5.58125Z" fill="white"/>
+          </g>
+          <defs>
+          <clipPath id="clip0_197_138">
+          <rect width="59" height="59" fill="white"/>
+          </clipPath>
+          </defs>
+        </svg>  
+      </div>
+      <div class="menu-link">
+        <p class="menu-link-name hoverable">Subscribe</p>
+        <svg width="39" height="39" class="menu-link-vector hoverable" viewBox="0 0 59 59" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g clip-path="url(#clip0_197_138)">
+          <path d="M10.002 5.58125C10.002 4.30821 10.5077 3.08731 11.4078 2.18714C12.308 1.28696 13.5289 0.78125 14.802 0.78125H53.202C54.475 0.78125 55.6959 1.28696 56.5961 2.18714C57.4962 3.08731 58.002 4.30821 58.002 5.58125V43.9813C58.002 45.2543 57.4962 46.4752 56.5961 47.3754C55.6959 48.2755 54.475 48.7812 53.202 48.7812C51.9289 48.7812 50.708 48.2755 49.8078 47.3754C48.9077 46.4752 48.402 45.2543 48.402 43.9813V17.1684L8.59555 56.9749C7.69026 57.8492 6.47777 58.333 5.21923 58.3221C3.96068 58.3112 2.75679 57.8063 1.86683 56.9164C0.976867 56.0264 0.472055 54.8225 0.461119 53.564C0.450183 52.3054 0.933998 51.0929 1.80836 50.1876L41.6148 10.3813H14.802C13.5289 10.3813 12.308 9.87554 11.4078 8.97536C10.5077 8.07519 10.002 6.85429 10.002 5.58125Z" fill="white"/>
+          </g>
+          <defs>
+          <clipPath id="clip0_197_138">
+          <rect width="59" height="59" fill="white"/>
+          </clipPath>
+          </defs>
+        </svg>  
+      </div>
+      {% if 'loggedin' in session %}
+      <svg width="30" height="30" class="menu-logout hoverable" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip0_237_10)">
+        <path d="M10 44C9.46957 44 8.96086 43.7893 8.58579 43.4142C8.21071 43.0391 8 42.5304 8 42V6C8 5.46957 8.21071 4.96086 8.58579 4.58579C8.96086 4.21071 9.46957 4 10 4H38C38.5304 4 39.0391 4.21071 39.4142 4.58579C39.7893 4.96086 40 5.46957 40 6V42C40 42.5304 39.7893 43.0391 39.4142 43.4142C39.0391 43.7893 38.5304 44 38 44H10ZM30 32L40 24L30 16V22H18V26H30V32Z" fill="white"/>
+        </g>
+        <defs>
+        <clipPath id="clip0_237_10">
+        <rect width="48" height="48" fill="white"/>
+        </clipPath>
+        </defs>
+      </svg>
+      {% else %}
+      <button class="auth-btn-2 to-login">Log In</button>
+      {% endif %}
+        
+    </div>
+    </center>
+    </div>
+</div>
+    <div id="overlay" style="background-color: black;">
+        <div id="progstat" style="-webkit-text-stroke: 1.6px white;"></div>
+    </div>
+    <!-- <form action="" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" id="">
+        <input type="submit" value="upload">
+    </form> -->
+    <div class="user-area">
+      <div class="nav" style="background: transparent;">
+        <div class="nav-left">
+            <img class="nav-logo inverted" src="{{url_for('static', filename='logo.svg')}}" alt="">
+            <p class="nav-name">AURORAE</p>
+            <div class="search">
+                <svg width="27" class="search-vector inverted" height="27" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 8.00003C16.8174 8.00003 13.7652 9.26431 11.5147 11.5148C9.26428 13.7652 8 16.8174 8 20C8 23.1826 9.26428 26.2349 11.5147 28.4853C13.7652 30.7357 16.8174 32 20 32C23.1826 32 26.2348 30.7357 28.4853 28.4853C30.7357 26.2349 32 23.1826 32 20C32 16.8174 30.7357 13.7652 28.4853 11.5148C26.2348 9.26431 23.1826 8.00003 20 8.00003ZM4 20C4.00036 17.4538 4.60844 14.9443 5.77368 12.6803C6.93892 10.4163 8.62768 8.46309 10.6996 6.983C12.7715 5.50291 15.1668 4.5387 17.6863 4.17049C20.2058 3.80229 22.7768 4.04072 25.1857 4.86598C27.5945 5.69124 29.7716 7.0795 31.536 8.91537C33.3004 10.7512 34.6012 12.9817 35.3302 15.4214C36.0592 17.8611 36.1954 20.4395 35.7275 22.9424C35.2596 25.4454 34.2011 27.8005 32.64 29.812L43.414 40.586C43.7783 40.9632 43.9799 41.4684 43.9753 41.9928C43.9708 42.5172 43.7605 43.0189 43.3896 43.3897C43.0188 43.7605 42.5172 43.9708 41.9928 43.9754C41.4684 43.9799 40.9632 43.7783 40.586 43.414L29.812 32.64C27.4469 34.4762 24.614 35.6119 21.6355 35.918C18.657 36.2241 15.6524 35.6882 12.9633 34.3714C10.2742 33.0546 8.00858 31.0096 6.42405 28.469C4.83952 25.9284 3.99967 22.9942 4 20Z" fill="black"/>
+                </svg>                    
+            </div>
+        </div>
+        <div class="nav-floated-div">
+            <div class="nav-links">
+                <button class="nav-link2 nav-link-user-feed inverted">Create
+                  <svg width="17" height="17" class="nav-create-vector" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22.0647 8.752V13.648H13.9527V21.76H9.05669V13.648H0.944688V8.752H9.05669V0.639997H13.9527V8.752H22.0647Z" fill="black"/>
+                    </svg>                    
+                </button>
+            </div>
+            <div class="nav-actions">
+                <div class="nav-notifications inverted">
+                    <svg width="20" height="23" class="nav-notifications-vector" viewBox="0 0 25 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_48_18)">
+                        <path d="M19.5329 9.76187C19.5329 7.86747 18.7804 6.05066 17.4408 4.71111C16.1013 3.37157 14.2845 2.61902 12.3901 2.61902C10.4957 2.61902 8.67885 3.37157 7.3393 4.71111C5.99976 6.05066 5.24721 7.86747 5.24721 9.76187C5.24721 18.0952 1.67578 20.4762 1.67578 20.4762H23.1044C23.1044 20.4762 19.5329 18.0952 19.5329 9.76187Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M14.4496 25.238C14.2403 25.5988 13.9398 25.8983 13.5784 26.1065C13.2169 26.3147 12.8071 26.4243 12.39 26.4243C11.9729 26.4243 11.5631 26.3147 11.2017 26.1065C10.8402 25.8983 10.5398 25.5988 10.3305 25.238" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0_48_18">
+                        <rect width="24.4898" height="26.9388" fill="white" transform="translate(0.281189 0.918335)"/>
+                        </clipPath>
+                        </defs>
+                    </svg>    
+                </div>
+                <img src="{{usrdata['pfp']}}" class="nav-user-logo " alt="user profile img">
+                <svg width="35" class="menu-icon inverted hoverable" height="23" viewBox="0 0 43 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M28.6667 26.5833C28.6667 27.918 27.5847 29 26.25 29H2.41666C1.08198 29 0 27.918 0 26.5833C0 25.2486 1.08198 24.1667 2.41667 24.1667H26.25C27.5847 24.1667 28.6667 25.2486 28.6667 26.5833ZM43 14.5C43 15.8347 41.918 16.9167 40.5833 16.9167H2.41667C1.08198 16.9167 0 15.8347 0 14.5C0 13.1653 1.08198 12.0833 2.41667 12.0833H40.5833C41.918 12.0833 43 13.1653 43 14.5ZM28.6667 2.41667C28.6667 3.75135 27.5847 4.83333 26.25 4.83333H2.41666C1.08198 4.83333 0 3.75135 0 2.41667C0 1.08198 1.08198 0 2.41667 0H26.25C27.5847 0 28.6667 1.08198 28.6667 2.41667Z" fill="#010101"/>
+                </svg>
+                    
+            </div>
+        </div>
+    </div>
+    <div class="user-banner">
+      <img src="/uploads/banner.svg" class="user-banner-img" alt="">
+    </div>
+    <div class="user-main">
+      <div class="user-main-profile">
+        <center>
+          <img src="{{usrdata['pfp']}}" class="user-pfp" alt="">
+          <div class="user-change-img hoverable">
+            <form action="" enctype="multipart/form-data" method="post">
+              <label for="pfp">
+                <svg width="20" height="20" class="hoverable" style="padding-top: .37em;" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M46.9634 38.3657C46.9634 39.4266 46.542 40.444 45.7918 41.1941C45.0417 41.9443 44.0242 42.3657 42.9634 42.3657H6.96338C5.90251 42.3657 4.8851 41.9443 4.13495 41.1941C3.38481 40.444 2.96338 39.4266 2.96338 38.3657V16.3657C2.96338 15.3049 3.38481 14.2874 4.13495 13.5373C4.8851 12.7871 5.90251 12.3657 6.96338 12.3657H14.9634L18.9634 6.36572H30.9634L34.9634 12.3657H42.9634C44.0242 12.3657 45.0417 12.7871 45.7918 13.5373C46.542 14.2874 46.9634 15.3049 46.9634 16.3657V38.3657Z" stroke="black" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M24.9634 34.3657C29.3817 34.3657 32.9634 30.784 32.9634 26.3657C32.9634 21.9474 29.3817 18.3657 24.9634 18.3657C20.5451 18.3657 16.9634 21.9474 16.9634 26.3657C16.9634 30.784 20.5451 34.3657 24.9634 34.3657Z" stroke="black" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </label>
+          </div>
+        </center>
+        <div class="user-profile">
+          <div class="user-profile-binfo">
+            <h1 class="user-name">{{usrdata['Name']}}</h1>
+            <p class="username">@{{usrdata['Username']}}</p>
+          </div>
+          <!-- <button class="follow-btn hoverable">
+            Follow <svg width="17" height="17" class="nav-create-vector" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.0647 8.752V13.648H13.9527V21.76H9.05669V13.648H0.944688V8.752H9.05669V0.639997H13.9527V8.752H22.0647Z" fill="white"/></svg>    
+          </button> -->
+          <br>
+          <div class="user-profile-stats">
+            <center>
+            <div class="user-profile-stat" style="margin-left: 0;">
+              <p class="user-profile-stat-val">69 ETH</p>
+              <p class="user-profile-stat-var">Total Sales</p>
+            </div>
+            <div class="user-profile-stat">
+              <p class="user-profile-stat-val">69420</p>
+              <p class="user-profile-stat-var">Appreciation(s)</p>
+            </div>
+            <div class="user-profile-stat">
+              <p class="user-profile-stat-val">80085</p>
+              <p class="user-profile-stat-var">Follower(s)</p>
+            </div>
+            </center>
+          </div>
+          <div class="user-bio">
+            <h2 class="user-bio-title">BIO</h2>
+            <textarea name="" disabled class="user-bio-value">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu donec fermentum fringilla nullam scelerisque molestie. Aliquam lorem lectus dolor ut lacinia nulla erat. Morbi id quisque velit diam non.</textarea>
+          </div>
+          <div class="user-bio">
+            <h2 class="user-bio-title" style="margin-top: 0; margin-block-start: 0;">LINKS</h2>
+            <a href="" class="user-link hoverable" style="margin-left: 2em;">Behance</a>
+            <a href="" class="user-link hoverable">Twitter</a>
+            <a href="" class="user-link hoverable">Dribbble</a>
+            <a href="" class="user-link hoverable">Instagram</a>
+          </div>
+        </div>
+      </div>
+      <div class="user-main-thing">
+        
+      </div>
+    </div>
+  </div>
+  <input type="file" style="display: none;" onchange="imgPreview()" id="pfp" name="pfp" accept=".png, .jpg, .gif , .jpeg">
+  <div class="pfpsubmit-div">
+    <p class="pfpsubmit-warning">Careful. You have unsaved changes!</p>
+    <input type="submit" class="pfpsubmit hoverable">
+  </div>
+</form>
+</body>
+</html>
+<div class="cursor">
+        
+    <div class="cursor__ball cursor__ball--big ">
+        <svg height="30" width="30">
+          <circle cx="15" cy="15" r="12" stroke-width="0"></circle>
+        </svg>
+      </div>
+    <div class="cursor__ball cursor__ball--small">
+      <svg height="10" width="10">
+        <circle cx="5" cy="5" r="4" stroke-width="0"></circle>
+      </svg>
+    </div>
+  </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js" integrity="sha512-Mf/xUqfWvDIr+1B6zfnIDIiG7XHzyP/guXUWgV6PgaQoIFeXkJQR5XWh9fqAiCiRCpemabt3naV4jhDWVnuYDQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="{{url_for('static', filename='main.js')}}"></script>

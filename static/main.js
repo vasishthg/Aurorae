@@ -265,6 +265,18 @@ if ( window.history.replaceState ) {
   window.history.replaceState( null, null, window.location.href );
 }
 
+$(".menu-icon").click(function(){
+  $(".hamburger").show("slide", {direction: "right"}, 700)
+})
+
+particlesJS.load('particles-js', '/static/particles.json', function() {
+  console.log('callback - particles.js config loaded');
+});
+
+$(".menu-go-back").click(function(){
+  $(".hamburger").hide("slide", {direction: "right"}, 700)
+})
+
 auth = document.querySelector("#auth")
 if (auth.innerHTML === "discordauth"){
   loadDiscordOauth()
@@ -308,6 +320,7 @@ function imgPreview(){
   }
   savePfp();
 }
+
 
 function savePfp(){
   setTimeout(function(){

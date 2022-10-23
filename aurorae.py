@@ -34,6 +34,17 @@ def index():
     else:
         return render_template("index.html")
 
+
+@app.route('/discover', methods=["GET", "POST"])
+def discover():
+    cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    if 'loggedin' in session:
+        cur.execute("SELECT * FROM accounts WHERE email = %s", [session['email']])
+        usrdata = cur.fetchone()
+        return render_template("discover.html", usrdata = usrdata)
+    else:
+        return render_template("discover.html")
+
 @app.route("/oauth/callback")
 def callback():
     code = request.args['code']
@@ -61,7 +72,7 @@ def discordauth():
             name = request.form.get("discord-oauth-name")
             email = request.form.get("discord-oauth-email")
             password = request.form.get("discord-oauth-password")
-            cur.execute("INSERT INTO accounts VALUES(NULL, %s, %s, %s, %s, %s, %s, DEFAULT, DEFAULT, DEFAULT, DEFAULT, NULL)", (name, email, current_user.username, password, str(current_user.id), current_user.avatar_url))
+            cur.execute("INSERT INTO accounts VALUES(NULL, %s, %s, %s, %s, %s, %s, DEFAULT, DEFAULT, DEFAULT, DEFAULT, NULL, DEFAULT, DEFAULT)", (name, email, current_user.username, password, str(current_user.id), current_user.avatar_url))
             mysql.connection.commit()
             cur.execute("SELECT * FROM accounts WHERE discordid = %s AND email = %s", [str(current_user.id), email])
             account = cur.fetchone()
@@ -93,7 +104,7 @@ def auth():
             session['password'] = account['Password']
             return redirect('/profile')
         else:
-            cur.execute("INSERT INTO accounts VALUES(NULL, %s, %s, %s, %s, NULL, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, NULL)", (name, email, username, password))
+            cur.execute("INSERT INTO accounts VALUES(NULL, %s, %s, %s, %s, NULL, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, NULL, DEFAULT, DEFAULT)", (name, email, username, password))
             mysql.connection.commit()
             cur.execute("SELECT * FROM accounts WHERE email = %s", [email])
             account = cur.fetchone()

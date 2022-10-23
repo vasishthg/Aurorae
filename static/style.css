@@ -907,6 +907,7 @@ a{
     background-color: black;
     top: 0;
     right: 0;
+    display: none;
     bottom: 0;
     z-index: 69420;
     left: 0;
@@ -962,6 +963,10 @@ a{
     border-bottom-color: white;
 }
 
+.hamburger{
+    color: white;
+}
+
 .menu-link-vector{
     text-align: right;
     position: absolute;
@@ -976,4 +981,174 @@ a{
     position: absolute;
     bottom: 1.5em;
     right: 2em;
+}
+
+.menu-socials{
+    bottom: 1em;
+    z-index: 3922394;
+    left: 3em;
+    position: fixed;
+}
+
+.menu-socials-btn{
+    width: 9em;
+    padding-top: .25em;
+    padding-left: 1em;
+    margin-bottom: 1em;
+    padding-right: 1em;
+    border: none;
+    outline: none;
+    background-color: white;
+    height: 3.25em;
+    margin-left: 2em;
+    border-radius: 1em;
+}
+
+.menu-socials-title{
+    font-family: 'gilroy-700';
+}
+
+.discover-hero-title{
+    font-family: 'gilroy-700';
+    width: 7em;
+    font-size: 3.5em;
+    margin-left: 1.4em;
+    margin-top: 4.5em;
+    margin-block-end: 0;
+}
+
+.discover-hero-desc{
+    margin-left: 4.5em;
+    color: white;
+    font-family: 'avenir-400';
+    color: rgb(228, 228, 228);
+    font-weight: 100;
+    font-size: 1.2em;
+}
+
+.discover-hero-btns{
+    margin-left: 2em;
+}
+
+.discover-hero-btn{
+    font-size: 1.3em;
+    width: 10em;
+    margin-left: 2em;
+    border-radius: .7em;
+    margin-top: 1em;
+    height: 2.5em;
+    font-family: 'gilroy-800';
+}
+
+.dhb-style-2{
+    background-color: transparent;
+    border: 2px white solid;
+    color: white;
+}
+
+.discover-hero-img{
+    position: absolute;
+    right: 0;
+    max-width: 50em;
+    margin-top: -30em;
+}
+
+canvas{
+    z-index: -2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.discover-collections{
+    margin-top:14em;
+}
+
+.discover-collections-title{
+    font-family: 'gilroy-700';
+    font-size: 3em;
+}
+
+.discover-collections-collection{
+    width: 12em;
+    display: inline;
+    vertical-align: middle;
+    margin-left: 2em;
+    height: 2em;
+    padding: .75em 1em .75em 1em;
+    border: 2px white solid;
+    border-radius: 1.6em;
+}
+
+.discover-collections-collection-img{
+    width: 2em;
+    height: 2em;
+    margin-left: .5em;
+    display: inline;
+    vertical-align: middle;
+    text-align: left;
+    float: left;
+    border-radius: 50%;
+}
+
+.discover-collections-collection-title{
+    color: white;
+    display: inline;
+    vertical-align: middle;
+    float: left;
+    text-align: left;
+    margin-block-start: 0.5em;
+    font-family: 'gilroy-600';
+    margin-left: .5em;
+}
+
+.discover-collections-moving{
+    display: inline-flex;
+    animation: marquee infinite 14s;
+}
+
+.discover-collections-moving2{
+    display: inline-flex;
+    animation: marquee2 infinite 14s ;
+}
+
+.discover-collections-moving:hover{
+    display: inline-flex;
+    animation-play-state: paused;
+}
+
+
+.discover-collections-moving2:hover{
+    display: inline-flex;
+    animation-play-state: paused;
+}
+
+@keyframes marquee {
+    0%{transform: translateX(100%);}
+    100%{transform: translateX(-105%);}
+}
+
+@keyframes marquee2 {
+    0%{transform: translateX(-105%);}
+    100%{transform: translateX(100%);}
+}
+
+.discover-collections-btn{
+    background-color: white;
+    color: black;
+    margin-top: 2em;
+    font-size: 1.2em;
+    border-radius: 1em;
+    width: 10em;
+    height: 3em;
+    font-family: 'gilroy-800';
+}
+
+.discover-featured-title{
+    margin-left: 1em;
+    margin-top: 1em;
+    font-family: 'gilroy-700';
+    display: inline;
 }
