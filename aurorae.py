@@ -72,7 +72,7 @@ def discordauth():
             name = request.form.get("discord-oauth-name")
             email = request.form.get("discord-oauth-email")
             password = request.form.get("discord-oauth-password")
-            cur.execute("INSERT INTO accounts VALUES(NULL, %s, %s, %s, %s, %s, %s, DEFAULT, DEFAULT, DEFAULT, DEFAULT, NULL, DEFAULT, DEFAULT, NULL)", (name, email, current_user.username, password, str(current_user.id), current_user.avatar_url))
+            cur.execute("INSERT INTO accounts VALUES(NULL, %s, %s, %s, %s, %s, %s, DEFAULT, DEFAULT, DEFAULT, DEFAULT, NULL, DEFAULT, DEFAULT, DEFAULT)", (name, email, current_user.username, password, str(current_user.id), current_user.avatar_url))
             mysql.connection.commit()
             cur.execute("SELECT * FROM accounts WHERE discordid = %s AND email = %s", [str(current_user.id), email])
             account = cur.fetchone()
@@ -104,7 +104,7 @@ def auth():
             session['password'] = account['Password']
             return redirect('/profile')
         else:
-            cur.execute("INSERT INTO accounts VALUES(NULL, %s, %s, %s, %s, NULL, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, NULL, DEFAULT, DEFAULT, NULL)", (name, email, username, password))
+            cur.execute("INSERT INTO accounts VALUES(NULL, %s, %s, %s, %s, NULL, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, NULL, DEFAULT, DEFAULT, DEFAULT)", (name, email, username, password))
             mysql.connection.commit()
             cur.execute("SELECT * FROM accounts WHERE email = %s", [email])
             account = cur.fetchone()
@@ -177,17 +177,25 @@ def user(id):
         cur.execute("SELECT * FROM accounts WHERE email = %s", [session['email']])
         usrdata = cur.fetchone()
         followers = usrdata['followers']
-        # if request.method == "POST" and "follow" in request.form:
-            # if str(usrdata['id']) not in followingaccs:
-            #     followers+=1
-            #     followingaccadd = id
-            #     followingaccs.append(followingaccadd)
-            #     print(followingaccs)
-            #     cur.execute("UPDATE accounts SET followers = %s WHERE email = %s", (followers, user['email']))
-            #     mysql.connection.commit()
-            #     cur.execute("UPDATE accounts SET followingaccs = %s WHERE email = %s", (str(followingaccs), usrdata['email']))
-            #     mysql.connection.commit()
-            #     return redirect(request.url)
+        followingaccs = list(usrdata['followingaccs'])
+        if user['id'] in followingaccs:
+            following = True
+        if request.method == "POST" and "follow" in request.form:
+            if usrdata['id'] not in followingaccs:
+                list2 =[]
+                for usrdata['id'] in followingaccs:
+                    try:
+                        x = id
+                        list2.append(x)
+                        print(list2)
+                    except:
+                        pass
+                followers+=1
+                cur.execute("UPDATE accounts SET followers = %s WHERE email = %s", (followers, user['email']))
+                mysql.connection.commit()
+                cur.execute("UPDATE accounts SET followingaccs = %s WHERE email = %s", (list2, usrdata['email']))
+                # mysql.connection.commit()
+                return redirect(request.url)
         return render_template("user.html", usrdata = usrdata, user = user, following = following)
     else:
         return render_template("user.html", user = user)

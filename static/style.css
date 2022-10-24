@@ -1339,3 +1339,17 @@ canvas{
 .discover-topseller-author-username{
     color: rgb(220, 220, 220);
 }
+
+.prints{
+    display: inline-block;
+    vertical-align: top;
+    width: 40%;
+    margin-top: 2em;
+}
+
+.prints-title{
+    background: #1B1B1B;
+    color: white;
+    font-family: 'gilroy-700';
+    font-size: 1.6em;
+}
