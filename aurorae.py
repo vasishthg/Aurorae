@@ -176,24 +176,25 @@ def user(id):
         following = False
         cur.execute("SELECT * FROM accounts WHERE email = %s", [session['email']])
         usrdata = cur.fetchone()
-        followers = usrdata['followers']
-        followingaccs = list(usrdata['followingaccs'])
-        if user['id'] in followingaccs:
+        followers = user['followers']
+        followingaccs = (usrdata['followingaccs'])
+        b=followingaccs.split(",")
+        print(b)
+        if str(user['id']) in b:
             following = True
         if request.method == "POST" and "follow" in request.form:
-            if usrdata['id'] not in followingaccs:
-                list2 =[]
-                for id in followingaccs:
-                    try:
-                        x = id
-                        list2.append(x)
-                        print(list2)
-                    except:
-                        pass
+            if str(id) not in b:
+                x = id
+                b.append(str(x))
+                print(b)
+                a=""
+                for potty in  b:
+                    a=a+str(potty)+","
+                    print(a)
                 followers+=1
                 cur.execute("UPDATE accounts SET followers = %s WHERE email = %s", (followers, user['email']))
                 mysql.connection.commit()
-                cur.execute("UPDATE accounts SET followingaccs = %s WHERE email = %s", (str(list2), usrdata['email']))
+                cur.execute("UPDATE accounts SET followingaccs = %s WHERE email = %s", (a, usrdata['email']))
                 mysql.connection.commit()
                 return redirect(request.url)
         return render_template("user.html", usrdata = usrdata, user = user, following = following)
