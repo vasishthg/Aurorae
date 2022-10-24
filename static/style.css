@@ -258,7 +258,8 @@ img{
 .nav-user-logo{
     display: inline-block;
     border-radius: 50%;
-    max-height: 3em;
+    height: 3em;
+    width: 3em;
     margin-left: 2.5em;
     filter: drop-shadow(0px 38px 15px rgba(0, 0, 0, 0.01)) drop-shadow(0px 22px 13px rgba(0, 0, 0, 0.05)) drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.09)) drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.1)) drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.1));
     vertical-align: middle;
@@ -1106,12 +1107,12 @@ canvas{
 
 .discover-collections-moving{
     display: inline-flex;
-    animation: marquee infinite 14s;
+    animation: marquee infinite 35s;
 }
 
 .discover-collections-moving2{
     display: inline-flex;
-    animation: marquee2 infinite 14s ;
+    animation: marquee2 infinite 35s ;
 }
 
 .discover-collections-moving:hover{
@@ -1127,11 +1128,11 @@ canvas{
 
 @keyframes marquee {
     0%{transform: translateX(100%);}
-    100%{transform: translateX(-105%);}
+    100%{transform: translateX(-100%);}
 }
 
 @keyframes marquee2 {
-    0%{transform: translateX(-105%);}
+    0%{transform: translateX(-100%);}
     100%{transform: translateX(100%);}
 }
 
@@ -1285,9 +1286,56 @@ canvas{
 }
 
 .discover-topseller{
-    padding: .5em 1em .5em 1em;
+    padding: .5em 1.5em .5em 1.5em;
     border: 2px solid white;
     border-radius: 1em;
+    margin-bottom: 2em;
+    float: left;
+    align-items:flex-start;
+    text-align: left;
+    position: relative;
     width: 35em;
+    margin-left: 6em;
     height: 4em;
+}
+
+.discover-topseller-position{
+    font-size: 1.2em;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 1em;
+    margin-block-start: 0.5em;
+    font-family: 'gilroy-500';
+}
+
+.discover-topseller-info{
+    display: inline-block;
+    vertical-align: middle;
+    margin-block-start: 0;
+}
+
+.discover-topseller-author-minfo{
+    display: inline-block;
+    vertical-align: middle;
+    margin-block-start: 0;
+}
+.discover-topseller-author-img{
+    display: inline-block;
+    margin-block-start: 0;
+    margin-left: 1.5em;
+    margin-top: 0;
+    margin-top: -.5em;
+    margin-right: 1em;
+    vertical-align: middle;
+}
+
+.discover-featured-project-price-cost{
+    position: absolute;
+    right: 1em;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.discover-topseller-author-username{
+    color: rgb(220, 220, 220);
 }

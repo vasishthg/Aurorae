@@ -72,7 +72,7 @@ def discordauth():
             name = request.form.get("discord-oauth-name")
             email = request.form.get("discord-oauth-email")
             password = request.form.get("discord-oauth-password")
-            cur.execute("INSERT INTO accounts VALUES(NULL, %s, %s, %s, %s, %s, %s, DEFAULT, DEFAULT, DEFAULT, DEFAULT, NULL, DEFAULT, DEFAULT)", (name, email, current_user.username, password, str(current_user.id), current_user.avatar_url))
+            cur.execute("INSERT INTO accounts VALUES(NULL, %s, %s, %s, %s, %s, %s, DEFAULT, DEFAULT, DEFAULT, DEFAULT, NULL, DEFAULT, DEFAULT, NULL)", (name, email, current_user.username, password, str(current_user.id), current_user.avatar_url))
             mysql.connection.commit()
             cur.execute("SELECT * FROM accounts WHERE discordid = %s AND email = %s", [str(current_user.id), email])
             account = cur.fetchone()
@@ -104,7 +104,7 @@ def auth():
             session['password'] = account['Password']
             return redirect('/profile')
         else:
-            cur.execute("INSERT INTO accounts VALUES(NULL, %s, %s, %s, %s, NULL, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, NULL, DEFAULT, DEFAULT)", (name, email, username, password))
+            cur.execute("INSERT INTO accounts VALUES(NULL, %s, %s, %s, %s, NULL, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, NULL, DEFAULT, DEFAULT, NULL)", (name, email, username, password))
             mysql.connection.commit()
             cur.execute("SELECT * FROM accounts WHERE email = %s", [email])
             account = cur.fetchone()
@@ -147,7 +147,6 @@ def userprofile():
         cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cur.execute("SELECT * FROM accounts WHERE email = %s", [session['email']])
         usrdata = cur.fetchone()
-        print(usrdata)
         if request.method == "POST":
             if 'pfp' not in request.files:
                 flash("No file part")
@@ -156,7 +155,7 @@ def userprofile():
             if file and allowed_file(file.filename):
                 filename = secure_filename(file.filename)
                 file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-                cur.execute("UPDATE accounts SET pfp = %s WHERE email = %s", [os.path.join(app.config['UPLOAD_FOLDER'], filename) ,session['email']])
+                cur.execute("UPDATE accounts SET pfp = %s WHERE email = %s", ["/" + os.path.join(app.config['UPLOAD_FOLDER'], filename) ,session['email']])
                 mysql.connection.commit()
                 return redirect('/profile')
                 # return redirect(url_for('download_file', name=filename))
@@ -167,6 +166,31 @@ def userprofile():
 @app.route('/uploads/<name>')
 def file(name):
     return send_from_directory(app.config['UPLOAD_FOLDER'], name)
+
+@app.route('/user/<int:id>', methods=["GET", "POST"])
+def user(id):
+    cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    cur.execute("SELECT * FROM accounts WHERE id = %s", [str(id)])
+    user = cur.fetchone()
+    if 'loggedin' in session:
+        following = False
+        cur.execute("SELECT * FROM accounts WHERE email = %s", [session['email']])
+        usrdata = cur.fetchone()
+        followers = usrdata['followers']
+        # if request.method == "POST" and "follow" in request.form:
+            # if str(usrdata['id']) not in followingaccs:
+            #     followers+=1
+            #     followingaccadd = id
+            #     followingaccs.append(followingaccadd)
+            #     print(followingaccs)
+            #     cur.execute("UPDATE accounts SET followers = %s WHERE email = %s", (followers, user['email']))
+            #     mysql.connection.commit()
+            #     cur.execute("UPDATE accounts SET followingaccs = %s WHERE email = %s", (str(followingaccs), usrdata['email']))
+            #     mysql.connection.commit()
+            #     return redirect(request.url)
+        return render_template("user.html", usrdata = usrdata, user = user, following = following)
+    else:
+        return render_template("user.html", user = user)
 
 if __name__ == "__main__":
     app.run(debug=True)
