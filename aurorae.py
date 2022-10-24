@@ -183,7 +183,7 @@ def user(id):
         if request.method == "POST" and "follow" in request.form:
             if usrdata['id'] not in followingaccs:
                 list2 =[]
-                for usrdata['id'] in followingaccs:
+                for id in followingaccs:
                     try:
                         x = id
                         list2.append(x)
@@ -193,8 +193,8 @@ def user(id):
                 followers+=1
                 cur.execute("UPDATE accounts SET followers = %s WHERE email = %s", (followers, user['email']))
                 mysql.connection.commit()
-                cur.execute("UPDATE accounts SET followingaccs = %s WHERE email = %s", (list2, usrdata['email']))
-                # mysql.connection.commit()
+                cur.execute("UPDATE accounts SET followingaccs = %s WHERE email = %s", (str(list2), usrdata['email']))
+                mysql.connection.commit()
                 return redirect(request.url)
         return render_template("user.html", usrdata = usrdata, user = user, following = following)
     else:
