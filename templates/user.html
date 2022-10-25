@@ -211,12 +211,24 @@
             <p class="username">@{{user['Username']}}</p>
           </div>
           {% if 'loggedin' in session %}
+          {% if following == False %}
           <form action="" method="post" style="float: right;">
             <input type="text" value="follow" style="display: none;" name="follow" id="">
             <button type="submit" class="follow-btn hoverable">
               Follow <svg width="17" height="17" class="nav-create-vector" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.0647 8.752V13.648H13.9527V21.76H9.05669V13.648H0.944688V8.752H9.05669V0.639997H13.9527V8.752H22.0647Z" fill="white"/></svg>    
             </button>
           </form>
+          {% else %}
+          <form action="" method="post" style="float: right;">
+            <input type="text" value="unfollow" style="display: none;" name="follow" id="">
+            <button type="submit" class="follow-btn-followed hoverable">
+              unFollow <svg width="17" height="17" class="nav-create-vector" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.39014 12.4342C6.39014 11.7991 6.90501 11.2842 7.54014 11.2842H16.7401C17.3753 11.2842 17.8901 11.7991 17.8901 12.4342C17.8901 13.0693 17.3753 13.5842 16.7401 13.5842H7.54014C6.90501 13.5842 6.39014 13.0693 6.39014 12.4342Z" fill="black"/>
+                </svg>
+                
+            </button>
+          </form>
+          {% endif %}
           {% else %}
           <a href="/auth"><button class="follow-btn hoverable">
             Log in    
@@ -226,22 +238,22 @@
           <div class="user-profile-stats">
             <center>
             <div class="user-profile-stat" style="margin-left: 0;">
-              <p class="user-profile-stat-val">69 ETH</p>
+              <p class="user-profile-stat-val">{{user['sales']}} ETH</p>
               <p class="user-profile-stat-var">Total Sales</p>
             </div>
             <div class="user-profile-stat">
-              <p class="user-profile-stat-val">69420</p>
+              <p class="user-profile-stat-val">{{user['appreciations']}}</p>
               <p class="user-profile-stat-var">Appreciation(s)</p>
             </div>
             <div class="user-profile-stat">
-              <p class="user-profile-stat-val">80085</p>
+              <p class="user-profile-stat-val">{{user['followers']}}</p>
               <p class="user-profile-stat-var">Follower(s)</p>
             </div>
             </center>
           </div>
           <div class="user-bio">
             <h2 class="user-bio-title">BIO</h2>
-            <textarea name="" disabled class="user-bio-value">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu donec fermentum fringilla nullam scelerisque molestie. Aliquam lorem lectus dolor ut lacinia nulla erat. Morbi id quisque velit diam non.</textarea>
+            <textarea name="" disabled class="user-bio-value">{{user['bio']}}</textarea>
           </div>
           <div class="user-bio">
             <h2 class="user-bio-title" style="margin-top: 0; margin-block-start: 0;">LINKS</h2>

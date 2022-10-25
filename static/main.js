@@ -40,6 +40,14 @@ $(".toggle-close").click(function(){
   $(".toggle-thing").hide("slide", {direction: "right"}, 400)
 })
 
+
+$(".user-bio-edit").click(function(){
+  document.querySelector(".user-bio-value").removeAttribute("disabled")
+  document.querySelector(".user-bio-value").focus()
+  $(".wee").fadeIn(400)
+})
+
+
 // img = document.querySelector(".auth-img")
 // selector = document.querySelector(".auth-selector")
 // tag = document.querySelector(".auth-tag")
@@ -127,6 +135,40 @@ $(".toggle-close").click(function(){
 //   }, 600)
 // })
 
+$(".nav-collection").click(function(){
+  $(".owned").hide("slide", {direction: "left"}, 350)
+  $(".createdd").hide("slide", {direction: "left"}, 350)
+  setTimeout(function(){
+    $(".collections").show("slide", {direction: "right"}, 350)
+  }, 350)
+  $(".umt-nav").animate({
+    "border-bottom-color": "#CCADFF"
+  }, 400)
+})
+
+$(".nav-owned").click(function(){
+  $(".createdd").hide("slide", {direction: "left"}, 350)
+  $(".collections").hide("slide", {direction: "left"}, 350)
+  setTimeout(function(){
+    $(".owned").show("slide", {direction: "right"}, 350)
+  }, 350)
+  $(".umt-nav").animate({
+    "border-bottom-color": "#F7B3DE"
+  }, 400)
+})
+
+
+$(".nav-created").click(function(){
+  $(".collections").hide("slide", {direction: "left"}, 350)
+  $(".owned").hide("slide", {direction: "left"}, 350)
+  setTimeout(function(){
+    $(".createdd").show("slide", {direction: "right"}, 350)
+  }, 350)
+  $(".umt-nav").animate({
+    "border-bottom-color": "#D7ECA4"
+  }, 400)
+})
+
 $(".auth-input").focus(function(){
   $(this).animate({
     "border-color": 'white',
@@ -138,20 +180,6 @@ $(".auth-input").focusout(function(){
     "border-color": '#525252',
   }, 1000)
 })
-
-  function authLoad(){
-    $(".auth-selector-logo").fadeOut(400)
-    setTimeout(function(){
-      $(".auth-selector-logo").fadeIn(1500)
-      $(".auth-selector-vid").animate({
-        'opacity': '50%',
-      }, 1000)
-      document.querySelector(".auth-selector-vid").classList.add("blurred")
-      $(".auth-title").css("display", "block")
-      document.querySelector(".auth-title-div").classList.add("animate__animated","animate__backInDown")
-      $(".auth-desc").slideDown(400)
-    },100)
-  }
 
 $(".to-login").click(function(){
   document.querySelector(".auth-selector").classList.add('animate__animated', "animate__fadeOutUp")
@@ -275,6 +303,33 @@ $(".menu-go-back").click(function(){
 })
 
 
+
+// File display shit(why am i doing this)
+$(".user-pfp-change").change(function(e){
+  var fileName = e.target.files[0].name;
+  console.log(fileName)
+  alert("hello" + fileName)
+})
+
+function imgPreview(){
+  console.log("hello")
+  var oFReader = new FileReader();
+  oFReader.readAsDataURL(document.getElementById("pfp").files[0]);
+  oFReader.onload = function (oFREvent){
+    console.log(oFREvent.target.result)
+    document.querySelector(".user-pfp").src = oFREvent.target.result;
+  }
+  savePfp();
+}
+
+
+function savePfp(){
+  setTimeout(function(){
+    $(".pfpsubmit-div").slideDown()
+  }, 300)
+}
+
+
 auth = document.querySelector("#auth")
 if (auth.innerHTML === "discordauth"){
   loadDiscordOauth()
@@ -301,27 +356,16 @@ function loadDiscordOauth(){
   }, 500)
 }
 
-// File display shit(why am i doing this)
-$(".user-pfp-change").change(function(e){
-  var fileName = e.target.files[0].name;
-  console.log(fileName)
-  alert("hello" + fileName)
-})
-
-function imgPreview(){
-  console.log("hello")
-  var oFReader = new FileReader();
-  oFReader.readAsDataURL(document.getElementById("pfp").files[0]);
-  oFReader.onload = function (oFREvent){
-    console.log(oFREvent.target.result)
-    document.querySelector(".user-pfp").src = oFREvent.target.result;
-  }
-  savePfp();
-}
-
-
-function savePfp(){
+function authLoad(){
+  $(".auth-selector-logo").fadeOut(400)
   setTimeout(function(){
-    $(".pfpsubmit-div").slideDown()
-  }, 300)
+    $(".auth-selector-logo").fadeIn(1500)
+    $(".auth-selector-vid").animate({
+      'opacity': '50%',
+    }, 1000)
+    document.querySelector(".auth-selector-vid").classList.add("blurred")
+    $(".auth-title").css("display", "block")
+    document.querySelector(".auth-title-div").classList.add("animate__animated","animate__backInDown")
+    $(".auth-desc").slideDown(400)
+  },100)
 }

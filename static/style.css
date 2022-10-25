@@ -289,6 +289,7 @@ img{
 
 ::-webkit-scrollbar {
   width: 5px;
+  height: 0;
 }
 
 ::-webkit-scrollbar-track {
@@ -754,10 +755,20 @@ a{
     background-color: white;
 }
 
+.user-links-bio{
+    overflow-y: scroll;
+    max-height: 6em;
+}
+
+.user-links-bio::-webkit-scrollbar-thumb{
+    background-color: #000000a4;
+}
+
 .user-main-thing{
     width: 50%;
     top: 0;
     bottom: 0;
+    overflow-y: scroll;
     background: black;
     position: absolute;
     right: 0;
@@ -790,6 +801,26 @@ a{
     display: none;
     border-radius: 1em;
     left: 50%;
+    z-index: 69420;
+    padding-top: .5em;
+    padding-left: 1em;
+    padding-bottom: .5em;
+    transform: translateX(-50%);
+    box-shadow: 0px 135px 54px rgba(0, 0, 0, 0.03), 0px 76px 45px rgba(0, 0, 0, 0.1), 0px 34px 34px rgba(0, 0, 0, 0.17), 0px 8px 19px rgba(0, 0, 0, 0.2), 0px 0px 0px rgba(0, 0, 0, 0.2);
+}
+
+
+.pfpsubmit-div2{
+    position: absolute;
+    background-color: #262626;
+    width: 70%;
+    bottom: 1em;
+    display: none;
+    z-index: 69420;
+    z-index: 3;
+    border-radius: 1em;
+    left: 50%;
+    color: white;
     padding-top: .5em;
     padding-left: 1em;
     padding-bottom: .5em;
@@ -799,10 +830,11 @@ a{
 
 .pfpsubmit-warning{
     display: inline-block;
+    color: white;
     vertical-align: middle;
     font-size: 1.15em;
     font-family: 'gilroy-700';
-    margin-left: 2em;
+    margin-left: -1em;
 }
 
 .pfpsubmit{
@@ -837,6 +869,23 @@ a{
     box-shadow: 0px 81px 33px rgba(0, 0, 0, 0.01), 0px 46px 27px rgba(0, 0, 0, 0.05), 0px 20px 20px rgba(0, 0, 0, 0.09), 0px 5px 11px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
     border-radius: .8em;
     width: 10em;
+}
+
+
+.follow-btn-followed{
+    display: inline;
+    color: black;
+    font-family: 'avenir-600';
+    letter-spacing: 0.1em;
+    height: 3.5em;
+    text-transform: uppercase;
+    background-color: white;
+    vertical-align: middle;
+    margin-top: 2.25em;
+    float: right;
+    box-shadow: 0px 81px 33px rgba(0, 0, 0, 0.01), 0px 46px 27px rgba(0, 0, 0, 0.05), 0px 20px 20px rgba(0, 0, 0, 0.09), 0px 5px 11px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+    border-radius: .8em;
+    width: 12em;
 }
 
 .user-name{
@@ -887,10 +936,11 @@ a{
     resize: none;
     width: 42em;
     margin-block-start: 0;
-    height: 7em;
+    height: 6em;
     margin-left: 1.5em;
     border: none;
     font-family: 'gilroy-700';
+    background: none;
     outline: none;
     padding: 0em 1.5em 1.5em 0em;
     margin-block-end: 0;
@@ -1454,4 +1504,399 @@ canvas{
     100%{
         transform: translateY(0px);
     }
+}
+
+.user-bio-edit{
+    display: inline-block;
+    vertical-align: top;
+}
+
+.umt-nav{
+    border-bottom:  2px solid #D7ECA4;
+    padding-left: 1em;
+    padding-top: .5em;
+    padding-right: 1em;
+    position: fixed;
+    padding-bottom: .5em;
+    background-color: black;
+    left: 50%;
+    right: 0;
+}
+
+.umt-nav-link{
+    margin-left:6em;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.umt-nav-link-title{
+    display: inline-block;
+    vertical-align: middle;
+    font-family: 'avenir-700';
+    color: white;
+    letter-spacing: 0.1em;
+}
+
+.umt-nav-link-val{
+    min-width: 1.5em;
+    height: 2em;
+    padding-left: .5em;
+    padding-right: .5em;
+    color: black;
+    border-radius: .7em;
+    margin-left: .6em;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.umt-nav-link-val-txt{
+    color: black;
+    display: inline-block;
+    margin-block-start: 0.4em;
+    font-family: 'gilroy-700';
+    vertical-align: middle;
+}
+
+.unlv-1{
+    background-color: #D7ECA4;
+}
+
+.unlv-2{
+    background-color: #CCADFF;
+}
+
+.unlv-3{
+    background-color: #F7B3DE;
+}
+
+.collections{
+    display: none;
+    margin-top: 5em;
+}
+
+.owned{
+    margin-top: 5em;
+    display: none;
+}
+
+.createdd{
+    margin-top: 5em;
+}
+
+.collection{
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 2em;
+    margin-right: 2em;
+    margin-top: 2em;
+}
+
+.collection-img{
+    max-width: 17em;
+}
+
+.collection-info{
+    text-align: left;
+    margin-left: .5em;
+}
+
+.collection-title{
+    font-family: 'gilroy-700';
+    margin-block-end: 0;
+    margin-block-start: .4em;
+}
+
+.collection-buynow{
+    margin-block-start: 1.2em;
+    font-size: .7em;
+    font-family: 'gilroy-700';
+    margin-block-end: 0;
+}
+
+.collection-cost{
+    margin-block-start: 0;
+    color: #FF7A00;
+    font-size: 1.3em;
+    font-family: 'gilroy-700';
+}
+
+.wee{
+    width: 6em;
+    height: 2.3em;
+    background-color: #1b1b1b;
+    display: none;
+    font-size: 1.2em;
+    color: white;
+    border-radius: .7em;
+    box-shadow: 0px 81px 33px rgba(0, 0, 0, 0.01), 0px 46px 27px rgba(0, 0, 0, 0.05), 0px 20px 20px rgba(0, 0, 0, 0.09), 0px 5px 11px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+    font-family: 'gilroy-700';
+}
+
+.user-bio-value::-webkit-scrollbar-thumb{
+    background-color: #000000b4;
+}
+
+.profile-links-txt{
+    display: inline-block;
+    width: 14em;
+    vertical-align: middle;
+    font-family: 'gilroy-600';
+}
+
+.profile-link-input{
+    display: inline-block;
+    vertical-align: middle;
+    outline: none;
+    border: 2px black solid;
+    width: 15em;
+    padding-left: 1em;
+    color: rgb(69, 69, 69);
+    padding-right: 1em;
+    font-family: 'gilroy-700';
+    height: 2.5em;
+}
+
+.profile-links-img{
+    display: inline-block;
+    margin-right: 1em;
+    padding-right: 1em;
+    border-right: 1px grey solid;
+    vertical-align: middle;
+}
+
+.profile-links-btn{
+    width: 8em;
+    background-color: black;
+    font-family: 'gilroy-700';
+    height: 2.5em;
+    color: white;
+    margin-top: .5em;
+    display: block;
+    text-transform: uppercase;
+    border-radius: .6em;
+    margin-left: 75%;
+    letter-spacing: 0.1em;
+    margin-right: 3em;
+}
+
+.blog-main{
+    margin-top: 7.5em;
+}
+
+.blog-head-img{
+    position: absolute;
+    max-height: 10em;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+}
+
+.blog-head-title{
+    padding-top:2em;
+    font-family: 'gilroy-700';
+}
+
+.blog-search{
+    width: 50em;
+    height: 3em;
+    padding-left: 2em;
+    border-radius: .6em;
+    padding-top: 1em;
+    background-color: #0a0a0a;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding-right: 2em;
+}
+
+#blog-search-vector{
+    float:left;
+}
+
+
+.hvr-underline-from-center {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(255, 255, 255, 0);
+    position: relative;
+    overflow: hidden;
+  }
+.hvr-underline-from-center:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 51%;
+    right: 51%;
+    bottom: 0;
+    background: white;
+    height: 2px;
+    -webkit-transition-property: left, right;
+    transition-property: left, right;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+.hvr-underline-from-center:hover:before .hvr-underline-from-center:focus:before, .hvr-underline-from-center:active:before {
+    left: 0;
+    right: 0;
+}
+
+.blog-search-input{
+    background-color: transparent;
+    background: none;
+    border: none;
+    vertical-align: middle;
+    font-size: 1.3em;
+    outline: none;
+    font-family: 'gilroy-600';
+    float: left;
+    margin-top: .25em;
+    margin-left: .5em;
+    color: white;
+    width: 89%;
+}
+
+.blog-tag{
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 1em;
+    border-radius: 1em;
+    width: 6em;
+    text-align: center;
+    font-family: 'gilroy-500';
+}
+
+
+.blog-tag:hover{
+    background-color: rgba(255, 255, 255, 0.293);
+}
+
+.blog-tag-txt{
+    vertical-align: middle;
+}
+
+.blog-tag-active{
+    background-color: white;
+    color: black;
+    font-family: 'gilroy-700';
+}
+
+.blog-home-blogs{
+    margin-top: 4em;
+}
+
+.blog-home-bigblog{
+    background-color: rgba(73, 57, 66, 0.5);
+    width: 27em;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    padding: 2em 2em 2em 2em;
+    height: 32em;
+    margin-right: 1em;
+    border-radius: .7em;
+}
+
+.blog-home-smallblogs{
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    width: 35em;
+    margin-top: 1em;
+}
+
+.blog-home-smallblog{
+    width: 27em;
+    padding: .5em 1.5em .5em 1.5em;
+    background-color: rgba(73, 57, 66, 0.5);
+    height: 9.5em;
+    border-radius: .5em;
+    margin-bottom: 1.5em;
+}
+
+.blog-home-bigblog-img{
+    width: 100%;
+    max-height: 20em;
+    border-radius: 1em;
+}
+
+.blog-home-bigblog-info{
+    position: absolute;
+    bottom: 1em;
+    text-align:left;
+    left: 2em;
+    right: 2em;
+    height: 38%;
+}
+
+.bigblog-info-date-txt{
+    font-family: 'gilroy-600';
+}
+
+.bigblog-info-date{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.bigblog-author-pfp{
+    width: 2em;
+    height: 2em;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 50%;
+}
+
+.bigblog-info-author{
+    display: inline;
+    vertical-align: middle;
+    float: right;
+}
+
+.bigblog-author-name{
+    font-family: 'gilroy-600';
+    margin-left: .5em;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.bigblog-title{
+    font-size: 1.2em;
+    font-family: 'gilroy-700';
+}
+
+.bigblog-content{
+    color: #d8d8d8;
+    font-size: .8em;
+    overflow:hidden;
+    display: block;
+    white-space:normal;;
+    height: 6em;
+    text-overflow: ellipsis;
+}
+
+.blog-home-smallblog{
+    text-align: left;
+}
+
+.home-smallblog-date{
+    font-family: 'gilroy-500';
+    letter-spacing: 0.06em;
+}
+
+.home-smallblog-content{
+    margin-left: 1em;
+    font-family: 'gilroy-500';
+    font-size: 1em;
+    display: -webkit-box;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+}
+
+.blog-home-smallblog-info{
+    width: 60%;
+    display: inline-block;
+    vertical-align: middle;
 }

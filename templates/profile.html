@@ -208,7 +208,13 @@
                   <path d="M24.9634 34.3657C29.3817 34.3657 32.9634 30.784 32.9634 26.3657C32.9634 21.9474 29.3817 18.3657 24.9634 18.3657C20.5451 18.3657 16.9634 21.9474 16.9634 26.3657C16.9634 30.784 20.5451 34.3657 24.9634 34.3657Z" stroke="black" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </label>
-          </div>
+            </div>
+            <input type="file" style="display: none;" onchange="imgPreview()" id="pfp" name="pfp" accept=".png, .jpg, .gif , .jpeg">
+    <div class="pfpsubmit-div">
+      <p class="pfpsubmit-warning">Careful. You have unsaved changes!</p>
+      <input type="submit" class="pfpsubmit hoverable">
+    </div>
+    </form>
         </center>
         <div class="user-profile">
           <div class="user-profile-binfo">
@@ -222,50 +228,233 @@
           <div class="user-profile-stats">
             <center>
             <div class="user-profile-stat" style="margin-left: 0;">
-              <p class="user-profile-stat-val">69 ETH</p>
+              <p class="user-profile-stat-val">{{usrdata['sales']}} ETH</p>
               <p class="user-profile-stat-var">Total Sales</p>
             </div>
             <div class="user-profile-stat">
-              <p class="user-profile-stat-val">69420</p>
+              <p class="user-profile-stat-val">{{usrdata['appreciations']}}</p>
               <p class="user-profile-stat-var">Appreciation(s)</p>
             </div>
             <div class="user-profile-stat">
-              <p class="user-profile-stat-val">80085</p>
+              <p class="user-profile-stat-val">{{usrdata['followers']}}</p>
               <p class="user-profile-stat-var">Follower(s)</p>
             </div>
             </center>
           </div>
           <div class="user-bio">
-            <h2 class="user-bio-title">BIO</h2>
-            <textarea name="" disabled class="user-bio-value">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu donec fermentum fringilla nullam scelerisque molestie. Aliquam lorem lectus dolor ut lacinia nulla erat. Morbi id quisque velit diam non.</textarea>
+            <h2 class="user-bio-title">BIO 
+              <svg width="27" height="27" class="user-bio-edit hoverable" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_337_166)">
+                <path d="M13.0942 26.9168H29.75V29.7501H4.25V23.7392L18.275 9.7142L24.2845 15.7265L13.0928 26.9168H13.0942ZM20.2767 7.71245L23.2829 4.70629C23.5486 4.4407 23.9089 4.2915 24.2845 4.2915C24.6601 4.2915 25.0204 4.4407 25.2861 4.70629L29.2938 8.71404C29.5594 8.9797 29.7086 9.33997 29.7086 9.71562C29.7086 10.0913 29.5594 10.4515 29.2938 10.7172L26.2877 13.722L20.2782 7.71245H20.2767Z" fill="#1E1E1E"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_337_166">
+                <rect width="34" height="34" fill="white"/>
+                </clipPath>
+                </defs>
+              </svg>  
+            </h2>
+            <form action="" method="post">
+              <input type="submit" value="Save" class="wee hoverable" style="float: right; margin-top: -3em; margin-left: 2em;">
+              <textarea name="user-bioo" disabled class="user-bio-value">{{usrdata['bio']}}</textarea>
+            </form>
           </div>
-          <div class="user-bio">
+          <div class="user-bio user-links-bio">
             <h2 class="user-bio-title" style="margin-top: 0; margin-block-start: 0;">LINKS</h2>
             <a href="" class="user-link hoverable" style="margin-left: 2em;">Behance</a>
             <a href="" class="user-link hoverable">Twitter</a>
             <a href="" class="user-link hoverable">Dribbble</a>
             <a href="" class="user-link hoverable">Instagram</a>
+            <center>
+              <div class="profile-links-edit">
+                <br>
+                <form action="" method="post">
+                  <svg width="32" height="32" class="profile-links-img" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M23.558 24.3575C22.6928 24.3683 21.8334 24.2158 21.0247 23.9082C20.3002 23.6264 19.6455 23.1906 19.106 22.6308C18.5746 22.0588 18.1642 21.3854 17.8994 20.6508C17.6086 19.8383 17.4646 18.9804 17.474 18.1175C17.4679 17.2694 17.616 16.4272 17.9114 15.6322C18.1867 14.8908 18.6104 14.2134 19.1567 13.6415C19.7044 13.0767 20.3588 12.6262 21.082 12.3162C21.8654 11.9848 22.709 11.82 23.5594 11.8322C24.4734 11.8126 25.3784 12.0139 26.198 12.4188C26.9296 12.7941 27.564 13.334 28.0514 13.9962C28.543 14.6726 28.8976 15.4384 29.0954 16.2508C29.3111 17.1144 29.3882 18.007 29.3234 18.8948H20.7487C20.7146 19.7382 21.0036 20.5627 21.5567 21.2002C22.1378 21.7099 22.8975 21.9679 23.6687 21.9175C24.2744 21.9316 24.8696 21.7579 25.3727 21.4202C25.772 21.1764 26.0786 20.806 26.2434 20.3682H29.1167C28.7911 21.6064 28.0419 22.6915 26.9994 23.4348C25.9675 24.0731 24.7708 24.3939 23.558 24.3575ZM23.466 14.2988C23.018 14.282 22.5725 14.3735 22.1674 14.5655C21.8505 14.7252 21.5694 14.9475 21.3407 15.2188C21.1395 15.4654 20.9907 15.7503 20.9034 16.0562C20.8264 16.3111 20.7767 16.5735 20.7554 16.8388H26.0647C26.0264 16.1474 25.7628 15.4876 25.314 14.9602C24.8174 14.4914 24.1474 14.2515 23.466 14.2988ZM10.626 24.0482H2.66602V7.6415H10.3994C11.1158 7.63522 11.8308 7.70451 12.5327 7.84817C13.1272 7.96423 13.6936 8.19424 14.2007 8.52551C14.6587 8.84341 15.0263 9.27483 15.2674 9.77751C15.5336 10.383 15.6611 11.0404 15.6407 11.7015C15.6696 12.433 15.4758 13.156 15.0847 13.7748C14.6568 14.3656 14.0785 14.8311 13.41 15.1228C14.3184 15.3499 15.117 15.8918 15.6634 16.6522C16.171 17.4346 16.4278 18.3532 16.3994 19.2855C16.4187 20.0311 16.2548 20.77 15.922 21.4375C15.615 22.0295 15.1695 22.5386 14.6234 22.9215C14.0572 23.3154 13.4249 23.6044 12.7567 23.7748C12.059 23.958 11.3407 24.0504 10.6193 24.0495L10.626 24.0482ZM6.27935 16.7375V21.2575H10.1327C10.4732 21.2612 10.8131 21.2267 11.146 21.1548C11.4508 21.096 11.7408 20.9772 11.9993 20.8055C12.2483 20.6418 12.4505 20.4162 12.586 20.1508C12.7432 19.818 12.8173 19.4519 12.802 19.0842C12.8666 18.4016 12.6022 17.7292 12.09 17.2735C11.5374 16.8931 10.8747 16.7056 10.2047 16.7402L6.27935 16.7375ZM6.27935 10.4375V14.2708H9.93535C10.5009 14.2931 11.0585 14.1318 11.5247 13.8108C11.9642 13.4459 12.1956 12.8877 12.1433 12.3188C12.1546 11.9923 12.085 11.668 11.9407 11.3748C11.8103 11.1379 11.6182 10.9406 11.3847 10.8042C11.1388 10.6583 10.8672 10.561 10.5847 10.5175C10.277 10.4598 9.96438 10.4326 9.65135 10.4362L6.27935 10.4375ZM26.734 10.3628H20.0807V8.74284H26.734V10.3615V10.3628Z" fill="black"/>
+                  </svg>  
+                  <p class="profile-links-txt">https://behance.net/</p>
+                  <input type="text" name="link-behance" value="{{usrdata['behance']}}" class="profile-link-input">
+                  <br><input type="submit" value="Update" class="profile-links-btn">
+                </form>
+                <br>
+                <form action="" method="post">
+                  <svg width="33" height="33" class="profile-links-img" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_361_142)">
+                    <path d="M30.2769 8.2595C29.259 8.70976 28.1796 9.00546 27.0743 9.13683C28.2393 8.44008 29.1112 7.34352 29.5276 6.0515C28.4343 6.70216 27.2356 7.15816 25.9863 7.40483C25.1471 6.50694 24.0348 5.91145 22.8222 5.71094C21.6097 5.51044 20.3649 5.71615 19.2813 6.2961C18.1977 6.87605 17.3361 7.79774 16.8304 8.91789C16.3247 10.038 16.2033 11.2939 16.4849 12.4902C14.2678 12.379 12.0987 11.8029 10.1187 10.799C8.1386 9.79524 6.39178 8.38623 4.99161 6.6635C4.496 7.51476 4.23555 8.48247 4.23694 9.4675C4.23694 11.4008 5.22094 13.1088 6.71694 14.1088C5.83162 14.081 4.96579 13.8419 4.19161 13.4115V13.4808C4.19188 14.7684 4.63743 16.0163 5.45274 17.0129C6.26804 18.0095 7.40292 18.6935 8.66494 18.9488C7.8431 19.1715 6.98135 19.2044 6.14494 19.0448C6.50077 20.1531 7.19429 21.1224 8.1284 21.817C9.06251 22.5115 10.1904 22.8966 11.3543 22.9182C10.1976 23.8266 8.87318 24.4981 7.45678 24.8944C6.04039 25.2906 4.55978 25.4038 3.09961 25.2275C5.64854 26.8667 8.61574 27.737 11.6463 27.7342C21.9036 27.7342 27.5129 19.2368 27.5129 11.8675C27.5129 11.6275 27.5063 11.3848 27.4956 11.1475C28.5874 10.3584 29.5297 9.38086 30.2783 8.26083L30.2769 8.2595Z" fill="black"/>
+                    </g>
+                    <defs>
+                    <clipPath id="clip0_361_142">
+                    <rect width="32" height="32" fill="white" transform="translate(0.728516 0.718262)"/>
+                    </clipPath>
+                    </defs>
+                  </svg>    
+                  <p class="profile-links-txt">https://twitter.com/</p>
+                  <input type="text" name="link-twitter" value="{{usrdata['twitter']}}" class="profile-link-input">
+                  <br><input type="submit" value="Update" class="profile-links-btn">
+                </form>
+                <br>
+                <form action="" method="post">
+                  <svg width="33" height="33" class="profile-links-img" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_361_146)">
+                    <path d="M27.3271 16.1938C27.2178 14.095 26.4879 12.076 25.2298 10.3925C24.8465 10.8053 24.4367 11.1928 24.0031 11.5525C22.671 12.6589 21.1824 13.5621 19.5858 14.2325C19.8085 14.6992 20.0125 15.1512 20.1925 15.5778V15.5818C20.2433 15.701 20.2921 15.8211 20.3391 15.9418C22.3578 15.7152 24.4858 15.7978 26.5485 16.0765C26.8231 16.1138 27.0818 16.1538 27.3271 16.1938V16.1938ZM14.8138 6.26049C16.1132 8.09138 17.3114 9.992 18.4031 11.9538C20.0338 11.3112 21.3818 10.5005 22.4671 9.59782C22.8439 9.28733 23.1985 8.95096 23.5285 8.59115C21.6098 6.97744 19.1822 6.09426 16.6751 6.09782C16.0512 6.09739 15.4284 6.15137 14.8138 6.25915V6.26049ZM6.3458 14.0938C7.2541 14.0709 8.16132 14.0162 9.0658 13.9298C11.252 13.7343 13.4195 13.3678 15.5485 12.8338C14.4358 10.9008 13.2345 9.0201 11.9485 7.19782C10.5748 7.87835 9.36348 8.84636 8.39679 10.0362C7.4301 11.226 6.73062 12.6099 6.3458 14.0938ZM8.3858 23.4778C8.90313 22.7218 9.58313 21.8712 10.4858 20.9458C12.4245 18.9592 14.7125 17.4125 17.3605 16.5592L17.4431 16.5352C17.2231 16.0498 17.0165 15.6165 16.8085 15.2085C14.3605 15.9218 11.7818 16.3672 9.21246 16.5978C7.95913 16.7112 6.83513 16.7605 6.00846 16.7685C6.0061 19.2119 6.84619 21.5815 8.38713 23.4778H8.3858ZM20.6818 26.6512C20.1676 24.0582 19.4398 21.5121 18.5058 19.0392C15.8365 20.0085 13.7098 21.4258 12.0658 23.1165C11.4023 23.7863 10.8136 24.5262 10.3098 25.3232C12.1482 26.6949 14.3814 27.4344 16.6751 27.4312C18.0483 27.4331 19.4089 27.1691 20.6818 26.6538V26.6512ZM23.1791 25.2178C25.2608 23.6175 26.6789 21.3054 27.1618 18.7245C26.7085 18.6112 26.1338 18.4978 25.5018 18.4098C24.0966 18.2075 22.6708 18.1927 21.2618 18.3658C22.0552 20.6043 22.6958 22.894 23.1791 25.2192V25.2178ZM16.6751 30.0978C9.31113 30.0978 3.3418 24.1285 3.3418 16.7645C3.3418 9.40049 9.31113 3.43115 16.6751 3.43115C24.0391 3.43115 30.0085 9.40049 30.0085 16.7645C30.0085 24.1285 24.0391 30.0978 16.6751 30.0978Z" fill="black"/>
+                    </g>
+                    <defs>
+                    <clipPath id="clip0_361_146">
+                    <rect width="32" height="32" fill="white" transform="translate(0.675781 0.764648)"/>
+                    </clipPath>
+                    </defs>
+                  </svg>      
+                  <p class="profile-links-txt">https://dribbble.com/</p>
+                  <input type="text" name="link-dribbble" value="{{usrdata['drible']}}" class="profile-link-input">
+                  <br><input type="submit" value="Update" class="profile-links-btn">
+                </form>
+                <br>
+                <form action="" method="post">
+                  <svg width="33" height="33" class="profile-links-img" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_361_138)">
+                    <path d="M16.6576 12.1688C15.5967 12.1688 14.5793 12.5902 13.8291 13.3404C13.079 14.0905 12.6576 15.1079 12.6576 16.1688C12.6576 17.2296 13.079 18.2471 13.8291 18.9972C14.5793 19.7474 15.5967 20.1688 16.6576 20.1688C17.7184 20.1688 18.7358 19.7474 19.486 18.9972C20.2361 18.2471 20.6576 17.2296 20.6576 16.1688C20.6576 15.1079 20.2361 14.0905 19.486 13.3404C18.7358 12.5902 17.7184 12.1688 16.6576 12.1688ZM16.6576 9.50212C18.4257 9.50212 20.1214 10.2045 21.3716 11.4547C22.6218 12.705 23.3242 14.4007 23.3242 16.1688C23.3242 17.9369 22.6218 19.6326 21.3716 20.8828C20.1214 22.1331 18.4257 22.8354 16.6576 22.8354C14.8894 22.8354 13.1937 22.1331 11.9435 20.8828C10.6933 19.6326 9.99089 17.9369 9.99089 16.1688C9.99089 14.4007 10.6933 12.705 11.9435 11.4547C13.1937 10.2045 14.8894 9.50212 16.6576 9.50212V9.50212ZM25.3242 9.16878C25.3242 9.61081 25.1486 10.0347 24.8361 10.3473C24.5235 10.6599 24.0996 10.8354 23.6576 10.8354C23.2155 10.8354 22.7916 10.6599 22.479 10.3473C22.1665 10.0347 21.9909 9.61081 21.9909 9.16878C21.9909 8.72675 22.1665 8.30283 22.479 7.99027C22.7916 7.67771 23.2155 7.50212 23.6576 7.50212C24.0996 7.50212 24.5235 7.67771 24.8361 7.99027C25.1486 8.30283 25.3242 8.72675 25.3242 9.16878V9.16878ZM16.6576 5.50212C13.3589 5.50212 12.8202 5.51145 11.2856 5.57945C10.2402 5.62878 9.53888 5.76878 8.88822 6.02212C8.30955 6.24612 7.89222 6.51412 7.44822 6.95945C7.03089 7.36265 6.71002 7.85489 6.50955 8.39945C6.25622 9.05278 6.11622 9.75278 6.06822 10.7968C5.99889 12.2688 5.99089 12.7834 5.99089 16.1688C5.99089 19.4674 6.00022 20.0061 6.06822 21.5408C6.11755 22.5848 6.25755 23.2874 6.50955 23.9368C6.73622 24.5168 7.00289 24.9341 7.44555 25.3768C7.89489 25.8248 8.31222 26.0928 8.88555 26.3141C9.54422 26.5688 10.2456 26.7101 11.2856 26.7581C12.7576 26.8274 13.2722 26.8354 16.6576 26.8354C19.9562 26.8354 20.4949 26.8261 22.0296 26.7581C23.0722 26.7088 23.7749 26.5688 24.4256 26.3168C25.0029 26.0914 25.4229 25.8234 25.8656 25.3808C26.3149 24.9314 26.5829 24.5141 26.8042 23.9408C27.0576 23.2834 27.1989 22.5808 27.2469 21.5408C27.3162 20.0688 27.3242 19.5541 27.3242 16.1688C27.3242 12.8701 27.3149 12.3314 27.2469 10.7968C27.1975 9.75412 27.0576 9.05012 26.8042 8.39945C26.6033 7.85545 26.283 7.3634 25.8669 6.95945C25.4639 6.54191 24.9716 6.221 24.4269 6.02078C23.7736 5.76745 23.0722 5.62745 22.0296 5.57945C20.5576 5.51012 20.0429 5.50212 16.6576 5.50212ZM16.6576 2.83545C20.2802 2.83545 20.7322 2.84878 22.1536 2.91545C23.5736 2.98212 24.5402 3.20478 25.3909 3.53545C26.2709 3.87412 27.0122 4.33278 27.7536 5.07278C28.4315 5.73931 28.9562 6.54557 29.2909 7.43545C29.6202 8.28478 29.8442 9.25278 29.9109 10.6728C29.9736 12.0941 29.9909 12.5461 29.9909 16.1688C29.9909 19.7914 29.9776 20.2434 29.9109 21.6648C29.8442 23.0848 29.6202 24.0514 29.2909 24.9021C28.9571 25.7925 28.4324 26.5989 27.7536 27.2648C27.0868 27.9425 26.2806 28.4671 25.3909 28.8021C24.5415 29.1314 23.5736 29.3554 22.1536 29.4221C20.7322 29.4848 20.2802 29.5021 16.6576 29.5021C13.0349 29.5021 12.5829 29.4888 11.1616 29.4221C9.74155 29.3554 8.77488 29.1314 7.92422 28.8021C7.03399 28.4681 6.22759 27.9434 5.56155 27.2648C4.88343 26.5984 4.35879 25.7921 4.02422 24.9021C3.69355 24.0528 3.47089 23.0848 3.40422 21.6648C3.34155 20.2434 3.32422 19.7914 3.32422 16.1688C3.32422 12.5461 3.33755 12.0941 3.40422 10.6728C3.47089 9.25145 3.69355 8.28612 4.02422 7.43545C4.35787 6.54502 4.88262 5.73854 5.56155 5.07278C6.22778 4.39442 7.03412 3.86975 7.92422 3.53545C8.77488 3.20478 9.74022 2.98212 11.1616 2.91545C12.5829 2.85278 13.0349 2.83545 16.6576 2.83545Z" fill="black"/>
+                    </g>
+                    <defs>
+                    <clipPath id="clip0_361_138">
+                    <rect width="32" height="32" fill="white" transform="translate(0.658203 0.168945)"/>
+                    </clipPath>
+                    </defs>
+                    </svg>
+                    
+                  <p class="profile-links-txt">https://instagram.com/</p>
+                  <input type="text" name="link-insta" value="{{usrdata['insta']}}" class="profile-link-input">
+                  <br><input type="submit" value="Update" class="profile-links-btn">
+                </form>
+              </div>
+            </center>
           </div>
         </div>
       </div>
-      <div class="user-main-thing">
-        
+    <div class="user-main-thing">
+      <div class="umt-nav">
+        <center>
+          <div class="nav-created umt-nav-link hoverable" style="margin-left: 0;">
+            <p class="umt-nav-link-title">CREATED</p>
+            <div class="umt-nav-link-val unlv-1"><p class="umt-nav-link-val-txt">179</p></div>
+          </div>
+          <div class="nav-collection umt-nav-link hoverable">
+            <p class="umt-nav-link-title">COLLECTION</p>
+            <div class="umt-nav-link-val unlv-2"><p class="umt-nav-link-val-txt">8</p></div>
+          </div>
+          <div class="nav-owned umt-nav-link hoverable">
+            <p class="umt-nav-link-title">OWNED</p>
+            <div class="umt-nav-link-val unlv-3"><p class="umt-nav-link-val-txt">3</p></div>
+          </div>
+        </center>
       </div>
+        <center>
+          <div class="collections">
+            <div class="collection hoverable">
+              <img src="{{url_for('static', filename='collection-sample.svg')}}" class="collection-img" alt="">
+              <div class="collection-info">
+                <h2 class="collection-title">Bored Ape</h2>
+                <p class="collection-buynow">Buy Now</p>
+                <p class="collection-cost">12.4 ETH</p>
+              </div>
+            </div>
+            <div class="collection hoverable">
+              <img src="{{url_for('static', filename='collection-sample.svg')}}" class="collection-img" alt="">
+              <div class="collection-info">
+                <h2 class="collection-title">Bored Ape</h2>
+                <p class="collection-buynow">Buy Now</p>
+                <p class="collection-cost">12.4 ETH</p>
+              </div>
+            </div>
+            <div class="collection hoverable">
+              <img src="{{url_for('static', filename='collection-sample.svg')}}" class="collection-img" alt="">
+              <div class="collection-info">
+                <h2 class="collection-title">Bored Ape</h2>
+                <p class="collection-buynow">Buy Now</p>
+                <p class="collection-cost">12.4 ETH</p>
+              </div>
+            </div>
+            <div class="collection hoverable">
+              <img src="{{url_for('static', filename='collection-sample.svg')}}" class="collection-img" alt="">
+              <div class="collection-info">
+                <h2 class="collection-title">Bored Ape</h2>
+                <p class="collection-buynow">Buy Now</p>
+                <p class="collection-cost">12.4 ETH</p>
+              </div>
+            </div>
+            
+          </div>
+          <div class="owned">
+            <div class="collection hoverable">
+              <img src="{{url_for('static', filename='collection-sample.svg')}}" class="collection-img" alt="">
+              <div class="collection-info">
+                <h2 class="collection-title">Bored Ape</h2>
+                <p class="collection-cost">12.4 ETH</p>
+              </div>
+            </div>
+            <div class="collection hoverable">
+              <img src="{{url_for('static', filename='collection-sample.svg')}}" class="collection-img" alt="">
+              <div class="collection-info">
+                <h2 class="collection-title">Bored Ape</h2>
+                <p class="collection-cost">12.4 ETH</p>
+              </div>
+            </div>
+            <div class="collection hoverable">
+              <img src="{{url_for('static', filename='collection-sample.svg')}}" class="collection-img" alt="">
+              <div class="collection-info">
+                <h2 class="collection-title">Bored Ape</h2>
+                <p class="collection-cost">12.4 ETH</p>
+              </div>
+            </div>
+            <div class="collection hoverable">
+              <img src="{{url_for('static', filename='collection-sample.svg')}}" class="collection-img" alt="">
+              <div class="collection-info">
+                <h2 class="collection-title">Bored Ape</h2>
+                <p class="collection-cost">12.4 ETH</p>
+              </div>
+            </div>
+          </div>
+          <div class="createdd">
+            <div class="collection hoverable">
+              <img src="{{url_for('static', filename='collection-sample.svg')}}" class="collection-img" alt="">
+              <div class="collection-info">
+                <h2 class="collection-title">Bored Ape</h2>
+                <p class="collection-cost">12.4 ETH</p>
+              </div>
+            </div>
+            <div class="collection hoverable">
+              <img src="{{url_for('static', filename='collection-sample.svg')}}" class="collection-img" alt="">
+              <div class="collection-info">
+                <h2 class="collection-title">Bored Ape</h2>
+                <p class="collection-cost">12.4 ETH</p>
+              </div>
+            </div>
+            <div class="collection hoverable">
+              <img src="{{url_for('static', filename='collection-sample.svg')}}" class="collection-img" alt="">
+              <div class="collection-info">
+                <h2 class="collection-title">Bored Ape</h2>
+                <p class="collection-cost">12.4 ETH</p>
+              </div>
+            </div>
+            <div class="collection hoverable">
+              <img src="{{url_for('static', filename='collection-sample.svg')}}" class="collection-img" alt="">
+              <div class="collection-info">
+                <h2 class="collection-title">Bored Ape</h2>
+                <p class="collection-cost">12.4 ETH</p>
+              </div>
+            </div>
+          </div>
+        </center>
+      </div>
+      
     </div>
   </div>
-  <input type="file" style="display: none;" onchange="imgPreview()" id="pfp" name="pfp" accept=".png, .jpg, .gif , .jpeg">
-  <div class="pfpsubmit-div">
-    <p class="pfpsubmit-warning">Careful. You have unsaved changes!</p>
-    <input type="submit" class="pfpsubmit hoverable">
-  </div>
-</form>
 </body>
 </html>
 <div class="cursor">
         
-    <div class="cursor__ball cursor__ball--big ">
-        <svg height="30" width="30">
-          <circle cx="15" cy="15" r="12" stroke-width="0"></circle>
+  <div class="cursor__ball cursor__ball--big ">
+    <svg height="30" width="30">
+      <circle cx="15" cy="15" r="12" stroke-width="0"></circle>
         </svg>
       </div>
     <div class="cursor__ball cursor__ball--small">

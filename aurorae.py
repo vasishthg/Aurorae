@@ -1,3 +1,4 @@
+from itertools import tee
 import os
 from flask import Flask, render_template, request, session, jsonify, redirect, url_for, flash, send_from_directory
 import MySQLdb.cursors
@@ -7,6 +8,7 @@ import mysql
 from zenora import APIClient
 from config import TOKEN, CLIENT_SECRET, OAUTH_URL, REDIRECT_URI
 from werkzeug.utils import secure_filename
+import datetime
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "157193d1577cea433f3982b1b24b811374d39a048115a29d9a47c4d6fb054b27cd5be948f30385bf7137073731c233ac60cdb2e481200080cc0284650e8ffcb1"
@@ -34,6 +36,18 @@ def index():
     else:
         return render_template("index.html")
 
+
+@app.route('/blog', methods=["GET", "POST"])
+def blog():
+    date = datetime.datetime.now().date()
+    print(date)
+    cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    if 'loggedin' in session:
+        cur.execute("SELECT * FROM accounts WHERE email = %s", [session['email']])
+        usrdata = cur.fetchone()
+        return render_template("blog.html", usrdata = usrdata)
+    else:
+        return render_template("blog.html")
 
 @app.route('/discover', methods=["GET", "POST"])
 def discover():
@@ -72,7 +86,7 @@ def discordauth():
             name = request.form.get("discord-oauth-name")
             email = request.form.get("discord-oauth-email")
             password = request.form.get("discord-oauth-password")
-            cur.execute("INSERT INTO accounts VALUES(NULL, %s, %s, %s, %s, %s, %s, DEFAULT, DEFAULT, DEFAULT, DEFAULT, NULL, DEFAULT, DEFAULT, DEFAULT)", (name, email, current_user.username, password, str(current_user.id), current_user.avatar_url))
+            cur.execute("INSERT INTO accounts VALUES(NULL, %s, %s, %s, %s, %s, %s, DEFAULT, DEFAULT, DEFAULT, DEFAULT, NULL, DEFAULT, DEFAULT, NULL, NULL, NULL, NULL)", (name, email, current_user.username, password, str(current_user.id), current_user.avatar_url))
             mysql.connection.commit()
             cur.execute("SELECT * FROM accounts WHERE discordid = %s AND email = %s", [str(current_user.id), email])
             account = cur.fetchone()
@@ -104,7 +118,7 @@ def auth():
             session['password'] = account['Password']
             return redirect('/profile')
         else:
-            cur.execute("INSERT INTO accounts VALUES(NULL, %s, %s, %s, %s, NULL, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, NULL, DEFAULT, DEFAULT, DEFAULT)", (name, email, username, password))
+            cur.execute("INSERT INTO accounts VALUES(NULL, %s, %s, %s, %s, NULL, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, NULL, DEFAULT, DEFAULT, NULL, NULL, NULL, NULL)", (name, email, username, password))
             mysql.connection.commit()
             cur.execute("SELECT * FROM accounts WHERE email = %s", [email])
             account = cur.fetchone()
@@ -147,6 +161,33 @@ def userprofile():
         cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cur.execute("SELECT * FROM accounts WHERE email = %s", [session['email']])
         usrdata = cur.fetchone()
+        if request.method == "POST" and "user-bioo" in request.form:
+            print("helo")
+            bio = request.form.get("user-bioo")
+            print(bio)
+            cur.execute("UPDATE accounts SET bio = %s WHERE email = %s", (bio, usrdata['email']))
+            mysql.connection.commit()
+            return redirect(request.url)
+        if request.method == "POST" and "link-behance" in request.form:
+            behance = request.form.get("link-behance")
+            cur.execute("UPDATE accounts SET behance = %s WHERE email = %s", (behance, usrdata['email']))
+            mysql.connection.commit()
+            return redirect(request.url)
+        if request.method == "POST" and "link-twitter" in request.form:
+            twitter = request.form.get("link-twitter")
+            cur.execute("UPDATE accounts SET twitter = %s WHERE email = %s", (twitter, usrdata['email']))
+            mysql.connection.commit()
+            return redirect(request.url)
+        if request.method == "POST" and "link-dribbble" in request.form:
+            drible = request.form.get("link-dribbble")
+            cur.execute("UPDATE accounts SET drible = %s WHERE email = %s", (drible, usrdata['email']))
+            mysql.connection.commit()
+            return redirect(request.url)
+        if request.method == "POST" and "link-insta" in request.form:
+            insta = request.form.get("link-insta")
+            cur.execute("UPDATE accounts SET insta = %s WHERE email = %s", (insta, usrdata['email']))
+            mysql.connection.commit()
+            return redirect(request.url)
         if request.method == "POST":
             if 'pfp' not in request.files:
                 flash("No file part")
@@ -169,32 +210,67 @@ def file(name):
 
 @app.route('/user/<int:id>', methods=["GET", "POST"])
 def user(id):
+    id = str(id)
     cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    cur.execute("SELECT * FROM accounts WHERE id = %s", [str(id)])
+    cur.execute("SELECT * FROM accounts WHERE id = %s", (id))
     user = cur.fetchone()
     if 'loggedin' in session:
         following = False
         cur.execute("SELECT * FROM accounts WHERE email = %s", [session['email']])
         usrdata = cur.fetchone()
         followers = user['followers']
-        followingaccs = (usrdata['followingaccs'])
-        b=followingaccs.split(",")
-        print(b)
-        if str(user['id']) in b:
+        followinge = usrdata['following']
+        cur.execute("SELECT follower FROM following WHERE target = %s", [user['email']])
+        followuser = cur.fetchone()
+        if followuser:
+            pass
+        else:
+            cur.execute("INSERT INTO following VALUES(NULL, %s, %s, %s)", (usrdata['email'], False, user['email']))
+            mysql.connection.commit()
+            return redirect(request.url)
+        cur.execute("SELECT status FROM following WHERE follower = %s AND target = %s", (usrdata['email'], user['email']))
+        followingstatus = cur.fetchone()['status']
+        if followingstatus == '1':
             following = True
+        else:
+            following = False
+        if user['email'] == usrdata['email']:
+            return redirect('/profile')
         if request.method == "POST" and "follow" in request.form:
-            if str(id) not in b:
-                x = id
-                b.append(str(x))
-                print(b)
-                a=""
-                for potty in  b:
-                    a=a+str(potty)+","
-                    print(a)
-                followers+=1
-                cur.execute("UPDATE accounts SET followers = %s WHERE email = %s", (followers, user['email']))
+            if following == False:
+                tofollow = True
+            else:
+                tofollow = False
+            cur.execute("SELECT * FROM following WHERE follower = %s AND target = %s", (usrdata['email'], user['email']))
+            fstatus = cur.fetchone()
+            if fstatus:
+                cur.execute("SELECT * FROM following WHERE follower = %s AND target = %s", [usrdata['email'], user['email']])
+                fdata = cur.fetchone()
+                if fdata['status'] == '0':
+                    followers+=1
+                    followinge+=1
+                    cur.execute("UPDATE accounts SET followers = %s WHERE email = %s", [followers, user['email']])
+                    mysql.connection.commit()
+                    cur.execute("UPDATE accounts SET following = %s WHERE email = %s", [followinge, usrdata['email']])
+                    mysql.connection.commit()
+                else:
+                    followers-=1
+                    followinge-=1
+                    cur.execute("UPDATE accounts SET followers = %s WHERE email = %s", [followers, user['email']])
+                    mysql.connection.commit()
+                    cur.execute("UPDATE accounts SET following = %s WHERE email = %s", [followinge, usrdata['email']])
+                    mysql.connection.commit()
+                cur.execute("UPDATE following SET status = %s WHERE follower = %s AND target = %s", (tofollow, usrdata['email'], user['email']))
                 mysql.connection.commit()
-                cur.execute("UPDATE accounts SET followingaccs = %s WHERE email = %s", (a, usrdata['email']))
+                return redirect(request.url)
+            else:
+                followers+=1
+                followinge+=1
+                cur.execute("UPDATE accounts SET followers = %s", [followers])
+                mysql.connection.commit()
+                cur.execute("UPDATE accounts SET following = %s", [followinge])
+                mysql.connection.commit()
+                cur.execute("INSERT INTO following VALUES(NULL, %s, %s, %s)", (usrdata['email'], True, user['email']))
                 mysql.connection.commit()
                 return redirect(request.url)
         return render_template("user.html", usrdata = usrdata, user = user, following = following)
