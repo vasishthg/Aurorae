@@ -185,6 +185,7 @@ $(".to-login").click(function(){
   document.querySelector(".auth-selector").classList.add('animate__animated', "animate__fadeOutUp")
   loadLogin();
 })
+$(".val-false").hide()
 
 img = document.querySelector(".auth-img")
 tag = document.querySelector(".auth-tag-main")
@@ -248,22 +249,18 @@ function loadRegister(){
 }
 
 $(document).bind('done_loading', authLoad());
-//     filter: blur(4px);
-// opacity: 40%;
 
 
 const $bigBall = document.querySelector('.cursor__ball--big');
 const $smallBall = document.querySelector('.cursor__ball--small');
 const $hoverables = document.querySelectorAll('.hoverable');
 
-// Listeners
 document.body.addEventListener('mousemove', onMouseMove);
 for (let i = 0; i < $hoverables.length; i++) {
   $hoverables[i].addEventListener('mouseenter', onMouseHover);
   $hoverables[i].addEventListener('mouseleave', onMouseHoverOut);
 }
 
-// Move the cursor
 function onMouseMove(e) {
     TweenMax.to($bigBall, .4, {
       x: e.clientX - 15,
@@ -277,7 +274,6 @@ function onMouseMove(e) {
   })
 }
 
-// Hover an element
 function onMouseHover() {
   TweenMax.to($bigBall, .3, {
     scale: 2
@@ -302,7 +298,300 @@ $(".menu-go-back").click(function(){
   $(".hamburger").hide("slide", {direction: "right"}, 700)
 })
 
+// Tag Value ;-;
+$(".tag-value-selector-art").click(function(){
+  document.querySelector(".createnew-tag-art").setAttribute("value", "True")
+  $(".tag-value-selector-art-false").slideToggle(300)
+  $(".tag-value-selector-art").slideToggle(300)
+})
 
+$(".tag-value-selector-art-false").click(function(){
+  document.querySelector(".createnew-tag-art").setAttribute("value", "False")
+  $(".tag-value-selector-art-false").slideToggle(300)
+  $(".tag-value-selector-art").slideToggle(300)
+})
+
+$(".tag-value-selector-music").click(function(){
+  document.querySelector(".createnew-tag-music").setAttribute("value", "True")
+  $(".tag-value-selector-music-false").slideToggle(300)
+  $(".tag-value-selector-music").slideToggle(300)
+})
+
+$(".tag-value-selector-music-false").click(function(){
+  document.querySelector(".createnew-tag-music").setAttribute("value", "False")
+  $(".tag-value-selector-music-false").slideToggle(300)
+  $(".tag-value-selector-music").slideToggle(300)
+})
+
+$(".tag-value-selector-abstract").click(function(){
+  document.querySelector(".createnew-tag-abstract").setAttribute("value", "True")
+  $(".tag-value-selector-abstract-false").slideToggle(300)
+  $(".tag-value-selector-abstract").slideToggle(300)
+})
+
+$(".tag-value-selector-abstract-false").click(function(){
+  document.querySelector(".createnew-tag-abstract").setAttribute("value", "False")
+  $(".tag-value-selector-abstract-false").slideToggle(300)
+  $(".tag-value-selector-abstract").slideToggle(300)
+})
+
+$(".tag-value-selector-fantasy").click(function(){
+  document.querySelector(".createnew-tag-fantasy").setAttribute("value", "True")
+  $(".tag-value-selector-fantasy-false").slideToggle(300)
+  $(".tag-value-selector-fantasy").slideToggle(300)
+})
+
+$(".tag-value-selector-fantasy-false").click(function(){
+  document.querySelector(".createnew-tag-fantasy").setAttribute("value", "False")
+  $(".tag-value-selector-fantasy-false").slideToggle(300)
+  $(".tag-value-selector-fantasy").slideToggle(300)
+})
+
+$(".tag-value-selector-nft").click(function(){
+  document.querySelector(".createnew-tag-nft").setAttribute("value", "True")
+  $(".tag-value-selector-nft-false").slideToggle(300)
+  $(".tag-value-selector-nft").slideToggle(300)
+})
+
+$(".tag-value-selector-nft-false").click(function(){
+  document.querySelector(".createnew-tag-nft").setAttribute("value", "False")
+  $(".tag-value-selector-nft-false").slideToggle(300)
+  $(".tag-value-selector-nft").slideToggle(300)
+})
+
+$(".tag-value-selector-tech").click(function(){
+  document.querySelector(".createnew-tag-tech").setAttribute("value", "True")
+  $(".tag-value-selector-tech-false").slideToggle(300)
+  $(".tag-value-selector-tech").slideToggle(300)
+})
+
+$(".tag-value-selector-tech-false").click(function(){
+  document.querySelector(".createnew-tag-tech").setAttribute("value", "False")
+  $(".tag-value-selector-tech-false").slideToggle(300)
+  $(".tag-value-selector-tech").slideToggle(300)
+})
+
+$(".tag-value-selector-anime").click(function(){
+  document.querySelector(".createnew-tag-anime").setAttribute("value", "True")
+  $(".tag-value-selector-anime-false").slideToggle(300)
+  $(".tag-value-selector-anime").slideToggle(300)
+})
+
+$(".tag-value-selector-anime-false").click(function(){
+  document.querySelector(".createnew-tag-anime").setAttribute("value", "False")
+  $(".tag-value-selector-anime-false").slideToggle(300)
+  $(".tag-value-selector-anime").slideToggle(300)
+})
+
+$(".blog-head-tag-all").click(function(){
+  $(".blog-tags").slideUp(350)
+  setTimeout(function(){
+    document.querySelector(".blog-head-tag-art").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-all").classList.add("blog-tag-active")
+    document.querySelector(".blog-head-tag-music").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-abstract").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-fantasy").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-nft").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-tech").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-anime").classList.remove("blog-tag-active")
+    setTimeout(function(){
+      $(".blog-tags").slideDown(350)
+    }, 100)
+  }, 400)
+})
+
+$(".blogs-bigblog-cat-art").hide()
+$(".blogs-bigblog-cat-music").hide()
+$(".blogs-bigblog-cat-abstract").hide()
+$(".blogs-bigblog-cat-fantasy").hide()
+$(".blogs-bigblog-cat-nft").hide()
+$(".blogs-bigblog-cat-tech").hide()
+$(".blogs-bigblog-cat-anime").hide()
+
+
+$(".blog-head-tag-art").click(function(){
+  $(".blog-tags").slideUp(350)
+  setTimeout(function(){
+    document.querySelector(".blog-head-tag-art").classList.add("blog-tag-active")
+    document.querySelector(".blog-head-tag-all").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-music").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-abstract").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-fantasy").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-nft").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-tech").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-anime").classList.remove("blog-tag-active")
+    $(".blogs-bigblog-cat-art").show()
+    document.querySelector(".blogs-bigblog-cat-art-author").setAttribute("style", "display: inline-block !important;")
+    $(".blog-all").hide()
+    $(".blogs-bigblog-cat-music").hide()
+    $(".blogs-bigblog-cat-abstract").hide()
+    $(".blogs-bigblog-cat-fantasy").hide()
+    $(".blogs-bigblog-cat-nft").hide()
+    $(".blogs-bigblog-cat-anime").hide()
+    $(".blogs-bigblog-cat-tech").hide()
+    setTimeout(function(){
+      $(".blog-tags").slideDown(350)
+    }, 100)
+  }, 400)
+})
+
+$(".blog-head-tag-music").click(function(){
+  $(".blog-tags").slideUp(350)
+  setTimeout(function(){
+    document.querySelector(".blog-head-tag-art").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-all").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-music").classList.add("blog-tag-active")
+    document.querySelector(".blog-head-tag-abstract").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-fantasy").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-nft").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-tech").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-anime").classList.remove("blog-tag-active")
+    $(".blogs-bigblog-cat-music").show()
+    document.querySelector(".blogs-bigblog-cat-music-author").setAttribute("style", "display: inline-block !important;")
+    $(".blog-all").hide()
+    $(".blogs-bigblog-cat-art").hide()
+    $(".blogs-bigblog-cat-abstract").hide()
+    $(".blogs-bigblog-cat-fantasy").hide()
+    $(".blogs-bigblog-cat-nft").hide()
+    $(".blogs-bigblog-cat-anime").hide()
+    $(".blogs-bigblog-cat-tech").hide()
+    setTimeout(function(){
+      $(".blog-tags").slideDown(350)
+    }, 100)
+  }, 400)
+})
+
+$(".blog-head-tag-abstract").click(function(){
+  $(".blog-tags").slideUp(350)
+  setTimeout(function(){
+    document.querySelector(".blog-head-tag-art").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-all").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-music").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-abstract").classList.add("blog-tag-active")
+    document.querySelector(".blog-head-tag-fantasy").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-nft").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-tech").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-anime").classList.remove("blog-tag-active")
+    $(".blogs-bigblog-cat-abstract").show()
+    document.querySelector(".blogs-bigblog-cat-abstract-author").setAttribute("style", "display: inline-block !important;")
+    $(".blog-all").hide()
+    $(".blogs-bigblog-cat-music").hide()
+    $(".blogs-bigblog-cat-art").hide()
+    $(".blogs-bigblog-cat-fantasy").hide()
+    $(".blogs-bigblog-cat-nft").hide()
+    $(".blogs-bigblog-cat-anime").hide()
+    $(".blogs-bigblog-cat-tech").hide()
+    setTimeout(function(){
+      $(".blog-tags").slideDown(350)
+    }, 100)
+  }, 400)
+})
+
+
+$(".blog-head-tag-fantasy").click(function(){
+  $(".blog-tags").slideUp(350)
+  setTimeout(function(){
+    document.querySelector(".blog-head-tag-art").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-all").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-music").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-abstract").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-fantasy").classList.add("blog-tag-active")
+    document.querySelector(".blog-head-tag-nft").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-tech").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-anime").classList.remove("blog-tag-active")
+    $(".blogs-bigblog-cat-fantasy").show()
+    document.querySelector(".blogs-bigblog-cat-fantasy-author").setAttribute("style", "display: inline-block !important;")
+    $(".blog-all").hide()
+    $(".blogs-bigblog-cat-music").hide()
+    $(".blogs-bigblog-cat-abstract").hide()
+    $(".blogs-bigblog-cat-art").hide()
+    $(".blogs-bigblog-cat-nft").hide()
+    $(".blogs-bigblog-cat-anime").hide()
+    $(".blogs-bigblog-cat-tech").hide()
+    setTimeout(function(){
+      $(".blog-tags").slideDown(350)
+    }, 100)
+  }, 400)
+})
+
+
+$(".blog-head-tag-nft").click(function(){
+  $(".blog-tags").slideUp(350)
+  setTimeout(function(){
+    document.querySelector(".blog-head-tag-art").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-all").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-music").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-abstract").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-fantasy").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-nft").classList.add("blog-tag-active")
+    document.querySelector(".blog-head-tag-tech").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-anime").classList.remove("blog-tag-active")
+    $(".blogs-bigblog-cat-nft").show()
+    document.querySelector(".blogs-bigblog-cat-nft-author").setAttribute("style", "display: inline-block !important;")
+    $(".blog-all").hide()
+    $(".blogs-bigblog-cat-music").hide()
+    $(".blogs-bigblog-cat-abstract").hide()
+    $(".blogs-bigblog-cat-fantasy").hide()
+    $(".blogs-bigblog-cat-art").hide()
+    $(".blogs-bigblog-cat-anime").hide()
+    $(".blogs-bigblog-cat-tech").hide()
+    setTimeout(function(){
+      $(".blog-tags").slideDown(350)
+    }, 100)
+  }, 400)
+})
+
+$(".blog-head-tag-tech").click(function(){
+  $(".blog-tags").slideUp(350)
+  setTimeout(function(){
+    document.querySelector(".blog-head-tag-art").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-all").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-music").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-abstract").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-fantasy").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-nft").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-tech").classList.add("blog-tag-active")
+    document.querySelector(".blog-head-tag-anime").classList.remove("blog-tag-active")
+    $(".blogs-bigblog-cat-tech").show()
+    document.querySelector(".blogs-bigblog-cat-tech-author").setAttribute("style", "display: inline-block !important;")
+    $(".blog-all").hide()
+    $(".blogs-bigblog-cat-music").hide()
+    $(".blogs-bigblog-cat-abstract").hide()
+    $(".blogs-bigblog-cat-fantasy").hide()
+    $(".blogs-bigblog-cat-nft").hide()
+    $(".blogs-bigblog-cat-anime").hide()
+    $(".blogs-bigblog-cat-art").hide()
+    setTimeout(function(){
+      $(".blog-tags").slideDown(350)
+    }, 100)
+  }, 400)
+})
+
+$(".blog-head-tag-anime").click(function(){
+  $(".blog-tags").slideUp(350)
+  setTimeout(function(){
+    document.querySelector(".blog-head-tag-art").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-all").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-music").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-abstract").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-fantasy").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-nft").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-tech").classList.remove("blog-tag-active")
+    document.querySelector(".blog-head-tag-anime").classList.add("blog-tag-active")
+    $(".blogs-bigblog-cat-anime").show()
+    $(".blog-all").hide()
+    document.querySelector(".blogs-bigblog-cat-anime-author").setAttribute("style", "display: inline-block !important;")
+    $(".blogs-bigblog-cat-music").hide()
+    $(".blogs-bigblog-cat-abstract").hide()
+    $(".blogs-bigblog-cat-fantasy").hide()
+    $(".blogs-bigblog-cat-nft").hide()
+    $(".blogs-bigblog-cat-art").hide()
+    $(".blogs-bigblog-cat-tech").hide()
+    setTimeout(function(){
+      $(".blog-tags").slideDown(350)
+    }, 100)
+  }, 400)
+})
 
 // File display shit(why am i doing this)
 $(".user-pfp-change").change(function(e){

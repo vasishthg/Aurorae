@@ -1817,7 +1817,7 @@ canvas{
 
 .blog-home-bigblog-img{
     width: 100%;
-    max-height: 20em;
+    max-height: 18em;
     border-radius: 1em;
 }
 
@@ -1869,9 +1869,16 @@ canvas{
     color: #d8d8d8;
     font-size: .8em;
     overflow:hidden;
+    outline: none;
     display: block;
-    white-space:normal;;
+    white-space:normal;
+    background-color: none;
+    border: none;
     height: 6em;
+    resize: none;
+    width: 100%;
+    font-family: inherit;
+    background: none;
     text-overflow: ellipsis;
 }
 
@@ -2103,6 +2110,7 @@ canvas{
     border-radius: .6em;
     height: 3em;
     background-color: #49394280;
+    animation: worev 1s 1 forwards;
 }
 
 .login-btn:hover{
@@ -2113,4 +2121,35 @@ canvas{
     100%{
         filter: drop-shadow(0 0 0.0rem black);
     }
+}
+
+@keyframes worev {
+    0%{
+        filter: drop-shadow(0 0 0.0rem black);
+    }
+    100%{
+        filter: drop-shadow(0 3px 0.3rem #ffffff4f);
+    }
+}
+
+.blogs-bigblog-cat-art{
+    display: none;
+}
+.blogs-bigblog-cat-music{
+    display: none;
+}
+.blogs-bigblog-cat-abstract{
+    display: none;
+}
+.blogs-bigblog-cat-fantasy{
+    display: none;
+}
+.blogs-bigblog-cat-nft{
+    display: none;
+}
+.blogs-bigblog-cat-tech{
+    display: none;
+}
+.blogs-bigblog-cat-anime{
+    display: none;
 }
