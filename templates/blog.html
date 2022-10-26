@@ -246,8 +246,8 @@
                             <p class="bigblog-info-date-txt">25 October 2022</p>
                         </div>
                         <div class="bigblog-info-author">
-                            <img src="{{usrdata['pfp']}}" class="bigblog-author-pfp" alt="">
-                            <p class="bigblog-author-name">{{usrdata['Name']}}</p>
+                            <img src="/uploads/ahnaf8.jpg" class="bigblog-author-pfp" alt="">
+                            <p class="bigblog-author-name">Pz</p>
                         </div>
                         <h2 class="bigblog-title">Lorem Ipsum Sit Dolor Amet. Meme chungus big amongus, may god help us all</h2>
                         <p class="bigblog-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lacus eleifend elementum sodales neque vitae. Tempor varius lectus urna, eleifend vitae phasellus pellentesque ut purus. Neque auctor nam adipiscing dignissim pellentesque nec, dignissim.</p>
@@ -261,20 +261,100 @@
                                 <p class="home-smallblog-date">29 April 2022</p>
                                 <p class="home-smallblog-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lacus eleifend elementum sodales neque vitae. Tempor varius lectus urna, eleifend vitae phasellus pellentesque ut purus. Neque auctor nam adipiscing </p>
                             </div>
-                            <img class="blog-home-smallblog-thumb"></div>
+                            <img class="blog-home-smallblog-thumb" src="{{url_for('static', filename='smallblog-sample.svg')}}">
                         </div>
                     </a>
-                    <a><div class="blog-home-smallblog hoverable">
-                        <div class="bigblog-info-date">
-                            <p class="bigblog-info-date-txt">12 October 10200</p>
+                    <a>
+                        <div class="blog-home-smallblog hoverable">
+                            <div class="blog-home-smallblog-info">
+                                <p class="home-smallblog-date">29 April 2022</p>
+                                <p class="home-smallblog-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lacus eleifend elementum sodales neque vitae. Tempor varius lectus urna, eleifend vitae phasellus pellentesque ut purus. Neque auctor nam adipiscing </p>
+                            </div>
+                            <img class="blog-home-smallblog-thumb" src="{{url_for('static', filename='smallblog-sample.svg')}}">
                         </div>
-                    </div></a>
-                    <a><div class="blog-home-smallblog hoverable">
-                        <div class="bigblog-info-date">
-                            <p class="bigblog-info-date-txt">12 October 10200</p>
+                    </a>
+                    <a>
+                        <div class="blog-home-smallblog hoverable">
+                            <div class="blog-home-smallblog-info">
+                                <p class="home-smallblog-date">29 April 2022</p>
+                                <p class="home-smallblog-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lacus eleifend elementum sodales neque vitae. Tempor varius lectus urna, eleifend vitae phasellus pellentesque ut purus. Neque auctor nam adipiscing </p>
+                            </div>
+                            <img class="blog-home-smallblog-thumb" src="{{url_for('static', filename='smallblog-sample.svg')}}">
                         </div>
-                    </div></a>
+                    </a>
+
                 </div>
+            </div>
+            <br>
+            <div class="blogs-createnew">
+              {% if 'loggedin' in session %}
+                <form action="" method="post" class="blogs-createnew-form" enctype="multipart/form-data">
+                    <div class="bcn-1">
+                        <input type="text" class="blogs-createnew-input bci-1" name="blogs-createnew-title" placeholder="Add Title" id="">
+                        <div style="text-align: left;" class="blogs-createnew-input bci-2"><img src="{{usrdata['pfp']}}" class="bci-img"><textarea type="text" name="blogs-createnew-title" class="blogs-createnew-thot" placeholder="Share your thoughts." id=""></textarea></div>
+                    </div>
+                    <div class="bcn-2">
+                        <div class="blogs-createnew-input bcn-3">
+                            <div class="blogs-createnew-thumb-overlay hoverable">
+                                <input onchange="createPreview()" accept=".png, .jpg, .gif , .jpeg" type="file" style="display: none;" name="createnew-upload" id="createnew-upload">
+                                <label for="createnew-upload" class="createnew-thumb-overlay-main" onmouseleave="blogsPreviewImage()">
+                                    <svg width="40" height="40" class="createnew-thumb-overlay-vector" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M8 10C5.79086 10 4 11.7909 4 14V30C4 32.2092 5.79086 34 8 34H32C34.2092 34 36 32.2092 36 30V14C36 11.7909 34.2092 10 32 10H28.8284C28.298 10 27.7892 9.78928 27.4142 9.41422L25.1716 7.17158C24.4214 6.42142 23.404 6 22.3432 6H17.6569C16.596 6 15.5786 6.42142 14.8284 7.17158L12.5858 9.41422C12.2107 9.78928 11.702 10 11.1716 10H8ZM20 28C23.3138 28 26 25.3138 26 22C26 18.6863 23.3138 16 20 16C16.6863 16 14 18.6863 14 22C14 25.3138 16.6863 28 20 28Z" fill="white"/>
+                                    </svg>
+                                    <p class="createnew-thumb-overlay-txt">Upload Image</p>
+                                </label>
+                            </div>
+                            <div class="blogs-createnew-thumb" onmouseenter="blogsUploadPrompt()">
+                                <img src="{{url_for('static', filename='createnew-sample.svg')}}" class="createnew-upload" alt="">
+                            </div>
+                            <p class="orr">OR</p>
+                            <input type="text" placeholder="Enter Image Url" name="" class="bcn-imgurl" id="">
+                        </div>
+                        <div class="blogs-createnew-tags">
+                            <h2 class="createnew-tags-head">Add Tags</h2>
+                            <div class="tags-value">
+                                <p class="tags-value-txt">Art</p>
+                                <img src="{{url_for('static', filename='check.svg')}}" class="tags-value-bool hoverable" alt="">
+                                <input type= "text" name="createnew-tag-art" style="display: none;" value="False">
+                            </div>
+                            <div class="tags-value">
+                              <p class="tags-value-txt">Music</p>
+                              <img src="{{url_for('static', filename='check.svg')}}" class="tags-value-bool hoverable" alt="">
+                              <input type= "text" name="createnew-tag-music" style="display: none;" value="False">
+                          </div>
+                          <div class="tags-value">
+                            <p class="tags-value-txt">Abstract</p>
+                            <img src="{{url_for('static', filename='check.svg')}}" class="tags-value-bool hoverable" alt="">
+                            <input type= "text" name="createnew-tag-abstract" style="display: none;" value="False">
+                        </div>
+                        <div class="tags-value">
+                          <p class="tags-value-txt">Fantasy</p>
+                          <img src="{{url_for('static', filename='check.svg')}}" class="tags-value-bool hoverable" alt="">
+                          <input type= "text" name="createnew-tag-fantasy" style="display: none;" value="False">
+                      </div>
+                      <div class="tags-value">
+                        <p class="tags-value-txt">NFT</p>
+                        <img src="{{url_for('static', filename='check.svg')}}" class="tags-value-bool hoverable" alt="">
+                        <input type= "text" name="createnew-tag-nft" style="display: none;" value="False">
+                    </div>
+                    <div class="tags-value">
+                      <p class="tags-value-txt">Tech</p>
+                      <img src="{{url_for('static', filename='check.svg')}}" class="tags-value-bool hoverable" alt="">
+                      <input type= "text" name="createnew-tag-tech" style="display: none;" value="False">
+                  </div>
+                  <div class="tags-value">
+                    <p class="tags-value-txt">Anime</p>
+                    <img src="{{url_for('static', filename='check.svg')}}" class="tags-value-bool hoverable" alt="">
+                    <input type= "text" name="createnew-tag-anime" style="display: none;" value="False">
+                </div>
+                        </div>
+                    </div>
+                    <input type="submit" value="Post" class="createnew-postform hoverable">
+                </form>
+                {% else %}
+                <h1 class="blogs-createnew-title">Add Post</h1>
+                <a href="/auth"><button  class="login-btn">Log in to add a post</button></a>
+                {% endif %}
             </div>
         </center>
     </div>

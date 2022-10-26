@@ -323,6 +323,18 @@ function imgPreview(){
 }
 
 
+function createPreview(){
+  console.log("hello")
+  var oFReader = new FileReader();
+  oFReader.readAsDataURL(document.getElementById("createnew-upload").files[0]);
+  oFReader.onload = function (oFREvent){
+    console.log(oFREvent.target.result)
+    document.querySelector(".createnew-upload").src = oFREvent.target.result;
+  }
+  savePfp();
+}
+
+
 function savePfp(){
   setTimeout(function(){
     $(".pfpsubmit-div").slideDown()
@@ -368,4 +380,12 @@ function authLoad(){
     document.querySelector(".auth-title-div").classList.add("animate__animated","animate__backInDown")
     $(".auth-desc").slideDown(400)
   },100)
+}
+
+function blogsUploadPrompt(){
+  $(".blogs-createnew-thumb-overlay").fadeIn(300)
+}
+
+function blogsPreviewImage(){
+  $(".blogs-createnew-thumb-overlay").fadeOut(300)
 }
