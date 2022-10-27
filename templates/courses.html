@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
     <link rel="shortcut icon" href="{{url_for('static', filename='favicon.svg')}}" type="image/x-icon">
 </head>
-<body onload="alert('Only frontend here :&rpar;. thak gya me')" style="background: black; color: white;">
+<body style="background: black; color: white;">
   <div class="hamburger">
     <img src="{{url_for('static', filename='menuimg.svg')}}" class="menu-img" alt="">
     <div class="menu-socials">
@@ -187,21 +187,141 @@
             </div>
         </div>
       </div>
-      <div class="courses-dash">
-        <div class="courses-dash-top">
-          <h1 class="courses-dash-top-title">My Learning</h1>
-          <div class="courses-dash-stats">
-            <div class="courses-dash-stats-uprofile">
-              <img src="{{usrdata['pfp']}}" class="cdsup-img" alt="">
-              <div class="cdsup-info">
-                <p class="cdsup-info-name">{{fname}}</p>
-                <p class="cdsup-info-uname">@{{usrdata['Username']}}</p>
-              </div>
-              <br>
-              <h3>Advanced</h3>
-            </div>
-          </div>
+      <div class="courses-up">
+        <h2 class="cu-title">My Learning</h2>
+        <div style="display: inline-block; vertical-align: middle;">
+        <img src="{{usrdata['pfp']}}" class="cu-img" alt="">
+        <div style="display: inline-block; vertical-align: middle;">
+          <p class="cu-name">{{fname}}</p>
+          <p class="cu-uname">@{{usrdata['Username']}}</p>
         </div>
+        <div style="margin-left: 1em">
+          <h2 class="lup-head">Level Up</h2>
+          <progress max="{{pointsneeded}}" class="progres" value="{{usr_coursedata['points']}}"></progress>
+          <p class="remaining"><b style="font-size: 1.3em; font-family: 'gilroy-700'; color: white;">{{remaining}}</b> points to reach level {{usr_coursedata['level']+1}}</p>
+        </div>
+        </div>
+        <div class="cu-stats">
+          <div class="cu-stat">
+              <p class="cu-stat-val">{{usr_coursedata['points']}}</p>
+              <p class="cu-stat-desc">Total Points Gained</p>
+          </div>
+          <div class="cu-stat">
+            <p class="cu-stat-val">{{usr_coursedata['completed']}}</p>
+            <p class="cu-stat-desc">Courses Completed</p>
+        </div>
+        <br><br><br>
+        <div class="cu-stat">
+          <p class="cu-stat-val">{{dayselapsed}}</p>
+          <p class="cu-stat-desc">Days Since Training</p>
+      </div>
+      
+        </div>
+      </div>
+      <br>
+      <hr style="width: 90%">
+      <div class="mycourses">
+        <h2 class="cu-title">Owned</h2>
+        {% if usr_coursedata['c1'] == 'True' %}
+        <a href="/courses">
+        <div class="course hoverable">
+          <center>
+          <img class="coursethumb" src="{{coursedata[0]['thumb']}}">
+          <p class="coursenamee">{{coursedata[0]['name']}}</p>
+        </center>
+        </div>
+        </a>
+        {% endif %}
+        {% if usr_coursedata['c2'] == 'True' %}
+        <a href="/courses">
+        <div class="course hoverable">
+          <center>
+          <img class="coursethumb" src="{{coursedata[1]['thumb']}}">
+          <p class="coursenamee">{{coursedata[1]['name']}}</p>
+        </center>
+        </div>
+        </a>
+        {% endif %}
+        {% if usr_coursedata['c3'] == 'True' %}
+        <a href="/courses">
+        <div class="course hoverable">
+          <center>
+          <img class="coursethumb" src="{{coursedata[2]['thumb']}}">
+          <p class="coursenamee">{{coursedata[2]['name']}}</p>
+        </center>
+        </div>
+        </a>
+        {% endif %}
+        {% if usr_coursedata['c4'] == 'True' %}
+        <a href="/courses">
+        <div class="course hoverable">
+          <center>
+          <img class="coursethumb" src="{{coursedata[3]['thumb']}}">
+          <p class="coursenamee">{{coursedata[3]['name']}}</p>
+        </center>
+        </div>
+        </a>
+        {% endif %}
+        {% if usr_coursedata['c5'] == 'True' %}
+        <a href="/courses">
+        <div class="course hoverable">
+          <center>
+          <img class="coursethumb" src="{{coursedata[4]['thumb']}}">
+          <p class="coursenamee">{{coursedata[4]['name']}}</p>
+        </center>
+        </div>
+        </a>
+        {% endif %}
+        {% if usr_coursedata['c6'] == 'True' %}
+        <a href="/courses">
+        <div class="course hoverable">
+          <center>
+          <img class="coursethumb" src="{{coursedata[5]['thumb']}}">
+          <p class="coursenamee">{{coursedata[5]['name']}}</p>
+        </center>
+        </div>
+        </a>
+        {% endif %}
+        {% if usr_coursedata['c7'] == 'True' %}
+        <a href="/courses">
+        <div class="course hoverable">
+          <center>
+          <img class="coursethumb" src="{{coursedata[6]['thumb']}}">
+          <p class="coursenamee">{{coursedata[6]['name']}}</p>
+        </center>
+        </div>
+        </a>
+        {% endif %}
+        {% if usr_coursedata['c8'] == 'True' %}
+        <a href="/courses">
+        <div class="course hoverable">
+          <center>
+          <img class="coursethumb" src="{{coursedata[7]['thumb']}}">
+          <p class="coursenamee">{{coursedata[7]['name']}}</p>
+        </center>
+        </div>
+        </a>
+        {% endif %}
+        {% if usr_coursedata['c9'] == 'True' %}
+        <a href="/courses">
+        <div class="course hoverable">
+          <center>
+          <img class="coursethumb" src="{{coursedata[8]['thumb']}}">
+          <p class="coursenamee">{{coursedata[8]['name']}}</p>
+        </center>
+        </div>
+        </a>
+        {% endif %}
+        {% if usr_coursedata['c10'] == 'True' %}
+        <a href="/courses">
+        <div class="course hoverable">
+          <center>
+          <img class="coursethumb" src="{{coursedata[9]['thumb']}}">
+          <p class="coursenamee">{{coursedata[9]['name']}}</p>
+        </center>
+        </div>
+        </a>
+        {% endif %}
       </div>
 </body>
 </html>

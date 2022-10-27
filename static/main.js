@@ -63,6 +63,10 @@ $(".menu-link-blog").click(function(){
   window.location.href = "/blog";
 })
 
+$(".menu-link-subscribe").click(function(){
+  window.location.href = "/subscribe";
+})
+
 $(".menu-logout").click(function(){
   window.location.href = "/auth/logout";
 })

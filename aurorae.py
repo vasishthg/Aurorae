@@ -447,7 +447,27 @@ def courses():
         name = usrdata['Name']
         aw = name.split()
         fname = aw[0]
-        return render_template("courses.html", usrdata = usrdata, fname = fname)
+        cur.execute("SELECT * FROM courses")
+        coursedata = cur.fetchall()
+        cur.execute("SELECT * FROM usercourses WHERE user = %s", [usrdata['email']])
+        a = cur.fetchone()
+        if a:
+            usr_coursedata = a
+        else:
+            cur.execute("INSERT INTO usercourses VALUES(NULL, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (usrdata['email'], 0, 0, 1, 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', datetime.datetime.now().date()))
+            mysql.connection.commit()
+            return redirect(request.url)
+        pointsneeded = usr_coursedata['level']*1000
+        remaining = pointsneeded - usr_coursedata['points']
+        dayselapsed = datetime.datetime.now().date() - usr_coursedata['datestarted']
+        dayselapsed = dayselapsed.days
+        if usr_coursedata['points'] == pointsneeded:
+            level = usr_coursedata['level']
+            level += 1
+            cur.execute("UPDATE usercourses SET level = %s", str(level))
+            mysql.connection.commit()
+            return redirect(request.url)
+        return render_template("courses.html", usrdata = usrdata, fname = fname, coursedata = coursedata, usr_coursedata = usr_coursedata, pointsneeded = pointsneeded, remaining = remaining, dayselapsed = dayselapsed)
     return redirect('/auth')
 
 
