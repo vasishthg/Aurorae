@@ -2153,3 +2153,48 @@ canvas{
 .blogs-bigblog-cat-anime{
     display: none;
 }
+
+.courses-dash{
+    margin-top: 8em;
+    margin-left: 5em;
+}
+
+.courses-dash-top-title{
+    font-size: 1.5em;
+    font-family: 'gilroy-700';
+    margin-top: 1.6em;
+}
+
+.courses-dash-stats-uprofile{
+    margin-left: 2em;
+    margin-top: 1em;
+}
+
+.cdsup-img{
+    display: inline-block;
+    vertical-align: middle;
+    width: 3.5em;
+    max-width: 4em;
+    border-radius: 50%;
+    height: 3.5em;
+    max-height: 4em;
+}
+
+.cdsup-info{
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: .5em;
+}
+
+.cdsup-info-name{
+    font-size: 1.1em;
+    margin-block-end: 0.3em;
+    font-family: 'gilroy-700';
+}
+
+.cdsup-info-uname{
+    font-family: 'gilroy-600';
+    font-size: .8em;
+    color: gray;
+    margin-block-start: 0;
+}

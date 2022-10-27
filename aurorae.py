@@ -444,7 +444,10 @@ def courses():
         cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cur.execute("SELECT * FROM accounts WHERE email = %s", [session['email']])
         usrdata = cur.fetchone()
-        return render_template("courses.html", usrdata = usrdata)
+        name = usrdata['Name']
+        aw = name.split()
+        fname = aw[0]
+        return render_template("courses.html", usrdata = usrdata, fname = fname)
     return redirect('/auth')
 
 

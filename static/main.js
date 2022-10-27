@@ -47,6 +47,46 @@ $(".user-bio-edit").click(function(){
   $(".wee").fadeIn(400)
 })
 
+$(".menu-link-home").click(function(){
+  window.location.href = "/";
+})
+
+$(".menu-link-discover").click(function(){
+  window.location.href = "/discover";
+})
+
+$(".menu-link-courses").click(function(){
+  window.location.href = "/courses";
+})
+
+$(".menu-link-blog").click(function(){
+  window.location.href = "/blog";
+})
+
+$(".menu-logout").click(function(){
+  window.location.href = "/auth/logout";
+})
+
+var soundeffrr = new Audio("/static/soundeffect.mp3")
+
+$(".socials-insta").click(function(){
+  window.open("https://instagram.com/ncryptdps")
+  soundeffrr.play()
+})
+
+$(".socials-twitter").click(function(){
+  window.open("https://twitter.com/VasishthG/status/1554838976841670658")
+  soundeffrr.play()
+})
+
+$(".socials-discord").click(function(){
+  window.open("https://discord.com/users/823237564130525184")
+  soundeffrr.play()
+})
+
+$(".menu-to-login").click(function(){
+  window.location.href = "/auth"
+})
 
 // img = document.querySelector(".auth-img")
 // selector = document.querySelector(".auth-selector")
@@ -678,3 +718,4 @@ function blogsUploadPrompt(){
 function blogsPreviewImage(){
   $(".blogs-createnew-thumb-overlay").fadeOut(300)
 }
+
