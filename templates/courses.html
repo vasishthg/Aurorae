@@ -222,6 +222,7 @@
       <hr style="width: 90%">
       <div class="mycourses">
         <h2 class="cu-title">Owned</h2>
+        
         {% if usr_coursedata['c1'] == 'True' %}
         <a href="/courses">
         <div class="course hoverable">
@@ -324,7 +325,200 @@
         {% endif %}
       </div>
       <div class="browse-courses">
-        <h2 class="cu-title">Owned</h2>
+        <h2 class="cu-title">Explore</h2>
+        {% if usr_coursedata['c1'] == 'True' and usr_coursedata['c2'] == 'True' and usr_coursedata['c3'] == 'True' and usr_coursedata['c4'] == 'True' and usr_coursedata['c5'] == 'True' and usr_coursedata['c6'] == 'True' and usr_coursedata['c7'] == 'True' and usr_coursedata['c8'] == 'True' and usr_coursedata['c9'] == 'True' and usr_coursedata['c10'] == 'True' %}
+        <p>You have claimed all available courses!</p>
+        {% endif %}
+        {% if usr_coursedata['c1'] != 'True' %}
+        <div class="browse-course">
+        <a href="/courses">
+            <center>
+            <img class="coursethumb" src="{{coursedata[0]['thumb']}}">
+          <br>
+
+            <p class="coursenamee" style="text-align: left;">{{coursedata[0]['name']}}</p>
+          </center>
+          <hr style=" background: white; color: white;">
+          <br>
+          <p style="font-family: 'gilroy-700'; display: inline; vertical-align: middle;">${{coursedata[0]['price']}}</p>
+          <form action="" style="float: right; vertical-align: middle;" method="post">
+            <input style="display: none;" type="text" name="enroll-c1" value="enroll">
+            <button type="submit" class="weebtn hoverable">Enroll</button>
+          </form>
+          </a>
+        </div>
+        {% endif %}
+        {% if usr_coursedata['c2'] != 'True' %}
+        <div class="browse-course">
+          <a href="/courses">
+              <center>
+              <img class="coursethumb" src="{{coursedata[1]['thumb']}}">
+            <br>
+  
+              <p class="coursenamee" style="text-align: left;">{{coursedata[1]['name']}}</p>
+            </center>
+            <hr style=" background: white; color: white;">
+            <br>
+            <p style="font-family: 'gilroy-700'; display: inline; vertical-align: middle;">${{coursedata[1]['price']}}</p>
+            <form action="" style="float: right; vertical-align: middle;" method="post">
+              <input style="display: none;" type="text" name="enroll-c2" value="enroll">
+              <button type="submit" class="weebtn hoverable">Enroll</button>
+            </form>
+            </a>
+          </div>
+          {% endif %}
+          {% if usr_coursedata['c3'] != 'True' %}
+          <div class="browse-course">
+            <a href="/courses">
+                <center>
+                <img class="coursethumb" src="{{coursedata[2]['thumb']}}">
+              <br>
+    
+                <p class="coursenamee" style="text-align: left;">{{coursedata[2]['name']}}</p>
+              </center>
+              <hr style=" background: white; color: white;">
+              <br>
+              <p style="font-family: 'gilroy-700'; display: inline; vertical-align: middle;">${{coursedata[2]['price']}}</p>
+              <form action="" style="float: right; vertical-align: middle;" method="post">
+                <input style="display: none;" type="text" name="enroll-c3" value="enroll">
+                <button type="submit" class="weebtn hoverable">Enroll</button>
+              </form>
+              </a>
+            </div>
+            {% endif %}
+            {% if usr_coursedata['c4'] != 'True' %}
+            <div class="browse-course">
+              <a href="/courses">
+                  <center>
+                  <img class="coursethumb" src="{{coursedata[3]['thumb']}}">
+                <br>
+      
+                  <p class="coursenamee" style="text-align: left;">{{coursedata[3]['name']}}</p>
+                </center>
+                <hr style=" background: white; color: white;">
+                <br>
+                <p style="font-family: 'gilroy-700'; display: inline; vertical-align: middle;">${{coursedata[3]['price']}}</p>
+                <form action="" style="float: right; vertical-align: middle;" method="post">
+                  <input style="display: none;" type="text" name="enroll-c4" value="enroll">
+                  <button type="submit" class="weebtn hoverable">Enroll</button>
+                </form>
+                </a>
+              </div>
+              {% endif %}
+              {% if usr_coursedata['c5'] != 'True' %}
+              <div class="browse-course">
+                <a href="/courses">
+                    <center>
+                    <img class="coursethumb" src="{{coursedata[4]['thumb']}}">
+                  <br>
+        
+                    <p class="coursenamee" style="text-align: left;">{{coursedata[4]['name']}}</p>
+                  </center>
+                  <hr style=" background: white; color: white;">
+                  <br>
+                  <p style="font-family: 'gilroy-700'; display: inline; vertical-align: middle;">${{coursedata[4]['price']}}</p>
+                  <form action="" style="float: right; vertical-align: middle;" method="post">
+                    <input style="display: none;" type="text" name="enroll-c5" value="enroll">
+                    <button type="submit" class="weebtn hoverable">Enroll</button>
+                  </form>
+                  </a>
+                </div>
+                {% endif %}
+                {% if usr_coursedata['c6'] != 'True' %}
+                <div class="browse-course">
+                  <a href="/courses">
+                      <center>
+                      <img class="coursethumb" src="{{coursedata[5]['thumb']}}">
+                    <br>
+          
+                      <p class="coursenamee" style="text-align: left;">{{coursedata[5]['name']}}</p>
+                    </center>
+                    <hr style=" background: white; color: white;">
+                    <br>
+                    <p style="font-family: 'gilroy-700'; display: inline; vertical-align: middle;">${{coursedata[5]['price']}}</p>
+                    <form action="" style="float: right; vertical-align: middle;" method="post">
+                      <input style="display: none;" type="text" name="enroll-c6" value="enroll">
+                      <button type="submit" class="weebtn hoverable">Enroll</button>
+                    </form>
+                    </a>
+                  </div>
+                  {% endif %}
+                  {% if usr_coursedata['c7'] != 'True' %}
+                  <div class="browse-course">
+                    <a href="/courses">
+                        <center>
+                        <img class="coursethumb" src="{{coursedata[6]['thumb']}}">
+                      <br>
+            
+                        <p class="coursenamee" style="text-align: left;">{{coursedata[6]['name']}}</p>
+                      </center>
+                      <hr style=" background: white; color: white;">
+                      <br>
+                      <p style="font-family: 'gilroy-700'; display: inline; vertical-align: middle;">${{coursedata[6]['price']}}</p>
+                      <form action="" style="float: right; vertical-align: middle;" method="post">
+                        <input style="display: none;" type="text" name="enroll-c7" value="enroll">
+                        <button type="submit" class="weebtn hoverable">Enroll</button>
+                      </form>
+                      </a>
+                    </div>
+                    {% endif %}
+                    {% if usr_coursedata['c8'] != 'True' %}
+                    <div class="browse-course">
+                      <a href="/courses">
+                          <center>
+                          <img class="coursethumb" src="{{coursedata[7]['thumb']}}">
+                        <br>
+              
+                          <p class="coursenamee" style="text-align: left;">{{coursedata[7]['name']}}</p>
+                        </center>
+                        <hr style=" background: white; color: white;">
+                        <br>
+                        <p style="font-family: 'gilroy-700'; display: inline; vertical-align: middle;">${{coursedata[7]['price']}}</p>
+                        <form action="" style="float: right; vertical-align: middle;" method="post">
+                          <input style="display: none;" type="text" name="enroll-c8" value="enroll">
+                          <button type="submit" class="weebtn hoverable">Enroll</button>
+                        </form>
+                        </a>
+                      </div>
+                      {% endif %}
+                      {% if usr_coursedata['c9'] != 'True' %}
+                      <div class="browse-course">
+                        <a href="/courses">
+                            <center>
+                            <img class="coursethumb" src="{{coursedata[8]['thumb']}}">
+                          <br>
+                
+                            <p class="coursenamee" style="text-align: left;">{{coursedata[8]['name']}}</p>
+                          </center>
+                          <hr style=" background: white; color: white;">
+                          <br>
+                          <p style="font-family: 'gilroy-700'; display: inline; vertical-align: middle;">${{coursedata[8]['price']}}</p>
+                          <form action="" style="float: right; vertical-align: middle;" method="post">
+                            <input style="display: none;" type="text" name="enroll-c9" value="enroll">
+                            <button type="submit" class="weebtn hoverable">Enroll</button>
+                          </form>
+                          </a>
+                        </div>
+                        {% endif %}
+                        {% if usr_coursedata['c10'] != 'True' %}
+                        <div class="browse-course">
+                          <a href="/courses">
+                              <center>
+                              <img class="coursethumb" src="{{coursedata[9]['thumb']}}">
+                            <br>
+                  
+                              <p class="coursenamee" style="text-align: left;">{{coursedata[9]['name']}}</p>
+                            </center>
+                            <hr style=" background: white; color: white;">
+                            <br>
+                            <p style="font-family: 'gilroy-700'; display: inline; vertical-align: middle;">${{coursedata[9]['price']}}</p>
+                            <form action="" style="float: right; vertical-align: middle;" method="post">
+                              <input style="display: none;" type="text" name="enroll-c10" value="enroll">
+                              <button type="submit" class="weebtn hoverable">Enroll</button>
+                            </form>
+                          </a>
+                        </div>
+                        {% endif %}
       </div>
 </body>
 </html>

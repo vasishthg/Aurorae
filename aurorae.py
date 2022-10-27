@@ -438,7 +438,7 @@ def user(id):
     else:
         return render_template("user.html", user = user)
 
-@app.route("/courses")
+@app.route("/courses", methods=["GET", "POST"])
 def courses():
     if 'loggedin' in session:
         cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
@@ -461,6 +461,46 @@ def courses():
         remaining = pointsneeded - usr_coursedata['points']
         dayselapsed = datetime.datetime.now().date() - usr_coursedata['datestarted']
         dayselapsed = dayselapsed.days
+        if request.method == "POST" and "enroll-c1" in request.form:
+            cur.execute("UPDATE usercourses SET c1 = %s", ['True'])
+            mysql.connection.commit()
+            return redirect(request.url)
+        if request.method == "POST" and "enroll-c2" in request.form:
+            cur.execute("UPDATE usercourses SET c2 = %s", ['True'])
+            mysql.connection.commit()
+            return redirect(request.url)
+        if request.method == "POST" and "enroll-c3" in request.form:
+            cur.execute("UPDATE usercourses SET c3 = %s", ['True'])
+            mysql.connection.commit()
+            return redirect(request.url)
+        if request.method == "POST" and "enroll-c4" in request.form:
+            cur.execute("UPDATE usercourses SET c4 = %s", ['True'])
+            mysql.connection.commit()
+            return redirect(request.url)
+        if request.method == "POST" and "enroll-c5" in request.form:
+            cur.execute("UPDATE usercourses SET c5 = %s", ['True'])
+            mysql.connection.commit()
+            return redirect(request.url)
+        if request.method == "POST" and "enroll-c6" in request.form:
+            cur.execute("UPDATE usercourses SET c6 = %s", ['True'])
+            mysql.connection.commit()
+            return redirect(request.url)
+        if request.method == "POST" and "enroll-c7" in request.form:
+            cur.execute("UPDATE usercourses SET c7 = %s", ['True'])
+            mysql.connection.commit()
+            return redirect(request.url)
+        if request.method == "POST" and "enroll-c8" in request.form:
+            cur.execute("UPDATE usercourses SET c8 = %s", ['True'])
+            mysql.connection.commit()
+            return redirect(request.url)
+        if request.method == "POST" and "enroll-c9" in request.form:
+            cur.execute("UPDATE usercourses SET c9 = %s", ['True'])
+            mysql.connection.commit()
+            return redirect(request.url)
+        if request.method == "POST" and "enroll-c10" in request.form:
+            cur.execute("UPDATE usercourses SET c10 = %s", ['True'])
+            mysql.connection.commit()
+            return redirect(request.url)        
         if usr_coursedata['points'] == pointsneeded:
             level = usr_coursedata['level']
             level += 1

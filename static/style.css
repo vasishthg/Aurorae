@@ -2297,3 +2297,27 @@ progress::-webkit-progress-value {
     margin-left: 5em;
     margin-right: 5em;
 }
+
+.browse-course{
+    width: 18em;
+    height: 20em;
+    background-color: #1e1e1e;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 1em;
+    margin-right: 3em;
+    padding: .85em .85em .85em .85em;
+    margin-bottom: 1em;
+    
+}
+
+.weebtn{
+    font-size: 1.1em;
+    font-family: 'gilroy-700';
+    width: 6em;
+    margin-block-start: -.5em;
+    border-radius: .5em;
+    height: 2em;
+    background-color: white;
+    color: black;
+}
