@@ -1939,6 +1939,17 @@ canvas{
     background-color: #49394280;
 }
 
+.create-wees{
+    width: 15em;
+    height: 7em;
+    position: relative;
+    border-radius: .5em;
+    overflow: hidden;
+    margin-left: 2em;
+    margin-top: 1em;
+    background-color: rgb(58, 58, 58);
+}
+
 .bcn-1{
     margin-right:1.5em;
     display: inline-block;
@@ -2009,6 +2020,21 @@ canvas{
 }
 
 .createnew-upload{
+    width: 100%;
+}
+.createnew-upload2{
+    width: 100%;
+}
+.createnew-upload3{
+    width: 100%;
+}
+.createnew-upload4{
+    width: 100%;
+}
+.createnew-upload5{
+    width: 100%;
+}
+.createnew-upload6{
     width: 100%;
 }
 
@@ -2324,4 +2350,87 @@ progress::-webkit-progress-value {
 
 *{
     cursor: none !important;
+}
+
+.create-main{
+    margin-top: 8em;
+    margin-left: 5em;
+    margin-right: 5em;
+}
+
+.create-1{
+    height: 33em;
+    width: 58em;
+    background-color: #0f0f0f;
+    border-radius: 1em;
+    display: inline-block;
+    margin-right: 3em;
+    vertical-align: middle;
+}
+
+.create-2{
+    height: 33em;
+    width: 23em;
+    background-color: #0f0f0f;
+    border-radius: 1em;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.create-input{
+    display: block;
+    width: 70%;
+    padding: .75em 1em .75em 1em;
+    background: none;
+    border: white 2px solid;
+    border-radius: 10px;
+    font-family: 'gilroy-700';
+    outline: none;
+    color: white;
+    resize: none;
+    font-size: 1em;
+    margin-bottom: 1em;
+}
+
+.ci-desc{
+    height: 16em;
+}
+
+.ci-title{
+    height: 3e;
+}
+
+.ewe{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.roiirio{
+    float: right;
+    background-color: white;
+    font-family: 'gilroy-700';
+    color: black;
+    width: 6em;
+    font-size: 1.2em;
+    margin-right: 1em;
+    border-radius: .4em;
+    height: 2em;
+}
+
+.udmain{
+    margin-top: 8em;
+    margin-left: 4em;
+}
+
+.udd-pfp{
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 1em;
+    vertical-align: middle;
+}
+
+.fright{
+    float: right;
 }

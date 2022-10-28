@@ -1,4 +1,5 @@
 import os
+import re
 from flask import Flask, render_template, request, session, jsonify, redirect, url_for, flash, send_from_directory
 import MySQLdb.cursors
 from flask_mysqldb import MySQL
@@ -271,7 +272,7 @@ def auth():
         email = request.form.get("signup-email")
         username = request.form.get("signup-username")
         password = request.form.get("signup-password")
-        cur.execute("SELECT * FROM accounts WHERE email = %s", [email])
+        cur.execute("SELECT * FROM accounts WHERE email = %s AND username = %s", [email, username])
         account = cur.fetchone()
         if account:
             session['loggedin'] = True
@@ -381,7 +382,7 @@ def user(id):
         usrdata = cur.fetchone()
         followers = user['followers']
         followinge = usrdata['following']
-        cur.execute("SELECT follower FROM following WHERE target = %s", [user['email']])
+        cur.execute("SELECT follower FROM following WHERE target = %s and follower = %s", [user['email'], usrdata['email']])
         followuser = cur.fetchone()
         if followuser:
             pass
@@ -510,6 +511,67 @@ def courses():
         return render_template("courses.html", usrdata = usrdata, fname = fname, coursedata = coursedata, usr_coursedata = usr_coursedata, pointsneeded = pointsneeded, remaining = remaining, dayselapsed = dayselapsed)
     return redirect('/auth')
 
+@app.route('/create', methods=['GET', 'POST'])
+def create():
+    if 'loggedin' in session:
+        cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cur.execute("SELECT * FROM accounts WHERE email = %s", [session['email']])
+        usrdata = cur.fetchone()
+        if request.method=="POST" and "createnew-upload" in request.files and request.files['createnew-upload'] and allowed_file(request.files['createnew-upload'].filename) and "createnew-upload2" in request.files and request.files['createnew-upload2'] and allowed_file(request.files['createnew-upload2'].filename) and "createnew-upload3" in request.files and request.files['createnew-upload3'] and allowed_file(request.files['createnew-upload3'].filename) and "createnew-upload4" in request.files and request.files['createnew-upload4'] and allowed_file(request.files['createnew-upload4'].filename) and "createnew-upload5" in request.files and request.files['createnew-upload5'] and allowed_file(request.files['createnew-upload5'].filename) and "createnew-upload6" in request.files and request.files['createnew-upload6'] and allowed_file(request.files['createnew-upload6'].filename) and "create-title" in request.form and "create-desc" in request.form and "create-cost" in request.form:
+            file1 = request.files['createnew-upload']
+            file2 = request.files['createnew-upload2']
+            file3 = request.files['createnew-upload3']
+            file4 = request.files['createnew-upload4']
+            file5 = request.files['createnew-upload5']
+            file6 = request.files['createnew-upload6']
+            filename1 = secure_filename(file1.filename)
+            filename2 = secure_filename(file2.filename)
+            filename3 = secure_filename(file3.filename)
+            filename4 = secure_filename(file4.filename)
+            filename5 = secure_filename(file5.filename)
+            filename6 = secure_filename(file6.filename)
+            title = request.form.get("create-title")
+            desc = request.form.get("create-desc")
+            cost = request.form.get("create-cost")
+            file1.save(os.path.join(app.config['UPLOAD_FOLDER'], filename1))
+            file2.save(os.path.join(app.config['UPLOAD_FOLDER'], filename2))
+            file3.save(os.path.join(app.config['UPLOAD_FOLDER'], filename3))
+            file4.save(os.path.join(app.config['UPLOAD_FOLDER'], filename4))
+            file5.save(os.path.join(app.config['UPLOAD_FOLDER'], filename5))
+            file6.save(os.path.join(app.config['UPLOAD_FOLDER'], filename6))
+            passname1 = os.path.join(app.config['UPLOAD_FOLDER'], filename1)
+            passname2 = os.path.join(app.config['UPLOAD_FOLDER'], filename2)
+            passname3 = os.path.join(app.config['UPLOAD_FOLDER'], filename3)
+            passname4 = os.path.join(app.config['UPLOAD_FOLDER'], filename4)
+            passname5 = os.path.join(app.config['UPLOAD_FOLDER'], filename5)
+            passname6 = os.path.join(app.config['UPLOAD_FOLDER'], filename6)
+            cur.execute("INSERT INTO collections VALUES(NULL, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (usrdata['email'], title, desc, "/" + passname1, "/" + passname2, "/" + passname3, "/" + passname4, "/" + passname5, "/" + passname6, cost))
+            mysql.connection.commit()
+            cur.execute("SELECT created FROM accounts WHERE email = %s", [usrdata['email']])
+            cc = cur.fetchone()['created']
+            cc +=1
+            cur.execute("UPDATE accounts SET created = %s", (str(cc)))
+            mysql.connection.commit()
+            cur.execute("SELECT * FROM collections WHERE user = %s AND title = %s", [usrdata['email'], title])
+            id = cur.fetchone()['id']
+            redirurl = '/collections/' + str(id)
+            return redirect(usrdata['Username'] + redirurl)
+        return render_template("create.html", usrdata = usrdata)
+    return redirect('/auth')
+
+@app.route("/<username>/collections/<int:id>")
+def collectionview(username, id):
+    cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    cur.execute("SELECT * FROM collections WHERE id = %s", str(id))
+    ud = cur.fetchone()
+    cur.execute("SELECT * FROM accounts WHERE email = %s",[ud['user']])
+    udd = cur.fetchone()
+    if 'loggedin' in session:
+        cur.execute("SELECT * FROM accounts WHERE email = %s", [session['email']])
+        usrdata = cur.fetchone()
+        return render_template("wwee.html", username = username, id = id, ud = ud, usrdata = usrdata, udd = udd)
+    return render_template("wwee.html", username = username, id = id, ud = ud, udd = udd)
+    
 
 if __name__ == "__main__":
     app.run(debug=True)

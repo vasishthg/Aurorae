@@ -1,3 +1,37 @@
+
+const $bigBall = document.querySelector('.cursor__ball--big');
+const $smallBall = document.querySelector('.cursor__ball--small');
+const $hoverables = document.querySelectorAll('.hoverable');
+
+document.body.addEventListener('mousemove', onMouseMove);
+for (let i = 0; i < $hoverables.length; i++) {
+  $hoverables[i].addEventListener('mouseenter', onMouseHover);
+  $hoverables[i].addEventListener('mouseleave', onMouseHoverOut);
+}
+
+function onMouseMove(e) {
+    TweenMax.to($bigBall, .4, {
+      x: e.clientX - 15,
+      y: e.clientY - 15
+
+    })
+    $(".cursor").css("display", "block")
+  TweenMax.to($smallBall, .1, {
+    x: e.clientX - 5,
+    y: e.clientY - 5
+  })
+}
+
+function onMouseHover() {
+  TweenMax.to($bigBall, .3, {
+    scale: 2
+  })
+}
+function onMouseHoverOut() {
+  TweenMax.to($bigBall, .3, {
+    scale: 1
+  })
+}
 ;(function(){
     function id(v){ return document.getElementById(v); }
     function loadbar() {
@@ -294,40 +328,6 @@ function loadRegister(){
 
 $(document).bind('done_loading', authLoad());
 
-
-const $bigBall = document.querySelector('.cursor__ball--big');
-const $smallBall = document.querySelector('.cursor__ball--small');
-const $hoverables = document.querySelectorAll('.hoverable');
-
-document.body.addEventListener('mousemove', onMouseMove);
-for (let i = 0; i < $hoverables.length; i++) {
-  $hoverables[i].addEventListener('mouseenter', onMouseHover);
-  $hoverables[i].addEventListener('mouseleave', onMouseHoverOut);
-}
-
-function onMouseMove(e) {
-    TweenMax.to($bigBall, .4, {
-      x: e.clientX - 15,
-      y: e.clientY - 15
-
-    })
-    $(".cursor").css("display", "block")
-  TweenMax.to($smallBall, .1, {
-    x: e.clientX - 5,
-    y: e.clientY - 5
-  })
-}
-
-function onMouseHover() {
-  TweenMax.to($bigBall, .3, {
-    scale: 2
-  })
-}
-function onMouseHoverOut() {
-  TweenMax.to($bigBall, .3, {
-    scale: 1
-  })
-}
 
 if ( window.history.replaceState ) {
   window.history.replaceState( null, null, window.location.href );
@@ -640,16 +640,13 @@ $(".blog-head-tag-anime").click(function(){
 // File display shit(why am i doing this)
 $(".user-pfp-change").change(function(e){
   var fileName = e.target.files[0].name;
-  console.log(fileName)
   alert("hello" + fileName)
 })
 
 function imgPreview(){
-  console.log("hello")
   var oFReader = new FileReader();
   oFReader.readAsDataURL(document.getElementById("pfp").files[0]);
   oFReader.onload = function (oFREvent){
-    console.log(oFREvent.target.result)
     document.querySelector(".user-pfp").src = oFREvent.target.result;
   }
   savePfp();
@@ -657,12 +654,55 @@ function imgPreview(){
 
 
 function createPreview(){
-  console.log("hello")
   var oFReader = new FileReader();
   oFReader.readAsDataURL(document.getElementById("createnew-upload").files[0]);
   oFReader.onload = function (oFREvent){
-    console.log(oFREvent.target.result)
     document.querySelector(".createnew-upload").src = oFREvent.target.result;
+  }
+  savePfp();
+}
+
+function createPreview2(){
+  var oFReader = new FileReader();
+  oFReader.readAsDataURL(document.getElementById("createnew-upload2").files[0]);
+  oFReader.onload = function (oFREvent){
+    document.querySelector(".createnew-upload2").src = oFREvent.target.result;
+  }
+  savePfp();
+}
+
+function createPreview3(){
+  var oFReader = new FileReader();
+  oFReader.readAsDataURL(document.getElementById("createnew-upload3").files[0]);
+  oFReader.onload = function (oFREvent){
+    document.querySelector(".createnew-upload3").src = oFREvent.target.result;
+  }
+  savePfp();
+}
+
+function createPreview4(){
+  var oFReader = new FileReader();
+  oFReader.readAsDataURL(document.getElementById("createnew-upload4").files[0]);
+  oFReader.onload = function (oFREvent){
+    document.querySelector(".createnew-upload4").src = oFREvent.target.result;
+  }
+  savePfp();
+}
+
+function createPreview5(){
+  var oFReader = new FileReader();
+  oFReader.readAsDataURL(document.getElementById("createnew-upload5").files[0]);
+  oFReader.onload = function (oFREvent){
+    document.querySelector(".createnew-upload5").src = oFREvent.target.result;
+  }
+  savePfp();
+}
+
+function createPreview6(){
+  var oFReader = new FileReader();
+  oFReader.readAsDataURL(document.getElementById("createnew-upload6").files[0]);
+  oFReader.onload = function (oFREvent){
+    document.querySelector(".createnew-upload6").src = oFREvent.target.result;
   }
   savePfp();
 }

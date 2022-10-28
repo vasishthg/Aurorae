@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog / Aurorae</title>
+    <title>{{ud['title']}} / Aurorae</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"">
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
     <link rel="shortcut icon" href="{{url_for('static', filename='favicon.svg')}}" type="image/x-icon">
@@ -187,227 +187,16 @@
             </div>
         </div>
       </div>
-    <div class="blog-main">
-        <center>
-            <div class="blog-head">
-                <img src="{{url_for('static', filename='blog-bg.svg')}}" class="blog-head-img" alt="">
-                <h1 class="blog-head-title">Blog</h1>
-                <div class="blog-search">
-                    <form action="" method="post">
-                        <svg width="40" height="40" id="blog-search-vector" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                            <rect width="40" height="40" fill="url(#pattern0)"/>
-                            <defs>
-                            <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
-                            <use xlink:href="#image0_240_15" transform="scale(0.0166667)"/>
-                            </pattern>
-                            <image id="image0_240_15" width="60" height="60" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAABmJLR0QA/wD/AP+gvaeTAAADnUlEQVRoge2avU8UQRjG3zFowoef5EwEKxsbtAHUVuy1IVxDAYlRS2PnV6kWdir6D2AiBYUfsURbopJYgWhiQMAYGznJodHws5jVnO/urXfDzO3F7C+5YjaX93mem7vZd2dOJCcnJyeneTE+iwFbROSIiAyISK+IHBSRLhHpiN6yJiIrIjInIq9EZEpEXhhjNnz6CA6wH7gBfKB+PgDXge6sc/wToBO4C3x3CKr5BowBe7LOlQhQBD57CKr5DAxlne8PQAt2VqvxBRgHTgP9QAHYGr0K0bXTwH1gNaXOHaAl67CtwOMqBmeBEaC1znqjwFyVmo/qqeeVaGaTwpaB85uZjaj2haiW5mEmMw3cSzCzBPR51OgHlhN0bvvSqNVIMcHEDNAVQKsrqq0Z9K1VzUAn8dV4KUTYCs0CMK80PwG7Q2lWiusVuezza5yi20P8N30rtOh+bENQyfmgon/rX1ba6yG/WYJtFyuZpYErJtBOfBG7FkpsC/HeeCSIWLqPs8rDAvYhxbvQMSX0hQyaAKANKCkv/a710j6p42r8xBiz7irkijGmLCJP1eUB13ppgfVK/NxVxANTaux8l0gLfFCNX7uKeEBra281kxZ4nxq/dxXxgNbW3momLXCHGpdcRTywqsbbXQv5X94bg/NeXFrgNTXe4SrigZ1qrL3VTFrgj2p8wFXEA1p7ybVQWuA3anzYVcQDWvuda6G0wC/VWDcijeSEGk97VwCOqnZuNaPWsh346qu1TBNKengY9S70bx/nlIdFwOuJSaXYdSU2R+MfD1eUh0shBbuJbwBcCCYY17+qtEvArtCiY0q0HOQ3FNc9RHyL52Zo3WqbeMuE38R7qzQXAN2ABDMwRJwZoBBAqwC8UlobgL41hQV71qOZB3o8ahxKmFmASV8a9ZhpwZ71aMrY3cX2TdRuB66QfNQC8AMo+sxTq7FW7FlPEsvYDbe2Ouq1Ye+z+tbTVKFbgNspxkrAA+AMtlsrANui197o2llggngH9ZsNYDIKmX3oKPgg9vjDNwtECxT2TKupQu8GbhFvTlwoATdRt56mCx2Z6gKuRbNTL4vARVI6KJ+hQ/xtqVfsvnGf2N3FbrH7Y0bsvtiy2OfZaRF5JiIvjTHUULsoIuMiUtnL/xSRYWPMhMcYzQN23dAz/RMYztpbMPLQeej/O3S11ftU1t6CUSX0Yta+gpIQeiVrT8EBTgHvsY3Myaz95OTk5OS48At/iSvMRteG2wAAAABJRU5ErkJggg=="/>
-                            </defs>
-                        </svg>    
-                        <input type="text" list="blogs-list" class="blog-search-input hvr-underline-from-center" placeholder="Search" name="blog-search" id="">
-                    </form>
-                    <datalist id="blogs-list">
-
-                    </datalist>
-                </div>
-            </div>
-            <br>
-            <div class="blog-tags">
-                <div class="blog-tag blog-head-tag-all hoverable blog-tag-active">
-                    <p class="blog-tag-txt">All</p>
-                </div>
-                <div class="blog-tag blog-head-tag-art hoverable">
-                    <p class="blog-tag-txt">Art</p>
-                </div>
-                <div class="blog-tag blog-head-tag-music hoverable">
-                    <p class="blog-tag-txt">Music</p>
-                </div>
-                <div class="blog-tag blog-head-tag-abstract hoverable">
-                    <p class="blog-tag-txt">Abstract</p>
-                </div>
-                <div class="blog-tag blog-head-tag-fantasy hoverable">
-                    <p class="blog-tag-txt">Fantasy</p>
-                </div>
-                <div class="blog-tag blog-head-tag-nft hoverable">
-                    <p class="blog-tag-txt">NFT</p>
-                </div>
-                <div class="blog-tag blog-head-tag-tech" hoverable>
-                    <p class="blog-tag-txt">Tech</p>
-                </div>
-                <div class="blog-tag blog-head-tag-anime hoverable">
-                    <p class="blog-tag-txt">Anime</p>
-                </div>
-            </div>
-            <div class="blog-home-blogs">
-                <a>
-                <div class="blog-home-bigblog hoverable">
-                    <img src="{{blogs[0]['thumb']}}" class="blog-all blog-home-bigblog-img" alt="">
-                    <img src="{{cat_art[0]['thumb']}}" class="blogs-bigblog-cat-art blog-home-bigblog-img" alt="">
-                    <img src="{{cat_music[0]['thumb']}}" class="blogs-bigblog-cat-music blog-home-bigblog-img" alt="">
-                    <img src="{{cat_abstract[0]['thumb']}}" class="blogs-bigblog-cat-abstract blog-home-bigblog-img" alt="">
-                    <img src="{{cat_fantasy[0]['thumb']}}" class="blogs-bigblog-cat-fantasy blog-home-bigblog-img" alt="">
-                    <img src="{{cat_nft[0]['thumb']}}" class="blogs-bigblog-cat-nft blog-home-bigblog-img" alt="">
-                    <img src="{{cat_tech[0]['thumb']}}" class="blogs-bigblog-cat-tech blog-home-bigblog-img" alt="">
-                    <img src="{{cat_anime[0]['thumb']}}" class="blogs-bigblog-cat-anime blog-home-bigblog-img" alt="">
-                    <div class="blog-home-bigblog-info">
-                        <div class="bigblog-info-date">
-                            <p class="bigblog-info-date-txt blog-all">{{blogs[0]['date']}}</p>
-                            <p class="bigblog-info-date-txt dnone blogs-bigblog-cat-art">{{cat_art[0]['date']}}</p>
-                            <p class="bigblog-info-date-txt dnone blogs-bigblog-cat-music">{{cat_music[0]['date']}}</p>
-                            <p class="bigblog-info-date-txt dnone blogs-bigblog-cat-abstract">{{cat_abstract[0]['date']}}</p>
-                            <p class="bigblog-info-date-txt dnone blogs-bigblog-cat-fantasy">{{cat_fantasy[0]['date']}}</p>
-                            <p class="bigblog-info-date-txt dnone blogs-bigblog-cat-nft">{{cat_nft[0]['date']}}</p>
-                            <p class="bigblog-info-date-txt dnone blogs-bigblog-cat-tech">{{cat_tech[0]['date']}}</p>
-                            <p class="bigblog-info-date-txt dnone blogs-bigblog-cat-anime">{{cat_anime[0]['date']}}</p>
-                        </div>
-                        <div class="bigblog-info-author">
-                            <img src="{{author[0]['pfp']}}" class="bigblog-author-pfp blog-all" alt="">
-                            <p class="bigblog-author-name  blog-all">{{author[0]['Name']}}</p>
-                            <img src="{{author_art[0]['pfp']}}" class="dnone  blogs-bigblog-cat-art bigblog-author-pfp" alt="">
-                            <p class="bigblog-author-name  blogs-bigblog-cat-art-author dnone blogs-bigblog-cat-art">{{author_art[0]['Name']}}</p>
-                            <img src="{{author_music[0]['pfp']}}" class="dnone  blogs-bigblog-cat-music bigblog-author-pfp" alt="">
-                            <p class="bigblog-author-name  blogs-bigblog-cat-music-author dnone blogs-bigblog-cat-music">{{author_music[0]['Name']}}</p>
-                            <img src="{{author_abstract[0]['pfp']}}" class="dnone  blogs-bigblog-cat-abstract bigblog-author-pfp" alt="">
-                            <p class="bigblog-author-name  blogs-bigblog-cat-abstract-author dnone blogs-bigblog-cat-abstract">{{author_abstract[0]['Name']}}</p>
-                            <img src="{{author_fantasy[0]['pfp']}}" class="dnone  blogs-bigblog-cat-fantasy bigblog-author-pfp" alt="">
-                            <p class="bigblog-author-name  blogs-bigblog-cat-fantasy-author dnone blogs-bigblog-cat-fantasy">{{author_fantasy[0]['Name']}}</p>
-                            <img src="{{author_nft[0]['pfp']}}" class="dnone  blogs-bigblog-cat-nft bigblog-author-pfp" alt="">
-                            <p class="bigblog-author-name  blogs-bigblog-cat-nft-author dnone blogs-bigblog-cat-nft">{{author_nft[0]['Name']}}</p>
-                            <img src="{{author_tech[0]['pfp']}}" class="dnone  blogs-bigblog-cat-tech bigblog-author-pfp" alt="">
-                            <p class="bigblog-author-name  blogs-bigblog-cat-tech-author dnone blogs-bigblog-cat-tech">{{author_tech[0]['Name']}}</p>
-                            <img src="{{author_anime[0]['pfp']}}" class="dnone blogs-bigblog-cat-anime bigblog-author-pfp" alt="">
-                            <p class="bigblog-author-name blogs-bigblog-cat-anime-author dnone blogs-bigblog-cat-anime">{{author_anime[0]['Name']}}</p>
-                        </div>
-                        <h2 class="bigblog-title blog-all">{{blogs[0]['title']}}</h2>
-                        <h2 class="bigblog-title dnone blogs-bigblog-cat-art">{{cat_art[0]['title']}}</h2>
-                        <h2 class="bigblog-title dnone blogs-bigblog-cat-music">{{cat_music[0]['title']}}</h2>
-                        <h2 class="bigblog-title dnone blogs-bigblog-cat-abstract">{{cat_abstract[0]['title']}}</h2>
-                        <h2 class="bigblog-title dnone blogs-bigblog-cat-fantasy">{{cat_fantasy[0]['title']}}</h2>
-                        <h2 class="bigblog-title dnone blogs-bigblog-cat-nft">{{cat_nft[0]['title']}}</h2>
-                        <h2 class="bigblog-title dnone blogs-bigblog-cat-tech">{{cat_tech[0]['title']}}</h2>
-                        <h2 class="bigblog-title dnone blogs-bigblog-cat-anime">{{cat_anime[0]['title']}}</h2>
-                        <textarea disabled class="bigblog-content blog-all">{{blogs[0]['desc']}}</textarea>
-                        <textarea disabled class="bigblog-content dnone blogs-bigblog-cat-art">{{cat_art[1]['desc']}}</textarea>
-                        <textarea disabled class="bigblog-content dnone blogs-bigblog-cat-music">{{cat_music[0]['desc']}}</textarea>
-                        <textarea disabled class="bigblog-content dnone blogs-bigblog-cat-abstract">{{cat_abstract[0]['desc']}}</textarea>
-                        <textarea disabled class="bigblog-content dnone blogs-bigblog-cat-fantasy">{{cat_fantasy[0]['desc']}}</textarea>
-                        <textarea disabled class="bigblog-content dnone blogs-bigblog-cat-nft">{{cat_nft[0]['desc']}}</textarea>
-                        <textarea disabled class="bigblog-content dnone blogs-bigblog-cat-tech">{{cat_tech[0]['desc']}}</textarea>
-                        <textarea disabled class="bigblog-content dnone blogs-bigblog-cat-anime">{{cat_anime[0]['desc']}}</textarea>
-                    </div>
-                </div>
-                </a>
-                <div class="blog-home-smallblogs">
-                    <a>
-                        <div class="blog-home-smallblog hoverable">
-                            <div class="blog-home-smallblog-info">
-                                <p class="home-smallblog-date">{{blogs[1]['date']}}</p>
-                                <p class="home-smallblog-content">{{blogs[1]['desc']}}</p>
-                            </div>
-                            <img class="blog-home-smallblog-thumb" src="{{blogs[1]['thumb']}}">
-                        </div>
-                    </a>
-                    <a>
-                        <div class="blog-home-smallblog hoverable">
-                            <div class="blog-home-smallblog-info">
-                                <p class="home-smallblog-date">{{blogs[2]['date']}}</p>
-                                <p class="home-smallblog-content">{{blogs[2]['desc']}}p>
-                            </div>
-                            <img class="blog-home-smallblog-thumb" src="{{blogs[2]['thumb']}}">
-                        </div>
-                    </a>
-                    <a>
-                        <div class="blog-home-smallblog hoverable">
-                            <div class="blog-home-smallblog-info">
-                                <p class="home-smallblog-date">{{blogs[3]['date']}}</p>
-                                <p class="home-smallblog-content">{{blogs[3]['desc']}} </p>
-                            </div>
-                            <img class="blog-home-smallblog-thumb" src="{{blogs[3]['thumb']}}">
-                        </div>
-                    </a>
-
-                </div>
-            </div>
-            <br>
-            <div class="blogs-createnew">
-              {% if 'loggedin' in session %}
-                <h1 class="blogs-createnew-title">Add Post</h1>
-                <form action="" method="post" class="blogs-createnew-form" enctype="multipart/form-data">
-                    <div class="bcn-1">
-                        <input type="text" class="blogs-createnew-input bci-1" name="blogs-createnew-title" placeholder="Add Title" id="">
-                        <div style="text-align: left;" class="blogs-createnew-input bci-2"><img src="{{usrdata['pfp']}}" class="bci-img"><textarea type="text" name="blogs-createnew-thot" class="blogs-createnew-thot" placeholder="Share your thoughts." id=""></textarea></div>
-                    </div>
-                    <div class="bcn-2">
-                        <div class="blogs-createnew-input bcn-3">
-                            <div class="blogs-createnew-thumb-overlay hoverable">
-                                <input onchange="createPreview()" accept=".png, .jpg, .gif , .jpeg" type="file" style="display: none;" name="createnew-upload" id="createnew-upload">
-                                <label for="createnew-upload" class="createnew-thumb-overlay-main" onmouseleave="blogsPreviewImage()">
-                                    <svg width="40" height="40" class="createnew-thumb-overlay-vector" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M8 10C5.79086 10 4 11.7909 4 14V30C4 32.2092 5.79086 34 8 34H32C34.2092 34 36 32.2092 36 30V14C36 11.7909 34.2092 10 32 10H28.8284C28.298 10 27.7892 9.78928 27.4142 9.41422L25.1716 7.17158C24.4214 6.42142 23.404 6 22.3432 6H17.6569C16.596 6 15.5786 6.42142 14.8284 7.17158L12.5858 9.41422C12.2107 9.78928 11.702 10 11.1716 10H8ZM20 28C23.3138 28 26 25.3138 26 22C26 18.6863 23.3138 16 20 16C16.6863 16 14 18.6863 14 22C14 25.3138 16.6863 28 20 28Z" fill="white"/>
-                                    </svg>
-                                    <p class="createnew-thumb-overlay-txt">Upload Image</p>
-                                </label>
-                            </div>
-                            <div class="blogs-createnew-thumb" onmouseenter="blogsUploadPrompt()">
-                                <img src="{{url_for('static', filename='createnew-sample.svg')}}" class="createnew-upload" alt="">
-                            </div>
-                            <p class="orr">OR</p>
-                            <input type="text" placeholder="Enter Image Url" name="bcn-imgurl" class="bcn-imgurl" id="">
-                        </div>
-                        <div class="blogs-createnew-tags">
-                            <h2 class="createnew-tags-head">Add Tags</h2>
-                            <div class="tags-value">
-                                <p class="tags-value-txt">Art</p>
-                                <img src="{{url_for('static', filename='check.svg')}}" class="tags-value-bool tag-value-selector-art hoverable" alt="">
-                                <img src="{{url_for('static', filename='cross.svg')}}" class="tags-value-bool val-false tag-value-selector-art-false hoverable" alt="">
-                                <input type= "text" name="createnew-tag-art" class="createnew-tag-art"style="display: none;" value="False">
-                            </div>
-                            <div class="tags-value">
-                              <p class="tags-value-txt">Music</p>
-                              <img src="{{url_for('static', filename='check.svg')}}" class="tags-value-bool tag-value-selector-music hoverable" alt="">
-                              <img src="{{url_for('static', filename='cross.svg')}}" class="tags-value-bool val-false tag-value-selector-music-false hoverable" alt="">
-                              <input type= "text" name="createnew-tag-music" class="createnew-tag-music"style="display: none;" value="False">
-                          </div>
-                          <div class="tags-value">
-                            <p class="tags-value-txt">Abstract</p>
-                            <img src="{{url_for('static', filename='check.svg')}}" class="tags-value-bool tag-value-selector-abstract hoverable" alt="">
-                            <img src="{{url_for('static', filename='cross.svg')}}" class="tags-value-bool val-false tag-value-selector-abstract-false hoverable" alt="">
-                            <input type= "text" name="createnew-tag-abstract" class="createnew-tag-abstract"style="display: none;" value="False">
-                        </div>
-                        <div class="tags-value">
-                          <p class="tags-value-txt">Fantasy</p>
-                          <img src="{{url_for('static', filename='check.svg')}}" class="tags-value-bool tag-value-selector-fantasy hoverable" alt="">
-                          <img src="{{url_for('static', filename='cross.svg')}}" class="tags-value-bool val-false tag-value-selector-fantasy-false hoverable" alt="">
-                          <input type= "text" name="createnew-tag-fantasy" class="createnew-tag-fantasy"style="display: none;" value="False">
-                      </div>
-                      <div class="tags-value">
-                        <p class="tags-value-txt">NFT</p>
-                        <img src="{{url_for('static', filename='check.svg')}}" class="tags-value-bool tag-value-selector-nft hoverable" alt="">
-                        <img src="{{url_for('static', filename='cross.svg')}}" class="tags-value-bool val-false tag-value-selector-nft-false hoverable" alt="">
-                        <input type= "text" name="createnew-tag-nft" class="createnew-tag-nft" style="display: none;" value="False">
-                    </div>
-                    <div class="tags-value">
-                      <p class="tags-value-txt">Tech</p>
-                      <img src="{{url_for('static', filename='check.svg')}}" class="tags-value-bool tag-value-selector-tech hoverable" alt="">
-                      <img src="{{url_for('static', filename='cross.svg')}}" class="tags-value-bool val-false tag-value-selector-tech-false hoverable" alt="">
-                      <input type= "text" name="createnew-tag-tech" class="createnew-tag-tech"style="display: none;" value="False">
-                  </div>
-                  <div class="tags-value">
-                    <p class="tags-value-txt">Anime</p>
-                    <img src="{{url_for('static', filename='check.svg')}}" class="tags-value-bool tag-value-selector-anime hoverable" alt="">
-                    <img src="{{url_for('static', filename='cross.svg')}}" class="tags-value-bool val-false tag-value-selector-anime-false hoverable" alt="">
-                    <input type= "text" name="createnew-tag-anime" class="createnew-tag-anime"style="display: none;" value="False">
-                </div>
-                        </div>
-                    </div>
-                    <input type="submit" value="Post" class="createnew-postform hoverable">
-                </form>
-                {% else %}
-                <h1 class="blogs-createnew-title">Add Post</h1>
-                <a href="/auth"><button  class="login-btn">Log in to add a post</button></a>
-                {% endif %}
-            </div>
-        </center>
-    </div>
+      <div class="udmain">
+        <img src="{{udd['pfp']}}" class="udd-pfp" alt="">
+        <div style="display: inline-block; vertical-align: middle;">
+        <h2 class="cu-title" style="font-family: 'gilroy-500'; margin-block-end: 0.3em;">{{ud['title']}}</h2>
+        <a href="/user/{{udd['id']}}" class="hoverable" style="text-decoration: underline; text-decoration-underline;"><p style="margin-block-start: 0; color:#ececec; margin-left: 1em;">{{udd['Name']}}</p></a>
+        <div class="fright">
+          <button class="roiirio hoverable">Buy</button>
+        </div>
+        </div>
+      </div>
 </body>
 </html>
 <div class="cursor">
