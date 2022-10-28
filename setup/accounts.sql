@@ -1,0 +1,21 @@
+CREATE TABLE `accounts` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `Name` varchar(45) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `Username` varchar(45) NOT NULL,
+  `Password` varchar(45) NOT NULL,
+  `discordid` varchar(45) DEFAULT NULL,
+  `pfp` varchar(10380) DEFAULT '/uploads/default.svg',
+  `followers` int DEFAULT '0',
+  `appreciations` int DEFAULT '0',
+  `sales` int DEFAULT '0',
+  `following` int DEFAULT '0',
+  `bio` longtext,
+  `owned` int DEFAULT '0',
+  `created` int DEFAULT '0',
+  `behance` varchar(145) DEFAULT NULL,
+  `twitter` varchar(145) DEFAULT NULL,
+  `drible` varchar(145) DEFAULT NULL,
+  `insta` varchar(145) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

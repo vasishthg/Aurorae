@@ -1,0 +1,10 @@
+[{"id":1, "name":"Graphic Design Crash Course", "price":"300", "category":"Graphic Design", "thumb":"/uploads/course-1.png"},
+ {"id":2, "name":"Adobe Illustrator Crash Course", "price":"340", "category":"UI/UX Design", "thumb":"/uploads/course-2.png"},
+ {"id":3, "name":"Procreate Crash Course", "price":"210", "category":"Graphic Design", "thumb":"/uploads/course-3.png"},
+ {"id":4, "name":"NFT Crash Course", "price":"120", "category":"Crypto World", "thumb":"/uploads/course-4.png"},
+ {"id":5, "name":"All About NFT", "price":"80", "category":"Crypto World", "thumb":"/uploads/course-5.png"},
+ {"id":6, "name":"Data Analytics", "price":"199", "category":"Data & Development", "thumb":"/uploads/course-6.png"},
+ {"id":7, "name":"Flask Crash Course", "price":"387", "category":"Data & Development", "thumb":"/uploads/course-7.png"},
+ {"id":8, "name":"Consumer Analytics Crash Course", "price":"99", "category":"Customer Management", "thumb":"/uploads/course-8.png"},
+ {"id":9, "name":"Web Development - Begginer To Expert", "price":"890", "category":"Data & Development", "thumb":"/uploads/course-9.png"},
+ {"id":10, "name":"Introduction to C++ with Unreal Engine", "price":"80", "category":"Data & Development", "thumb":"/uploads/course-10.png"}]
