@@ -191,11 +191,41 @@
         <img src="{{udd['pfp']}}" class="udd-pfp" alt="">
         <div style="display: inline-block; vertical-align: middle;">
         <h2 class="cu-title" style="font-family: 'gilroy-500'; margin-block-end: 0.3em;">{{ud['title']}}</h2>
-        <a href="/user/{{udd['id']}}" class="hoverable" style="text-decoration: underline; text-decoration-underline;"><p style="margin-block-start: 0; color:#ececec; margin-left: 1em;">{{udd['Name']}}</p></a>
-        <div class="fright">
-          <button class="roiirio hoverable">Buy</button>
+        <a href="/user/{{udd['id']}}" class="hoverable" style="text-decoration: underline; text-underline-offset: 0.2em;"><p style="margin-block-start: 0; color:#ececec; margin-left: 1em;">{{udd['Name']}}</p></a>
+      </div>
+      <div class="fright">
+        <button class="roiirio hoverable">Buy (${{ud['cost']}})</button>
+      </div>
+      <br><br>
+      <center>
+        <div class="we9ii">
+          <img src="{{ud['img1']}}" class="wooo" alt="">
+          <img src="{{ud['img2']}}" class="wooo" alt="">
+          <img src="{{ud['img3']}}" class="wooo" alt="">
+          <img src="{{ud['img4']}}" class="wooo" alt="">
+          <img src="{{ud['img5']}}" class="wooo" alt="">
+          <img src="{{ud['img6']}}" class="wooo" alt="">
         </div>
-        </div>
+        {% if 'loggedin' in session %}
+        <form action="" method="post">
+          <input type="text" name="wewiueio" style="display: none;" value="True" id="">
+        <button type="submit" class="roiirio hoverable weoirj" style="float: left;">
+          <svg width="25" height="25" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14.9805 44.1406H8.98047C7.9196 44.1406 6.90219 43.7192 6.15204 42.9691C5.4019 42.2189 4.98047 41.2015 4.98047 40.1406V26.1406C4.98047 25.0798 5.4019 24.0623 6.15204 23.3122C6.90219 22.5621 7.9196 22.1406 8.98047 22.1406H14.9805M28.9805 18.1406V10.1406C28.9805 8.54933 28.3483 7.0232 27.2231 5.89798C26.0979 4.77277 24.5718 4.14063 22.9805 4.14062L14.9805 22.1406V44.1406H37.5405C38.5051 44.1515 39.4412 43.8134 40.1763 43.1886C40.9113 42.5638 41.3958 41.6944 41.5405 40.7406L44.3005 22.7406C44.3875 22.1673 44.3488 21.582 44.1871 21.0251C44.0255 20.4683 43.7447 19.9532 43.3642 19.5157C42.9837 19.0781 42.5126 18.7285 41.9836 18.4911C41.4546 18.2536 40.8803 18.1341 40.3005 18.1406H28.9805Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg><br>
+            {{ud['appreciated']}}
+        </button>
+        </form>
+        {% else %}
+        <a href="/auth"><button type="submit" class="roiirio hoverable weoirj" style="float: left;">
+          <svg width="25" height="25" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14.9805 44.1406H8.98047C7.9196 44.1406 6.90219 43.7192 6.15204 42.9691C5.4019 42.2189 4.98047 41.2015 4.98047 40.1406V26.1406C4.98047 25.0798 5.4019 24.0623 6.15204 23.3122C6.90219 22.5621 7.9196 22.1406 8.98047 22.1406H14.9805M28.9805 18.1406V10.1406C28.9805 8.54933 28.3483 7.0232 27.2231 5.89798C26.0979 4.77277 24.5718 4.14063 22.9805 4.14062L14.9805 22.1406V44.1406H37.5405C38.5051 44.1515 39.4412 43.8134 40.1763 43.1886C40.9113 42.5638 41.3958 41.6944 41.5405 40.7406L44.3005 22.7406C44.3875 22.1673 44.3488 21.582 44.1871 21.0251C44.0255 20.4683 43.7447 19.9532 43.3642 19.5157C42.9837 19.0781 42.5126 18.7285 41.9836 18.4911C41.4546 18.2536 40.8803 18.1341 40.3005 18.1406H28.9805Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg><br>
+            {{ud['appreciated']}}
+        </button></a>
+        {% endif %}
+        <br><br>
+      </center>
       </div>
 </body>
 </html>

@@ -545,7 +545,7 @@ def create():
             passname4 = os.path.join(app.config['UPLOAD_FOLDER'], filename4)
             passname5 = os.path.join(app.config['UPLOAD_FOLDER'], filename5)
             passname6 = os.path.join(app.config['UPLOAD_FOLDER'], filename6)
-            cur.execute("INSERT INTO collections VALUES(NULL, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (usrdata['email'], title, desc, "/" + passname1, "/" + passname2, "/" + passname3, "/" + passname4, "/" + passname5, "/" + passname6, cost))
+            cur.execute("INSERT INTO collections VALUES(NULL, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, DEFAULT)", (usrdata['email'], title, desc, "/" + passname1, "/" + passname2, "/" + passname3, "/" + passname4, "/" + passname5, "/" + passname6, cost))
             mysql.connection.commit()
             cur.execute("SELECT created FROM accounts WHERE email = %s", [usrdata['email']])
             cc = cur.fetchone()['created']
@@ -559,7 +559,7 @@ def create():
         return render_template("create.html", usrdata = usrdata)
     return redirect('/auth')
 
-@app.route("/<username>/collections/<int:id>")
+@app.route("/<username>/collections/<int:id>", methods=['GET', 'POST'])
 def collectionview(username, id):
     cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     cur.execute("SELECT * FROM collections WHERE id = %s", str(id))
@@ -569,6 +569,15 @@ def collectionview(username, id):
     if 'loggedin' in session:
         cur.execute("SELECT * FROM accounts WHERE email = %s", [session['email']])
         usrdata = cur.fetchone()
+        if request.method == "POST" and "wewiueio" in request.form:
+            ud['appreciated'] += 1
+            cur.execute("UPDATE collections SET appreciated = %s WHERE id = %s", (str(ud['appreciated']), str(id)))
+            mysql.connection.commit()
+            uap = udd['appreciations']
+            uap+=1
+            cur.execute("UPDATE accounts SET appreciations = %s WHERE id = %s", (str(uap), str(udd['id'])))
+            mysql.connection.commit()
+            return redirect(request.url)
         return render_template("wwee.html", username = username, id = id, ud = ud, usrdata = usrdata, udd = udd)
     return render_template("wwee.html", username = username, id = id, ud = ud, udd = udd)
     
