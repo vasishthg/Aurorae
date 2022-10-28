@@ -334,10 +334,12 @@
     <div class="user-main-thing">
       <div class="umt-nav">
         <center>
-          <div class="nav-created umt-nav-link hoverable" style="margin-left: 0;">
+            
+            <div class="nav-created umt-nav-link hoverable" style="margin-left: 0;">
             <p class="umt-nav-link-title">CREATED</p>
-            <div class="umt-nav-link-val unlv-1"><p class="umt-nav-link-val-txt">179</p></div>
+            <div class="umt-nav-link-val unlv-1"><p class="umt-nav-link-val-txt"> {{plength}}</p></div>
           </div>
+          
           <div class="nav-collection umt-nav-link hoverable">
             <p class="umt-nav-link-title">COLLECTION</p>
             <div class="umt-nav-link-val unlv-2"><p class="umt-nav-link-val-txt">8</p></div>
@@ -354,7 +356,6 @@
               <img src="{{url_for('static', filename='collection-sample.svg')}}" class="collection-img" alt="">
               <div class="collection-info">
                 <h2 class="collection-title">Bored Ape</h2>
-                <p class="collection-buynow">Buy Now</p>
                 <p class="collection-cost">12.4 ETH</p>
               </div>
             </div>
@@ -362,7 +363,6 @@
               <img src="{{url_for('static', filename='collection-sample.svg')}}" class="collection-img" alt="">
               <div class="collection-info">
                 <h2 class="collection-title">Bored Ape</h2>
-                <p class="collection-buynow">Buy Now</p>
                 <p class="collection-cost">12.4 ETH</p>
               </div>
             </div>
@@ -370,7 +370,6 @@
               <img src="{{url_for('static', filename='collection-sample.svg')}}" class="collection-img" alt="">
               <div class="collection-info">
                 <h2 class="collection-title">Bored Ape</h2>
-                <p class="collection-buynow">Buy Now</p>
                 <p class="collection-cost">12.4 ETH</p>
               </div>
             </div>
@@ -378,11 +377,23 @@
               <img src="{{url_for('static', filename='collection-sample.svg')}}" class="collection-img" alt="">
               <div class="collection-info">
                 <h2 class="collection-title">Bored Ape</h2>
-                <p class="collection-buynow">Buy Now</p>
                 <p class="collection-cost">12.4 ETH</p>
               </div>
             </div>
-            
+            <div class="collection hoverable">
+              <img src="{{url_for('static', filename='collection-sample.svg')}}" class="collection-img" alt="">
+              <div class="collection-info">
+                <h2 class="collection-title">Bored Ape</h2>
+                <p class="collection-cost">12.4 ETH</p>
+              </div>
+            </div>
+            <div class="collection hoverable">
+              <img src="{{url_for('static', filename='collection-sample.svg')}}" class="collection-img" alt="">
+              <div class="collection-info">
+                <h2 class="collection-title">Bored Ape</h2>
+                <p class="collection-cost">12.4 ETH</p>
+              </div>
+            </div>
           </div>
           <div class="owned">
             <div class="collection hoverable">
@@ -415,34 +426,17 @@
             </div>
           </div>
           <div class="createdd">
+            {% for project in projects %}
+            <a href="/collection/3">
             <div class="collection hoverable">
-              <img src="{{url_for('static', filename='collection-sample.svg')}}" class="collection-img" alt="">
+              <img src="{{projects[loop.index-1]['thumb']}}" class="collection-img" alt="">
               <div class="collection-info">
-                <h2 class="collection-title">Bored Ape</h2>
-                <p class="collection-cost">12.4 ETH</p>
+                <h2 class="collection-title">{{projects[loop.index-1]['title']}}</h2>
+                <p class="collection-cost">${{projects[loop.index-1]['cost']}}</p>
               </div>
             </div>
-            <div class="collection hoverable">
-              <img src="{{url_for('static', filename='collection-sample.svg')}}" class="collection-img" alt="">
-              <div class="collection-info">
-                <h2 class="collection-title">Bored Ape</h2>
-                <p class="collection-cost">12.4 ETH</p>
-              </div>
-            </div>
-            <div class="collection hoverable">
-              <img src="{{url_for('static', filename='collection-sample.svg')}}" class="collection-img" alt="">
-              <div class="collection-info">
-                <h2 class="collection-title">Bored Ape</h2>
-                <p class="collection-cost">12.4 ETH</p>
-              </div>
-            </div>
-            <div class="collection hoverable">
-              <img src="{{url_for('static', filename='collection-sample.svg')}}" class="collection-img" alt="">
-              <div class="collection-info">
-                <h2 class="collection-title">Bored Ape</h2>
-                <p class="collection-cost">12.4 ETH</p>
-              </div>
-            </div>
+            </a>
+            {% endfor %}
           </div>
         </center>
       </div>

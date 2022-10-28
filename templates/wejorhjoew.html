@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Courses / Aurorae</title>
+    <title>{{cd['name']}} / Aurorae</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"">
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
     <link rel="shortcut icon" href="{{url_for('static', filename='favicon.svg')}}" type="image/x-icon">
@@ -141,10 +141,10 @@
       {% else %}
       <button class="auth-btn-2 to-login menu-to-login">Log In</button>
       {% endif %}
-        
     </div>
-    </center>
-    </div>
+</center>
+</div>
+
 </div>
     <div id="overlay" style="background-color: black;">
         <div id="progstat" style="-webkit-text-stroke: 1.6px white;"></div>
@@ -187,43 +187,42 @@
             </div>
         </div>
       </div>
-      <div class="courses-up">
-        <h2 class="cu-title">My Learning</h2>
-        <div style="display: inline-block; vertical-align: middle;">
-        <img src="{{usrdata['pfp']}}" class="cu-img" alt="">
-        <div style="display: inline-block; vertical-align: middle;">
-          <p class="cu-name">{{fname}}</p>
-          <p class="cu-uname">@{{usrdata['Username']}}</p>
+          <div class="skillissue">
+            {% if id == 1 %}
+            <iframe width="900" height="505" src="https://www.youtube.com/embed/YiLUYf4HDh4" title="Learn UI/UX Design & Figma - 2022 Interactive Crash Course" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>           
+            {% endif %}
+            {% if id == 2 %}
+            <iframe width="900" height="505" src="https://www.youtube.com/embed/Ib8UBwu3yGA" title="Adobe Illustrator Crash Course" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            {% endif %}
+            {% if id == 3 %}
+            <iframe width="900" height="505" src="https://www.youtube.com/embed/1xQwvSmZ8Is" title="Procreate 5 COMPLETE ARTIST’S GUIDE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>            {% endif %}
+            {% if id == 4 %}
+            <iframe width="900" height="505" src="https://www.youtube.com/embed/Mao75ECQXfM" title="NFT For Beginners- explain everything about NFT’s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            {% endif %}
+            {% if id == 5 %}
+            <iframe width="900" height="505" src="https://www.youtube.com/embed/8C9bKcoYVds" title="How NFT's Work" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>            {% endif %}
+            {% if id == 6 %}
+            <iframe width="900" height="505" src="https://www.youtube.com/embed/N6BghzuFLIg" title="Intro to Data Science - Crash Course for Beginners" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
+            {% endif %}
+            {% if id == 7 %}
+            <iframe width="900" height="505" src="https://www.youtube.com/embed/Qr4QMBUPxWo" title="Flask Course - Python Web Application Development" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>            <br>or just contact me on discord :)
+            {% endif %}
+            {% if id == 8 %}
+            <h1>COMING SOON!</h1>
+            <p style="font-size: 0.1em;">han nai milra kuch mujhe</p>
+            {% endif %}
+            {% if id == 9 %}
+            <iframe width="900" height="505" src="https://www.youtube.com/embed/ZxKM3DCV2kE" title="Web Development Full Course - 22 Hour Course | Learn Full Stack Web Development From Scratch" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            {% endif %}
+            {% if id == 10 %}
+            <iframe width="900" height="505" src="https://www.youtube.com/embed/LsNW4FPHuZE" title="Learn Unreal Engine (with C++) - Full Course for Beginners" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>            {% endif %}
+            <br><br><h1 style="display: inline; margin-block-start: .5em;">{{cd['name']}}</h1>
+            <p style="float: right;">By Aurorae</p><br><br>
         </div>
-        <div style="margin-left: 1em">
-          <h2 class="lup-head">Level Up</h2>
-          <progress max="{{pointsneeded}}" class="progres" value="{{usr_coursedata['points']}}"></progress>
-          <p class="remaining"><b style="font-size: 1.3em; font-family: 'gilroy-700'; color: white;">{{remaining}}</b> points to reach level {{usr_coursedata['level']+1}}</p>
-        </div>
-        </div>
-        <div class="cu-stats">
-          <div class="cu-stat">
-              <p class="cu-stat-val">{{usr_coursedata['points']}}</p>
-              <p class="cu-stat-desc">Total Points Gained</p>
-          </div>
-          <div class="cu-stat">
-            <p class="cu-stat-val">{{usr_coursedata['completed']}}</p>
-            <p class="cu-stat-desc">Courses Completed</p>
-        </div>
-        <br><br><br>
-        <div class="cu-stat">
-          <p class="cu-stat-val">{{dayselapsed}}</p>
-          <p class="cu-stat-desc">Days Since Training</p>
-      </div>
-      
-        </div>
-      </div>
-      <br>
-      <hr style="width: 90%">
-      <div class="mycourses">
-        <h2 class="cu-title">Owned</h2>
-        
-        {% if usr_coursedata['c1'] == 'True' %}
+        <div class="moreskillissue">
+            <h2 class="cu-title">All Courses</h2>
+
+            {% if usr_coursedata['c1'] == 'True' %}
         <a href="/courses/1">
         <div class="course hoverable">
           <center>
@@ -323,183 +322,7 @@
         </div>
         </a>
         {% endif %}
-      </div>
-      <div class="browse-courses">
-        <h2 class="cu-title">Explore</h2>
-        {% if usr_coursedata['c1'] == 'True' and usr_coursedata['c2'] == 'True' and usr_coursedata['c3'] == 'True' and usr_coursedata['c4'] == 'True' and usr_coursedata['c5'] == 'True' and usr_coursedata['c6'] == 'True' and usr_coursedata['c7'] == 'True' and usr_coursedata['c8'] == 'True' and usr_coursedata['c9'] == 'True' and usr_coursedata['c10'] == 'True' %}
-        <p>You have claimed all available courses!</p>
-        {% endif %}
-        {% if usr_coursedata['c1'] != 'True' %}
-        <div class="browse-course">
-            <center>
-            <img class="coursethumb" src="{{coursedata[0]['thumb']}}">
-          <br>
-
-            <p class="coursenamee" style="text-align: left;">{{coursedata[0]['name']}}</p>
-          </center>
-          <hr style=" background: white; color: white;">
-          <br>
-          <p style="font-family: 'gilroy-700'; display: inline; vertical-align: middle;">${{coursedata[0]['price']}}</p>
-          <form action="" style="float: right; vertical-align: middle;" method="post">
-            <input style="display: none;" type="text" name="enroll-c1" value="enroll">
-            <button type="submit" class="weebtn hoverable">Enroll</button>
-          </form>
         </div>
-        {% endif %}
-        {% if usr_coursedata['c2'] != 'True' %}
-        <div class="browse-course">
-              <center>
-              <img class="coursethumb" src="{{coursedata[1]['thumb']}}">
-            <br>
-  
-              <p class="coursenamee" style="text-align: left;">{{coursedata[1]['name']}}</p>
-            </center>
-            <hr style=" background: white; color: white;">
-            <br>
-            <p style="font-family: 'gilroy-700'; display: inline; vertical-align: middle;">${{coursedata[1]['price']}}</p>
-            <form action="" style="float: right; vertical-align: middle;" method="post">
-              <input style="display: none;" type="text" name="enroll-c2" value="enroll">
-              <button type="submit" class="weebtn hoverable">Enroll</button>
-            </form>
-          </div>
-          {% endif %}
-          {% if usr_coursedata['c3'] != 'True' %}
-          <div class="browse-course">
-                <center>
-                <img class="coursethumb" src="{{coursedata[2]['thumb']}}">
-              <br>
-    
-                <p class="coursenamee" style="text-align: left;">{{coursedata[2]['name']}}</p>
-              </center>
-              <hr style=" background: white; color: white;">
-              <br>
-              <p style="font-family: 'gilroy-700'; display: inline; vertical-align: middle;">${{coursedata[2]['price']}}</p>
-              <form action="" style="float: right; vertical-align: middle;" method="post">
-                <input style="display: none;" type="text" name="enroll-c3" value="enroll">
-                <button type="submit" class="weebtn hoverable">Enroll</button>
-              </form>
-            </div>
-            {% endif %}
-            {% if usr_coursedata['c4'] != 'True' %}
-            <div class="browse-course">
-                  <center>
-                  <img class="coursethumb" src="{{coursedata[3]['thumb']}}">
-                <br>
-      
-                  <p class="coursenamee" style="text-align: left;">{{coursedata[3]['name']}}</p>
-                </center>
-                <hr style=" background: white; color: white;">
-                <br>
-                <p style="font-family: 'gilroy-700'; display: inline; vertical-align: middle;">${{coursedata[3]['price']}}</p>
-                <form action="" style="float: right; vertical-align: middle;" method="post">
-                  <input style="display: none;" type="text" name="enroll-c4" value="enroll">
-                  <button type="submit" class="weebtn hoverable">Enroll</button>
-                </form>
-              </div>
-              {% endif %}
-              {% if usr_coursedata['c5'] != 'True' %}
-              <div class="browse-course">
-                    <center>
-                    <img class="coursethumb" src="{{coursedata[4]['thumb']}}">
-                  <br>
-        
-                    <p class="coursenamee" style="text-align: left;">{{coursedata[4]['name']}}</p>
-                  </center>
-                  <hr style=" background: white; color: white;">
-                  <br>
-                  <p style="font-family: 'gilroy-700'; display: inline; vertical-align: middle;">${{coursedata[4]['price']}}</p>
-                  <form action="" style="float: right; vertical-align: middle;" method="post">
-                    <input style="display: none;" type="text" name="enroll-c5" value="enroll">
-                    <button type="submit" class="weebtn hoverable">Enroll</button>
-                  </form>
-                </div>
-                {% endif %}
-                {% if usr_coursedata['c6'] != 'True' %}
-                <div class="browse-course">
-                      <center>
-                      <img class="coursethumb" src="{{coursedata[5]['thumb']}}">
-                    <br>
-          
-                      <p class="coursenamee" style="text-align: left;">{{coursedata[5]['name']}}</p>
-                    </center>
-                    <hr style=" background: white; color: white;">
-                    <br>
-                    <p style="font-family: 'gilroy-700'; display: inline; vertical-align: middle;">${{coursedata[5]['price']}}</p>
-                    <form action="" style="float: right; vertical-align: middle;" method="post">
-                      <input style="display: none;" type="text" name="enroll-c6" value="enroll">
-                      <button type="submit" class="weebtn hoverable">Enroll</button>
-                    </form>
-                  </div>
-                  {% endif %}
-                  {% if usr_coursedata['c7'] != 'True' %}
-                  <div class="browse-course">
-                        <center>
-                        <img class="coursethumb" src="{{coursedata[6]['thumb']}}">
-                      <br>
-            
-                        <p class="coursenamee" style="text-align: left;">{{coursedata[6]['name']}}</p>
-                      </center>
-                      <hr style=" background: white; color: white;">
-                      <br>
-                      <p style="font-family: 'gilroy-700'; display: inline; vertical-align: middle;">${{coursedata[6]['price']}}</p>
-                      <form action="" style="float: right; vertical-align: middle;" method="post">
-                        <input style="display: none;" type="text" name="enroll-c7" value="enroll">
-                        <button type="submit" class="weebtn hoverable">Enroll</button>
-                      </form>
-                    </div>
-                    {% endif %}
-                    {% if usr_coursedata['c8'] != 'True' %}
-                    <div class="browse-course">
-                          <center>
-                          <img class="coursethumb" src="{{coursedata[7]['thumb']}}">
-                        <br>
-              
-                          <p class="coursenamee" style="text-align: left;">{{coursedata[7]['name']}}</p>
-                        </center>
-                        <hr style=" background: white; color: white;">
-                        <br>
-                        <p style="font-family: 'gilroy-700'; display: inline; vertical-align: middle;">${{coursedata[7]['price']}}</p>
-                        <form action="" style="float: right; vertical-align: middle;" method="post">
-                          <input style="display: none;" type="text" name="enroll-c8" value="enroll">
-                          <button type="submit" class="weebtn hoverable">Enroll</button>
-                        </form>
-                      </div>
-                      {% endif %}
-                      {% if usr_coursedata['c9'] != 'True' %}
-                      <div class="browse-course">
-                            <center>
-                            <img class="coursethumb" src="{{coursedata[8]['thumb']}}">
-                          <br>
-                
-                            <p class="coursenamee" style="text-align: left;">{{coursedata[8]['name']}}</p>
-                          </center>
-                          <hr style=" background: white; color: white;">
-                          <br>
-                          <p style="font-family: 'gilroy-700'; display: inline; vertical-align: middle;">${{coursedata[8]['price']}}</p>
-                          <form action="" style="float: right; vertical-align: middle;" method="post">
-                            <input style="display: none;" type="text" name="enroll-c9" value="enroll">
-                            <button type="submit" class="weebtn hoverable">Enroll</button>
-                          </form>
-                        </div>
-                        {% endif %}
-                        {% if usr_coursedata['c10'] != 'True' %}
-                        <div class="browse-course">
-                              <center>
-                              <img class="coursethumb" src="{{coursedata[9]['thumb']}}">
-                            <br>
-                  
-                              <p class="coursenamee" style="text-align: left;">{{coursedata[9]['name']}}</p>
-                            </center>
-                            <hr style=" background: white; color: white;">
-                            <br>
-                            <p style="font-family: 'gilroy-700'; display: inline; vertical-align: middle;">${{coursedata[9]['price']}}</p>
-                            <form action="" style="float: right; vertical-align: middle;" method="post">
-                              <input style="display: none;" type="text" name="enroll-c10" value="enroll">
-                              <button type="submit" class="weebtn hoverable">Enroll</button>
-                            </form>
-                        </div>
-                        {% endif %}
-      </div>
 </body>
 </html>
 <div class="cursor">

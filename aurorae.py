@@ -1,5 +1,4 @@
 import os
-import re
 from flask import Flask, render_template, request, session, jsonify, redirect, url_for, flash, send_from_directory
 import MySQLdb.cursors
 from flask_mysqldb import MySQL
@@ -9,6 +8,7 @@ from zenora import APIClient
 from config import TOKEN, CLIENT_SECRET, OAUTH_URL, REDIRECT_URI
 from werkzeug.utils import secure_filename
 import datetime
+import this
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "157193d1577cea433f3982b1b24b811374d39a048115a29d9a47c4d6fb054b27cd5be948f30385bf7137073731c233ac60cdb2e481200080cc0284650e8ffcb1"
@@ -325,6 +325,7 @@ def userprofile():
         cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cur.execute("SELECT * FROM accounts WHERE email = %s", [session['email']])
         usrdata = cur.fetchone()
+        email = usrdata['email']
         if request.method == "POST" and "user-bioo" in request.form:
             bio = request.form.get("user-bioo")
             cur.execute("UPDATE accounts SET bio = %s WHERE email = %s", (bio, usrdata['email']))
@@ -362,7 +363,10 @@ def userprofile():
                 mysql.connection.commit()
                 return redirect('/profile')
                 # return redirect(url_for('download_file', name=filename))
-        return render_template("profile.html", usrdata = usrdata)
+        cur.execute("SELECT * FROM collections WHERE user = %s", [usrdata['email']])
+        projects = cur.fetchall()
+        plength = len(projects)
+        return render_template("profile.html", usrdata = usrdata, projects = projects, email = email, plength = plength)
 
     return redirect('/auth')
 
@@ -458,7 +462,7 @@ def courses():
             cur.execute("INSERT INTO usercourses VALUES(NULL, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (usrdata['email'], 0, 0, 1, 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', datetime.datetime.now().date()))
             mysql.connection.commit()
             return redirect(request.url)
-        pointsneeded = usr_coursedata['level']*1000
+        pointsneeded = usr_coursedata['level']*1000*3
         remaining = pointsneeded - usr_coursedata['points']
         dayselapsed = datetime.datetime.now().date() - usr_coursedata['datestarted']
         dayselapsed = dayselapsed.days
@@ -502,10 +506,10 @@ def courses():
             cur.execute("UPDATE usercourses SET c10 = %s", ['True'])
             mysql.connection.commit()
             return redirect(request.url)        
-        if usr_coursedata['points'] == pointsneeded:
+        if usr_coursedata['points'] >= pointsneeded:
             level = usr_coursedata['level']
             level += 1
-            cur.execute("UPDATE usercourses SET level = %s", str(level))
+            cur.execute("UPDATE usercourses SET level = %s", [str(level)])
             mysql.connection.commit()
             return redirect(request.url)
         return render_template("courses.html", usrdata = usrdata, fname = fname, coursedata = coursedata, usr_coursedata = usr_coursedata, pointsneeded = pointsneeded, remaining = remaining, dayselapsed = dayselapsed)
@@ -581,6 +585,25 @@ def collectionview(username, id):
         return render_template("wwee.html", username = username, id = id, ud = ud, usrdata = usrdata, udd = udd)
     return render_template("wwee.html", username = username, id = id, ud = ud, udd = udd)
     
+@app.route('/courses/<int:id>')
+def courosoweoo(id):
+    cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    if 'loggedin' in session:
+        cur.execute("SELECT * FROM accounts WHERE email = %s", [session['email']])
+        usrdata = cur.fetchone()
+        cur.execute("SELECT * FROM courses WHERE id = %s", [str(id)])
+        cd = cur.fetchone()
+        cur.execute("SELECT * FROM courses")
+        cde = cur.fetchall()
+        cur.execute("SELECT * FROM usercourses WHERE user = %s", [usrdata['email']])
+        ucd = cur.fetchone()
+        points = ucd['points'] 
+        points = ucd['points'] + 75
+        cur.execute("UPDATE usercourses SET points = %s WHERE user = %s", (points, usrdata['email']))
+        mysql.connection.commit()
+        return render_template("wejorhjoew.html", usrdata = usrdata, cd = cd, id = id, usr_coursedata = ucd, coursedata = cde)
+    return redirect('/auth')
+
 
 if __name__ == "__main__":
     app.run(debug=True)
