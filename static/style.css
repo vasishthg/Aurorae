@@ -2321,3 +2321,7 @@ progress::-webkit-progress-value {
     background-color: white;
     color: black;
 }
+
+*{
+    cursor: none !important;
+}
