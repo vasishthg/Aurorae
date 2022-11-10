@@ -427,7 +427,7 @@
           </div>
           <div class="createdd">
             {% for project in projects %}
-            <a href="/collection/3">
+            <a href="{{usrdata['Username']}}/collections/{{projects[loop.index-1]['id']}}">
             <div class="collection hoverable">
               <img src="{{projects[loop.index-1]['thumb']}}" class="collection-img" alt="">
               <div class="collection-info">

@@ -378,7 +378,7 @@ def file(name):
 def user(id):
     id = str(id)
     cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    cur.execute("SELECT * FROM accounts WHERE id = %s", (id))
+    cur.execute("SELECT * FROM accounts WHERE id = %s", [id])
     user = cur.fetchone()
     if 'loggedin' in session:
         following = False
@@ -566,7 +566,7 @@ def create():
 @app.route("/<username>/collections/<int:id>", methods=['GET', 'POST'])
 def collectionview(username, id):
     cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    cur.execute("SELECT * FROM collections WHERE id = %s", str(id))
+    cur.execute("SELECT * FROM collections WHERE id = %s", [str(id)])
     ud = cur.fetchone()
     cur.execute("SELECT * FROM accounts WHERE email = %s",[ud['user']])
     udd = cur.fetchone()
